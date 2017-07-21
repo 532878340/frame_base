@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        style="@style/MatchParent" />
+
+    <RelativeLayout
+        android:id="@+id/footerView"
+        style="@style/WidthFill"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background"
+        android:padding="@dimen/padding_normal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@id/rela1"
+            style="@style/WrapContent"
+            android:layout_centerInParent="true"
+            android:text="@string/loading_more" />
+
+        <ProgressBar
+            android:layout_width="@dimen/load_more_progressbar"
+            android:layout_height="@dimen/load_more_progressbar"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_toLeftOf="@id/rela1" />
+    </RelativeLayout>
+</merge>
