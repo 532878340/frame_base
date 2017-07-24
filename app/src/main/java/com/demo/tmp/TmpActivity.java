@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.frame.FrameApplication;
 import com.frame.R;
+import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.view.FrameRootActivity;
 
 /**
@@ -30,7 +31,13 @@ public class TmpActivity extends FrameRootActivity<TmpPresenter> implements ITmp
 
     @Override
     protected void initView() {
-        mPresenter.getIndexInfo();
+        super.initView();
+        initToolBar(false, R.string.app_name);
+    }
+
+    @Override
+    protected void initData(RequestFlag flag) {
+        mPresenter.getIndexInfo(flag);
     }
 
     @Override

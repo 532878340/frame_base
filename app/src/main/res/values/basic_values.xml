@@ -38,6 +38,8 @@
     <!-- ToolBar 背景色 -->
     <color name="toolbar_background">@color/colorPrimaryDark</color>
 
+    <!-- SnackBar 背景色 -->
+    <color name="snack_background">@color/gray_minor</color>
 
     <!-- ####################### dimens ######################## -->
 
@@ -50,10 +52,14 @@
     <!-- 通用padding值 -->
     <dimen name="padding_normal">@dimen/margin_normal</dimen>
 
+    <!-- 字体大小 -->
+    <dimen name="txt_18">18sp</dimen>
+
 
     <!-- ####################### strings ######################## -->
 
     <string name="loading_more">正在加载...</string>
+    <string name="net_error">网络异常，点击重试</string>
 
     <!-- ####################### styles ######################## -->
 
@@ -75,6 +81,11 @@
     <style name="HeightFill">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="toolbar_title" parent="WrapContent">
+        <item name="android:textSize">@dimen/txt_18</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <!-- ####################### ids ######################## -->

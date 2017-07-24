@@ -20,9 +20,29 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    versionCode = 1
+    versionName = "1.0"
+    compileSdk = 26
+    minSdk = 15
+    targetSdk = 26
+    support = "26.0.0-beta1"
+    buildTools = "26.0.0"
+
+    retrofit = "2.3.0"
+    rxandroid = "2.0.1"
+    rxjava = "2.1.0"
+    rxbinding = "2.0.0"
+    dagger = "2.11"
+    butterknife = "8.7.0"
+    rxlifecycle = "2.1.0"
+    spinkit = "1.1.0"
 }

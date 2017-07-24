@@ -1,5 +1,6 @@
 package com.demo.tmp;
 
+import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.contracts.IContracts;
 
 /**
@@ -13,6 +14,6 @@ public interface ITmpContract {
     }
 
     interface ITmpPresenter extends IContracts.IPresenter {
-        void getIndexInfo();
+        void getIndexInfo(RequestFlag flag);
     }
 }

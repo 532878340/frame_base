@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/titleLayout"
+    style="@style/MatchParent">
+
+    <TextView
+        android:id="@+id/tvTitleLeft"
+        style="@style/WrapContent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:visibility="gone"
+        tools:text="左边" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/toolbar_title"
+        android:layout_centerInParent="true"
+        tools:text="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tvTitleRight"
+        style="@style/WrapContent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:visibility="gone"
+        tools:text="右边" />
+</RelativeLayout>

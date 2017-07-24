@@ -3,6 +3,8 @@ package com.frame.manager.base.contracts;
 import android.support.annotation.NonNull;
 
 import com.frame.data.entity.Repo;
+import com.frame.manager.base.callback.CallBack;
+import com.frame.manager.base.RequestFlag;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import io.reactivex.Observable;
@@ -14,6 +16,11 @@ import io.reactivex.Observable;
 
 public interface IContracts {
     interface IView {
+        /**
+         * 初始化加载
+         */
+        void initLoading();
+
         /**
          * 显示加载动画
          */
@@ -32,15 +39,15 @@ public interface IContracts {
         /**
          * 显示toast信息
          */
-        void showToast(@NonNull String message);
+        void showMessage(@NonNull String message);
 
         /**
-         * 绑定生命周期
+         * 完成刷新
          */
         void finishLoading();
 
         /**
-         * 完成刷新
+         * 绑定生命周期
          */
         <T> LifecycleTransformer<T> bindToLife();
     }
@@ -49,6 +56,6 @@ public interface IContracts {
         /**
          * 网络请求通用处理
          */
-        <T> void request(Observable<Repo<T>> observable);
+        <T> void performRequest(Observable<Repo<T>> observable, final RequestFlag flag, @NonNull CallBack<T> callBack);
     }
 }

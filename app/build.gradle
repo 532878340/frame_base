@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion rootProject.ext.compileSdk
+    buildToolsVersion rootProject.ext.buildTools
     defaultConfig {
         applicationId "com.frame"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,22 +34,24 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.support}"
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'                     //retrofit
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'                      //rxandroid
-    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
-    compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'                //RxBinding
-    compile 'com.google.dagger:dagger:2.11'                             //dagger
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
-    compile 'com.jakewharton:butterknife:8.7.0'                         //butterknife
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
-    compile 'com.android.support:recyclerview-v7:26.0.0-beta1'          //recycleview
-    compile 'com.trello.rxlifecycle2:rxlifecycle:2.1.0'                 //rxlifecycle
-    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
-    compile 'com.trello.rxlifecycle2:rxlifecycle-android:2.1.0'
+    implementation "com.android.support:design:${rootProject.ext.support}"                      //design
+    compile "com.android.support:recyclerview-v7:${rootProject.ext.support}"                    //recycleview
+    compile "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit}"                       //retrofit
+    compile "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofit}"
+    compile "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofit}"
+    compile "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid}"                       //rxandroid
+    compile "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava}"
+    compile "com.jakewharton.rxbinding2:rxbinding:${rootProject.ext.rxbinding}"                 //RxBinding
+    compile "com.google.dagger:dagger:${rootProject.ext.dagger}"                                //dagger
+    annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.dagger}"
+    compile "com.jakewharton:butterknife:${rootProject.ext.butterknife}"                        //butterknife
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknife}"
+    compile "com.trello.rxlifecycle2:rxlifecycle:${rootProject.ext.rxlifecycle}"                //rxlifecycle
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:${rootProject.ext.rxlifecycle}"
+    compile "com.trello.rxlifecycle2:rxlifecycle-android:${rootProject.ext.rxlifecycle}"
+    compile "com.github.ybq:Android-SpinKit:${rootProject.ext.spinkit}"                         //SpinKit
 }

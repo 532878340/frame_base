@@ -12,6 +12,7 @@ import retrofit2.http.QueryMap;
 
 /**
  * Created by Zijin on 2017/7/12.
+ * Email:info@zijinqianbao.com
  */
 
 public interface ApiService {

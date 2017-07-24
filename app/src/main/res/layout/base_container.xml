@@ -4,14 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.frame.ui.view.ToolBarHelperView
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/toolbar_background" />
+        android:layout_height="?attr/actionBarSize" />
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <android.support.constraint.ConstraintLayout style="@style/MatchParent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            style="@style/MatchParent">
+
+            <FrameLayout
+                android:id="@+id/container"
+                style="@style/MatchParent" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <com.frame.ui.view.frame.loading.LoadingView
+            android:id="@+id/loadingView"
+            style="@style/MatchParent" />
+    </android.support.constraint.ConstraintLayout>
+
 </LinearLayout>
