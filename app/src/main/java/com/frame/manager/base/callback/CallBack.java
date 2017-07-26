@@ -12,15 +12,15 @@ public interface CallBack<T> {
     /**
      * 请求成功 Repo.isOk() true
      */
-    void onRequestSuccess(Repo<T> repo,RequestFlag flag);
+    void onSuccess(Repo<T> repo);
 
     /**
      * 请求非法 Repo.isOk() false
      */
-    void onRequestIllegal(Repo<T> repo,RequestFlag flag);
+    void onIllegal(Repo<T> repo);
 
     /**
      * 请求异常
      */
-    void onRequestFailed(RequestFlag flag);
+    void onFailed();
 }

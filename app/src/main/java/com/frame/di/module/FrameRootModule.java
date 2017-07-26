@@ -1,6 +1,5 @@
 package com.frame.di.module;
 
-import com.frame.di.annotation.ActivityScope;
 import com.frame.manager.base.contracts.IContracts;
 
 import dagger.Module;
@@ -20,7 +19,6 @@ public abstract class FrameRootModule<V extends IContracts.IView> {
     }
 
     @Provides
-    @ActivityScope
     public V getView() {
         return mView;
     }

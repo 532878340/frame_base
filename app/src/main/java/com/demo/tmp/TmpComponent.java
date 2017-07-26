@@ -2,6 +2,7 @@ package com.demo.tmp;
 
 import com.frame.di.AppComponent;
 import com.frame.di.annotation.ActivityScope;
+import com.frame.di.annotation.FragmentScope;
 import com.frame.di.component.IFrameComponent;
 
 import dagger.Component;
@@ -11,7 +12,7 @@ import dagger.Component;
  * Email:info@zijinqianbao.com
  */
 
-@ActivityScope
+@FragmentScope
 @Component(modules = TmpModule.class, dependencies = AppComponent.class)
-public interface TmpComponent extends IFrameComponent<TmpActivity> {
+public interface TmpComponent extends IFrameComponent<TmpFragment> {
 }

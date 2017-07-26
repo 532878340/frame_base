@@ -6,16 +6,15 @@ import com.frame.data.entity.Repo;
 import com.frame.manager.ApiService;
 import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.callback.CallBack;
+import com.frame.manager.base.callback.HttpResultObserver;
 import com.frame.manager.base.contracts.IContracts;
 import com.frame.manager.constants.Constants;
+import com.frame.manager.utils.TransformUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.observers.DefaultObserver;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Zijin on 2017/7/20.
@@ -57,13 +56,26 @@ public class FrameRootPresenter<V extends IContracts.IView> implements IContract
         return mApiService;
     }
 
+    /**
+     * FLAG_REFRESH 请求
+     */
+    protected <T> void performRefresh(Observable<Repo<T>> observable, @NonNull CallBack<T> callBack) {
+        performRequest(observable, RequestFlag.FLAG_REFRESH, callBack);
+    }
+
+    /**
+     * FLAG_DIALOG 请求
+     */
+    protected <T> void performLoading(Observable<Repo<T>> observable, @NonNull CallBack<T> callBack) {
+        performRequest(observable, RequestFlag.FLAG_DIALOG, callBack);
+    }
+
     @Override
     public <T> void performRequest(Observable<Repo<T>> observable, final RequestFlag flag, @NonNull CallBack<T> callBack) {
         observable.throttleFirst(Constants.THROTTLE_DELAY, TimeUnit.MILLISECONDS)
                 .timeout(Constants.REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
                 .compose(getView().bindToLife())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(TransformUtils.defaultScheduler())
                 .doOnSubscribe(disposable -> {
                     switch (flag) {
                         case FLAG_INIT:
@@ -76,35 +88,46 @@ public class FrameRootPresenter<V extends IContracts.IView> implements IContract
                             break;
                     }
                 })
-                .subscribe(new DefaultObserver<Repo<T>>() {
+                .subscribe(new HttpResultObserver<T>() {
                     @Override
-                    public void onNext(Repo<T> repo) {
+                    public void onSuccess(Repo<T> repo) {
                         switch (flag) {
                             case FLAG_INIT:
-                                if (repo.isOk()) {
-                                    getView().hideLoading();
-                                    callBack.onRequestSuccess(repo, flag);
-                                } else {
-                                    getView().showNetError();
-                                }
+                            case FLAG_DIALOG:
+                                getView().hideLoading();
                                 break;
                             case FLAG_REFRESH:
                                 getView().finishLoading();
-                            case FLAG_DIALOG:
-                                getView().hideLoading();
+                                break;
                             default:
-                                if (repo.isOk()) {
-                                    callBack.onRequestSuccess(repo, flag);
-                                } else {
-                                    getView().showMessage(repo.getDescription());
-                                    callBack.onRequestIllegal(repo, flag);
-                                }
                                 break;
                         }
+
+                        callBack.onSuccess(repo);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onIllegal(Repo<T> repo) {
+                        getView().showMessage(repo.getDescription());
+                        switch (flag) {
+                            case FLAG_INIT:
+                                getView().showNetError();
+                                break;
+                            case FLAG_DIALOG:
+                                getView().hideLoading();
+                                break;
+                            case FLAG_REFRESH:
+                                getView().finishLoading();
+                                break;
+                            default:
+                                break;
+                        }
+
+                        callBack.onIllegal(repo);
+                    }
+
+                    @Override
+                    public void onFailed() {
                         switch (flag) {
                             case FLAG_INIT:
                                 getView().showNetError();
@@ -116,11 +139,7 @@ public class FrameRootPresenter<V extends IContracts.IView> implements IContract
                             default:
                                 break;
                         }
-                        callBack.onRequestFailed(flag);
-                    }
-
-                    @Override
-                    public void onComplete() {
+                        callBack.onFailed();
                     }
                 });
     }

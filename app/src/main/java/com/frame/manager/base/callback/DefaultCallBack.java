@@ -2,7 +2,6 @@ package com.frame.manager.base.callback;
 
 
 import com.frame.data.entity.Repo;
-import com.frame.manager.base.RequestFlag;
 
 /**
  * Created by Zijin on 2017/7/24.
@@ -12,10 +11,10 @@ import com.frame.manager.base.RequestFlag;
 
 public abstract class DefaultCallBack<T> implements CallBack<T> {
     @Override
-    public void onRequestIllegal(Repo<T> repo, RequestFlag flag) {
+    public void onIllegal(Repo<T> repo) {
     }
 
     @Override
-    public void onRequestFailed(RequestFlag flag) {
+    public void onFailed() {
     }
 }

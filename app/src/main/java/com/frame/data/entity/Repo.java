@@ -15,7 +15,7 @@ public class Repo<T> {
     /**
      * 判断请求操作是否成功
      */
-    public boolean isOk(){
+    public boolean isOk() {
         return "000000".equals(code);
     }
 
@@ -41,5 +41,14 @@ public class Repo<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Repo{" +
+                "description='" + description + '\'' +
+                ", code='" + code + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

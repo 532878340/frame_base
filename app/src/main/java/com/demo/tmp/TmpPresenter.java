@@ -1,12 +1,11 @@
 package com.demo.tmp;
 
-import android.util.Log;
-
 import com.frame.data.entity.Repo;
 import com.frame.di.annotation.ActivityScope;
+import com.frame.di.annotation.FragmentScope;
 import com.frame.manager.ApiService;
-import com.frame.manager.base.callback.DefaultCallBack;
 import com.frame.manager.base.RequestFlag;
+import com.frame.manager.base.callback.DefaultCallBack;
 import com.frame.manager.base.presenter.FrameRootPresenter;
 
 import javax.inject.Inject;
@@ -15,7 +14,7 @@ import javax.inject.Inject;
  * Created by Zijin on 2017/7/21.
  * Email:info@zijinqianbao.com
  */
-@ActivityScope
+@FragmentScope
 public class TmpPresenter extends FrameRootPresenter<ITmpContract.ITmpView> implements ITmpContract.ITmpPresenter {
     private static final String TAG = "TmpPresenter";
 
@@ -28,8 +27,8 @@ public class TmpPresenter extends FrameRootPresenter<ITmpContract.ITmpView> impl
     public void getIndexInfo(RequestFlag flag) {
         performRequest(getApiService().platformIndex(), flag, new DefaultCallBack<Simple>() {
             @Override
-            public void onRequestSuccess(Repo<Simple> repo, RequestFlag flag) {
-                Log.d(TAG, "onRequestSuccess: 请求成功");
+            public void onSuccess(Repo<Simple> repo) {
+                getView().showMessage(repo.getDescription());
             }
         });
     }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent">
+
+    <com.frame.ui.view.frame.ToolBarHelperView
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        style="@style/MatchParent">
+
+        <FrameLayout
+            android:id="@+id/container"
+            style="@style/MatchParent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.frame.ui.view.frame.loading.LoadingView
+        android:id="@+id/loadingView"
+        style="@style/MatchParent" />
+</android.support.constraint.ConstraintLayout>

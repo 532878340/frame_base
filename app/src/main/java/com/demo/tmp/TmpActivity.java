@@ -1,11 +1,16 @@
 package com.demo.tmp;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 
-import com.frame.FrameApplication;
 import com.frame.R;
 import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.view.FrameRootActivity;
+import com.frame.manager.utils.ActivityUtils;
+
+import butterknife.BindView;
 
 /**
  * Created by Zijin on 2017/7/21.
@@ -14,6 +19,8 @@ import com.frame.manager.base.view.FrameRootActivity;
 
 public class TmpActivity extends FrameRootActivity<TmpPresenter> implements ITmpContract.ITmpView {
     private static final String TAG = "FrameRootPresenter";
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
 
     @Override
     protected int attachLayoutRes() {
@@ -22,22 +29,30 @@ public class TmpActivity extends FrameRootActivity<TmpPresenter> implements ITmp
 
     @Override
     protected void initInjector() {
-        DaggerTmpComponent.builder()
-                .appComponent(FrameApplication.getAppComponent())
-                .tmpModule(new TmpModule(this))
-                .build()
-                .inject(this);
     }
 
     @Override
     protected void initView() {
         super.initView();
-        initToolBar(false, R.string.app_name);
+        mSwipeRefresh.setEnabled(false);
+
+//        ActivityUtils.addFragment(this, R.id.fragmentContainer, new TmpFragment());
+
+        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return new TmpFragment();
+            }
+
+            @Override
+            public int getCount() {
+                return 3;
+            }
+        });
     }
 
     @Override
     protected void initData(RequestFlag flag) {
-        mPresenter.getIndexInfo(flag);
     }
 
     @Override

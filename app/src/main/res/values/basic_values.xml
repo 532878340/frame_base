@@ -41,6 +41,9 @@
     <!-- SnackBar 背景色 -->
     <color name="snack_background">@color/gray_minor</color>
 
+    <!-- SwipeRefreshLayout 颜色 -->
+    <color name="swipe_refresh">@color/colorAccent</color>
+
     <!-- ####################### dimens ######################## -->
 
     <!-- 加载更多进度条大小 -->

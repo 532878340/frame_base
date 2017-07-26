@@ -3,8 +3,8 @@ package com.frame.manager.base.contracts;
 import android.support.annotation.NonNull;
 
 import com.frame.data.entity.Repo;
-import com.frame.manager.base.callback.CallBack;
 import com.frame.manager.base.RequestFlag;
+import com.frame.manager.base.callback.CallBack;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import io.reactivex.Observable;
@@ -39,7 +39,7 @@ public interface IContracts {
         /**
          * 显示toast信息
          */
-        void showMessage(@NonNull String message);
+        void showMessage(String message);
 
         /**
          * 完成刷新

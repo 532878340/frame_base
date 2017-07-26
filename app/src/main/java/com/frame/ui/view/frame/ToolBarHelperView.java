@@ -1,4 +1,4 @@
-package com.frame.ui.view;
+package com.frame.ui.view.frame;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

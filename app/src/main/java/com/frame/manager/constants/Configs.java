@@ -12,7 +12,7 @@ public final class Configs {
     public static final String BASE_URL = "http://106.14.112.233/app/";
 
     /**
-     * 页面加载是否自动请求
+     * 是否为调试模式
      */
-    public static final boolean AUTO_REQUEST = true;
+    public static final boolean DEBUG_ENABLE = true;
 }
