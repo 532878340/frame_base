@@ -15,10 +15,10 @@ import com.frame.di.AppComponent;
 import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.contracts.IContracts;
 import com.frame.manager.base.presenter.FrameRootPresenter;
-import com.frame.manager.utils.SnackBarUtil;
-import com.frame.ui.view.frame.ScrollChildSwipeRefreshLayout;
-import com.frame.ui.view.frame.ToolBarHelperView;
-import com.frame.ui.view.frame.loading.LoadingView;
+import com.frame.manager.utils.SnackBarUtils;
+import com.func.ui.view.frame.ScrollChildSwipeRefreshLayout;
+import com.func.ui.view.frame.ToolBarHelperView;
+import com.func.ui.view.frame.loading.LoadingView;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -123,7 +123,7 @@ public abstract class FrameRootActivity<P extends FrameRootPresenter> extends Rx
 
     @Override
     public void showMessage(String message) {
-        SnackBarUtil.showSnackBar(mContainer, message);
+        SnackBarUtils.showSnackBar(mContainer, message);
     }
 
     @Override

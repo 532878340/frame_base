@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.frame.ui.view.frame.ToolBarHelperView
+    <com.func.ui.view.frame.ToolBarHelperView
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -12,16 +12,16 @@
 
     <android.support.design.widget.CoordinatorLayout style="@style/MatchParent">
 
-        <com.frame.ui.view.frame.ScrollChildSwipeRefreshLayout
+        <com.func.ui.view.frame.ScrollChildSwipeRefreshLayout
             android:id="@+id/refreshLayout"
             style="@style/MatchParent">
 
             <FrameLayout
                 android:id="@+id/container"
                 style="@style/MatchParent" />
-        </com.frame.ui.view.frame.ScrollChildSwipeRefreshLayout>
+        </com.func.ui.view.frame.ScrollChildSwipeRefreshLayout>
 
-        <com.frame.ui.view.frame.loading.LoadingView
+        <com.func.ui.view.frame.loading.LoadingView
             android:id="@+id/loadingView"
             style="@style/MatchParent" />
     </android.support.design.widget.CoordinatorLayout>

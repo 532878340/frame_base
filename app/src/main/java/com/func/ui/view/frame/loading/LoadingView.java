@@ -1,4 +1,4 @@
-package com.frame.ui.view.frame.loading;
+package com.func.ui.view.frame.loading;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -16,10 +16,10 @@ import com.frame.R;
 import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.contracts.IContracts;
 import com.frame.manager.base.presenter.FrameRootPresenter;
-import com.frame.manager.utils.SnackBarUtil;
-import com.frame.ui.view.frame.ScrollChildSwipeRefreshLayout;
-import com.frame.ui.view.frame.ToolBarHelperView;
-import com.frame.ui.view.frame.loading.LoadingView;
+import com.frame.manager.utils.SnackBarUtils;
+import com.func.ui.view.frame.ScrollChildSwipeRefreshLayout;
+import com.func.ui.view.frame.ToolBarHelperView;
+import com.func.ui.view.frame.loading.LoadingView;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
@@ -44,6 +44,7 @@ public abstract class FrameRootFragment<P extends FrameRootPresenter> extends Rx
     @BindView(R.id.toolBar)
     protected ToolBarHelperView mToolBar;
 
+    //Butterknife binder
     private Unbinder unbinder;
     private View mRootView;
 
@@ -144,7 +145,7 @@ public abstract class FrameRootFragment<P extends FrameRootPresenter> extends Rx
 
     @Override
     public void showMessage(String message) {
-        SnackBarUtil.showSnackBar(mLoadingView, message);
+        SnackBarUtils.showSnackBar(mLoadingView, message);
     }
 
     @Override

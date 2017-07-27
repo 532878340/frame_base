@@ -1,4 +1,4 @@
-package com.frame.ui.view.frame.recycleview.refresh;
+package com.func.ui.view.frame.recycleview.refresh;
 
 /**
  * Created by Zijin on 2017/7/14.

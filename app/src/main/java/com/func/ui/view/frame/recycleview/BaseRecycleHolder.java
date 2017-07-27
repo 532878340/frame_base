@@ -1,4 +1,4 @@
-package com.frame.ui.view.frame.recycleview;
+package com.func.ui.view.frame.recycleview;
 
 import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;

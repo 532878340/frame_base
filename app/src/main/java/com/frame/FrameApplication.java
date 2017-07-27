@@ -30,6 +30,10 @@ public class FrameApplication extends Application {
                 .build();
     }
 
+    public static Context getContext() {
+        return mCtx;
+    }
+
     public static AppComponent getAppComponent() {
         return ((FrameApplication) mCtx).mAppComponent;
     }

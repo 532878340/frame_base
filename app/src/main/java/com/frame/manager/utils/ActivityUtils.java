@@ -10,7 +10,7 @@ import android.text.TextUtils;
  * Email:info@zijinqianbao.com
  */
 
-public class ActivityUtils {
+public final class ActivityUtils {
     /**
      * 添加fragment
      */

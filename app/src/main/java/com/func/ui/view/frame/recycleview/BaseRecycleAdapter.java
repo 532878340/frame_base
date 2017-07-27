@@ -1,4 +1,4 @@
-package com.frame.ui.view.frame.recycleview;
+package com.func.ui.view.frame.recycleview;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;

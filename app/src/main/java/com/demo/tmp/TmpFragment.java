@@ -13,7 +13,7 @@ import com.frame.manager.base.view.FrameRootFragment;
 public class TmpFragment extends FrameRootFragment<TmpPresenter> implements ITmpContract.ITmpView {
     @Override
     protected int attachLayoutRes() {
-        return R.layout.activity_main;
+        return R.layout.fragment_index;
     }
 
     @Override

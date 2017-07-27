@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/MatchParent">
 
-    <com.frame.ui.view.frame.ToolBarHelperView
+    <com.func.ui.view.frame.ToolBarHelperView
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
@@ -16,7 +16,7 @@
             style="@style/MatchParent" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <com.frame.ui.view.frame.loading.LoadingView
+    <com.func.ui.view.frame.loading.LoadingView
         android:id="@+id/loadingView"
         style="@style/MatchParent" />
 </android.support.constraint.ConstraintLayout>

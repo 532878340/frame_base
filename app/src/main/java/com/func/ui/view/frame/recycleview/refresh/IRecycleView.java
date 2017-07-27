@@ -1,4 +1,4 @@
-package com.frame.ui.view.frame.recycleview.refresh;
+package com.func.ui.view.frame.recycleview.refresh;
 
 import android.support.v7.widget.RecyclerView;
 

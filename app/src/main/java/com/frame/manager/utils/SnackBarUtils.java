@@ -8,7 +8,7 @@ import android.view.View;
  * Email:info@zijinqianbao.com
  */
 
-public class SnackBarUtil {
+public class SnackBarUtils {
     public static void showSnackBar(View view, CharSequence message) {
         showSnackBar(view, message, null, null);
     }
