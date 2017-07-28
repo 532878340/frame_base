@@ -30,7 +30,7 @@ public class SecuritySharedPreference implements SharedPreferences {
      *
      * @param context should be ApplicationContext not activity
      * @param name    file name
-     * @param mode    context mode
+     * @param mode    mContext mode
      */
     public SecuritySharedPreference(Context context, String name, int mode) {
         mContext = context;

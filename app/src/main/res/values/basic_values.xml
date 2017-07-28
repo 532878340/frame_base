@@ -58,6 +58,9 @@
     <!-- 字体大小 -->
     <dimen name="txt_18">18sp</dimen>
 
+    <!-- 透明状态栏适配 -->
+    <dimen name="toolbar_padding_top">0dp</dimen>
+
 
     <!-- ####################### strings ######################## -->
 
@@ -86,6 +89,18 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="WeightOne" parent="MatchParent">
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="WidthWeight" parent="WidthFill">
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="HeightWeight" parent="HeightFill">
+        <item name="android:layout_weight">1</item>
+    </style>
+
     <style name="toolbar_title" parent="WrapContent">
         <item name="android:textSize">@dimen/txt_18</item>
         <item name="android:textColor">@color/colorAccent</item>
@@ -98,4 +113,5 @@
     <item name="rela3" type="id" />
     <item name="rela4" type="id" />
     <item name="rela5" type="id" />
+    <item name="constraintLayout" type="id" />
 </resources>

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.frame.R;
+
 /**
  * Description: Toast弹窗
  * Created by Zijin on 2017/7/27.
@@ -30,8 +32,8 @@ public class ToastManager {
      * 显示 Toast
      */
     public void showMessage(Context context, CharSequence message) {
-        View v = View.inflate(context, com.android.internal.R.layout.transient_notification, null);
-        TextView tv = v.findViewById(android.R.id.message);
+        View v = View.inflate(context, R.layout.layout_toast, null);
+        TextView tv = v.findViewById(R.id.toastTv);
         tv.setText(message);
 
         if (mToast == null) {

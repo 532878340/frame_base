@@ -16,9 +16,9 @@ import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.contracts.IContracts;
 import com.frame.manager.base.presenter.FrameRootPresenter;
 import com.frame.manager.utils.SnackBarUtils;
-import com.func.ui.view.frame.ScrollChildSwipeRefreshLayout;
-import com.func.ui.view.frame.ToolBarHelperView;
-import com.func.ui.view.frame.loading.LoadingView;
+import com.frame.view.ScrollChildSwipeRefreshLayout;
+import com.frame.view.ToolBarHelperView;
+import com.frame.view.loading.LoadingView;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -76,21 +76,33 @@ public abstract class FrameRootActivity<P extends FrameRootPresenter> extends Rx
     /**
      * 初始化injector
      */
-    protected abstract void initInjector();
+    protected void initInjector() {
+    }
 
     /**
      * 初始化数据
      */
-    protected abstract void initData(RequestFlag flag);
+    protected void initData(RequestFlag flag) {
+    }
 
     /**
      * 初始化视图
      */
     @CallSuper
     protected void initView() {
+        mSwipeRefresh.setEnabled(enableRefresh());
         mSwipeRefresh.setOnRefreshListener(() -> initData(RequestFlag.FLAG_REFRESH));
         mLoadingView.setOnRetryListener(() -> initData(RequestFlag.FLAG_DIALOG));
     }
+
+    /**
+     * 设置下拉刷新是否有效
+     */
+    protected boolean enableRefresh() {
+        return false;
+    }
+
+
 
     protected void initToolBar(boolean homeAsUpEnabled, @StringRes int titleRes) {
         initToolBar(homeAsUpEnabled, getString(titleRes));
