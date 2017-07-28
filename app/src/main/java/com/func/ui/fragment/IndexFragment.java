@@ -27,7 +27,6 @@ public class IndexFragment extends FrameRootFragment {
     @Override
     protected void initView() {
         super.initView();
-        initToolBar(false, "首页");
     }
 
     @OnClick(R.id.cancel)

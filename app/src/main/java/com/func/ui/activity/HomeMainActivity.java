@@ -1,6 +1,5 @@
 package com.func.ui.activity;
 
-import android.os.Build;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -117,13 +116,6 @@ public class HomeMainActivity extends BaseActivity {
      * 初始化侧滑菜单
      */
     private void initDrawerLayout() {
-//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-        //将侧边栏顶部延伸至status bar
-//        mDrawerLayout.setFitsSystemWindows(true);
-        //将主页面顶部延伸至status bar;虽默认为false,但经测试,DrawerLayout需显示设置
-//        mDrawerLayout.setClipToPadding(false);
-//        }
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
