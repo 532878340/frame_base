@@ -54,4 +54,6 @@ dependencies {
     compile "com.trello.rxlifecycle2:rxlifecycle-components:${rootProject.ext.rxlifecycle}"
     compile "com.trello.rxlifecycle2:rxlifecycle-android:${rootProject.ext.rxlifecycle}"
     compile "com.github.ybq:Android-SpinKit:${rootProject.ext.spinkit}"                         //SpinKit
+    compile "com.github.bumptech.glide:glide:${rootProject.ext.glide}"                          //Glide
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"
 }

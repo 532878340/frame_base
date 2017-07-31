@@ -37,4 +37,21 @@ public class FrameApplication extends Application {
     public static AppComponent getAppComponent() {
         return ((FrameApplication) mCtx).mAppComponent;
     }
+
+    /**
+     * 清理内存
+     * @param level
+     */
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+    }
+
+    /**
+     * 内存不足
+     */
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+    }
 }

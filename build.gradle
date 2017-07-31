@@ -45,4 +45,5 @@ ext {
     butterknife = "8.7.0"
     rxlifecycle = "2.1.0"
     spinkit = "1.1.0"
+    glide = "4.0.0-RC1"
 }
