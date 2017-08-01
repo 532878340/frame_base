@@ -1,11 +1,14 @@
 package com.func.ui.fragment;
 
 import android.content.Intent;
+import android.widget.ImageView;
 
 import com.frame.R;
 import com.frame.manager.base.view.FrameRootFragment;
+import com.frame.manager.utils.imageloader.config.ImageConfig;
 import com.func.ui.activity.LoginActivity;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -15,6 +18,9 @@ import butterknife.OnClick;
  */
 
 public class IndexFragment extends FrameRootFragment {
+    @BindView(R.id.img)
+    ImageView img;
+
     public static IndexFragment newInstance() {
         return new IndexFragment();
     }
@@ -27,6 +33,12 @@ public class IndexFragment extends FrameRootFragment {
     @Override
     protected void initView() {
         super.initView();
+
+        new ImageConfig.ConfigBuilder(mCtx)
+                .url("http://106.14.112.233/activity/wap/app/images/app.jpg")
+                .placeHolder(R.drawable.icon_default)
+                .error(R.drawable.icon_default)
+                .into(img);
     }
 
     @OnClick(R.id.cancel)

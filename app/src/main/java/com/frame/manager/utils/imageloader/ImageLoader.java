@@ -1,10 +1,12 @@
 package com.frame.manager.utils.imageloader;
 
 import android.content.Context;
+import android.view.View;
 
 import com.bumptech.glide.MemoryCategory;
-import com.frame.manager.utils.imageloader.config.ImageLoaderConfig;
+import com.frame.manager.utils.imageloader.config.GlobalConfig;
 import com.frame.manager.utils.imageloader.loader.ILoader;
+import com.frame.manager.utils.imageloader.loader.ImageDownloadCallBack;
 
 /**
  * Description: 图片加载
@@ -13,6 +15,7 @@ import com.frame.manager.utils.imageloader.loader.ILoader;
  * https://github.com/libin7278/ImageLoader
  */
 
+@SuppressWarnings("unused")
 public class ImageLoader {
     private static Context mContext;
 
@@ -41,13 +44,69 @@ public class ImageLoader {
      */
     public static void init(Context context, int cacheSizeInM, MemoryCategory memoryCategory, boolean isInternalCD) {
         mContext = context;
-        ImageLoaderConfig.init(context,cacheSizeInM,memoryCategory,isInternalCD);
+        GlobalConfig.init(context, cacheSizeInM, memoryCategory, isInternalCD);
     }
 
     /**
      * 获取加载器
      */
-    public static ILoader getImageLoader() {
-        return ImageLoaderConfig.getLoader();
+    private static ILoader getImageLoader() {
+        return GlobalConfig.getLoader();
+    }
+
+    /**
+     * 系统清理内存
+     */
+    public static void trimMemory(int level) {
+        getImageLoader().trimMemory(level);
+    }
+
+    /**
+     * 清除所有缓存
+     */
+    public static void clearAllMemoryCaches() {
+        getImageLoader().clearAllMemoryCaches();
+    }
+
+    /**
+     * 暂停请求
+     */
+    public static void pauseRequests() {
+        getImageLoader().pause();
+    }
+
+    /**
+     * 恢复请求
+     */
+    public static void resumeRequests() {
+        getImageLoader().resume();
+    }
+
+    /**
+     * 清理内存缓存视图
+     */
+    public static void clearMemoryCache(View view) {
+        getImageLoader().clearMemoryCache(view);
+    }
+
+    /**
+     * 清理磁盘缓存
+     */
+    public static void clearDiskCache() {
+        getImageLoader().clearDiskCache();
+    }
+
+    /**
+     * 清理内存
+     */
+    public static void clearMemory() {
+        getImageLoader().clearMemory();
+    }
+
+    /**
+     * 图片保存到相册
+     */
+    public static void saveImageIntoGallery(String url,String fileName, ImageDownloadCallBack callBack) {
+        getImageLoader().saveImageIntoGallery(mContext,url,false,fileName,callBack);
     }
 }

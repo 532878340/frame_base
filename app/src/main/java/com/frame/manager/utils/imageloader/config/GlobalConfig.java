@@ -3,9 +3,10 @@ package com.frame.manager.utils.imageloader.config;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.WindowManager;
 
 import com.bumptech.glide.MemoryCategory;
+import com.frame.manager.constants.Configs;
+import com.frame.manager.utils.imageloader.loader.glide.GlideLoader;
 import com.frame.manager.utils.imageloader.loader.ILoader;
 
 /**
@@ -14,18 +15,13 @@ import com.frame.manager.utils.imageloader.loader.ILoader;
  * Email: info@zijinqianbao.com
  */
 
-public class ImageLoaderConfig {
+public class GlobalConfig {
+    /**
+     * 图片基础目录
+     */
+    public static final String BASE_URL = Configs.BASE_URL;
+
     private static Context mContext;
-
-    /**
-     * 屏幕高度
-     */
-    private static int mWinHeight;
-
-    /**
-     * 屏幕宽度
-     */
-    private static int mWinWidth;
 
     /**
      * lrucache 最大值
@@ -35,10 +31,6 @@ public class ImageLoaderConfig {
     public static void init(Context context, int cacheSizeInM, MemoryCategory memoryCategory, boolean isInternalCD) {
         mContext = context;
         mCacheMaxSize = cacheSizeInM;
-
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        mWinWidth = wm.getDefaultDisplay().getWidth();
-        mWinHeight = wm.getDefaultDisplay().getHeight();
 
         getLoader().init(context, cacheSizeInM, memoryCategory, isInternalCD);
     }
@@ -50,7 +42,7 @@ public class ImageLoaderConfig {
      */
     public static ILoader getLoader() {
         if (mLoader == null) {
-            mLoader = null;
+            mLoader = new GlideLoader();
         }
         return mLoader;
     }
@@ -60,7 +52,7 @@ public class ImageLoaderConfig {
     /**
      * 返回主线程Handler
      */
-    public static Handler getHandler() {
+    public static Handler getMainHandler() {
         if (mHandler == null) {
             mHandler = new Handler(Looper.getMainLooper());
         }

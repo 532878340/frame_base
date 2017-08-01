@@ -7,6 +7,7 @@ import com.frame.di.ApiServiceModule;
 import com.frame.di.AppComponent;
 import com.frame.di.AppModule;
 import com.frame.di.DaggerAppComponent;
+import com.frame.manager.utils.imageloader.ImageLoader;
 
 /**
  * Created by Zijin on 2017/7/20.
@@ -28,6 +29,9 @@ public class FrameApplication extends Application {
                 .appModule(new AppModule(this))
                 .apiServiceModule(new ApiServiceModule())
                 .build();
+
+
+        ImageLoader.init(this);
     }
 
     public static Context getContext() {
@@ -45,6 +49,7 @@ public class FrameApplication extends Application {
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
+        ImageLoader.trimMemory(level);
     }
 
     /**
@@ -53,5 +58,6 @@ public class FrameApplication extends Application {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
+        ImageLoader.clearAllMemoryCaches();
     }
 }

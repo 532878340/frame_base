@@ -17,8 +17,8 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.frame.FrameApplication;
 import com.frame.R;
-import com.frame.manager.utils.glide.GlideApp;
-import com.frame.manager.utils.glide.GlideRequests;
+import com.frame.manager.utils.imageloader.loader.glide.GlideApp;
+import com.frame.manager.utils.imageloader.loader.glide.GlideRequests;
 
 import java.io.File;
 import java.util.HashSet;
@@ -32,6 +32,7 @@ import java.util.concurrent.ExecutionException;
  * Email: info@zijinqianbao.com
  */
 
+@Deprecated
 @SuppressWarnings("unused")
 public final class ImageLoader {
     private final LinkedList<Keeper> mKeepers;

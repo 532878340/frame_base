@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.bumptech.glide.MemoryCategory;
+import com.frame.manager.utils.imageloader.config.ImageConfig;
 
 /**
  * Description:
@@ -20,7 +21,7 @@ public interface ILoader {
     /**
      * 开始加载
      */
-    void load();
+    void load(ImageConfig config);
 
     /**
      * 暂停请求
@@ -43,13 +44,17 @@ public interface ILoader {
     void clearMemory();
 
     /**
+     * 清除缓存view
+     */
+    void clearMemoryCache(View view);
+
+    /**
      * 是否已缓存
      */
     boolean isCached(String url);
 
     /**
      * 程序清理内存调用
-     * @param level
      */
     void trimMemory(int level);
 
@@ -57,4 +62,9 @@ public interface ILoader {
      * 清除缓存
      */
     void clearAllMemoryCaches();
+
+    /**
+     * 图片下载
+     */
+    void saveImageIntoGallery(Context context, String url,boolean isSetMediaStore , String fileName, ImageDownloadCallBack callBack);
 }

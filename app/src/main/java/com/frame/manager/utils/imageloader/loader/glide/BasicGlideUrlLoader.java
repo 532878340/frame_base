@@ -1,4 +1,4 @@
-package com.frame.manager.utils.glide;
+package com.frame.manager.utils.imageloader.loader.glide;
 
 import android.support.annotation.Nullable;
 
