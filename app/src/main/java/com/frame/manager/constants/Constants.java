@@ -8,7 +8,7 @@ public final class Constants {
     /**
      * 请求超时时间
      */
-    public static final long REQUEST_TIMEOUT = 5000;
+    public static final long REQUEST_TIMEOUT = 20 * 1000;
 
     /**
      * 防抖设置

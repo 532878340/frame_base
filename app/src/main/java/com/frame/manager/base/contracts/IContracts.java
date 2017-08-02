@@ -5,7 +5,10 @@ import android.support.annotation.NonNull;
 import com.frame.data.entity.Repo;
 import com.frame.manager.base.RequestFlag;
 import com.frame.manager.base.callback.CallBack;
+import com.func.entity.SteadyEntity;
 import com.trello.rxlifecycle2.LifecycleTransformer;
+
+import java.util.Map;
 
 import io.reactivex.Observable;
 
@@ -54,8 +57,18 @@ public interface IContracts {
 
     interface IPresenter {
         /**
+         * 获取Observable
+         */
+        <T> Observable<Repo<T>> getObservable();
+
+        /**
+         * 获取请求参数
+         */
+        Map<String,String> getRequestMap();
+
+        /**
          * 网络请求通用处理
          */
-        <T> void performRequest(Observable<Repo<T>> observable, final RequestFlag flag, @NonNull CallBack<T> callBack);
+        <T> void performRequest(final RequestFlag flag, @NonNull CallBack<T> callBack);
     }
 }

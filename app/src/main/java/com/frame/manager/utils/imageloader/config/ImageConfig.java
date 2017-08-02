@@ -35,7 +35,8 @@ public class ImageConfig {
     private int mPlaceHolderResId;
     private int mWidth;
     private int mHeight;
-    private PriorityMode mPriorityMode;
+    private int mPriorityMode;
+    private int mScaleMode;
     private BitmapListener mBitmapListener;
     private DiskCacheStrategy mDiskCacheStrategy;
 
@@ -55,6 +56,7 @@ public class ImageConfig {
         this.mErrorResId = builder.errorResId;
         this.mPlaceHolderResId = builder.placeHolderResId;
         this.mPriorityMode = builder.priorityMode;
+        this.mScaleMode = builder.scaleMode;
         this.mBitmapListener = builder.bitmapListener;
         this.mDiskCacheStrategy = builder.diskCacheStrategy;
     }
@@ -141,8 +143,12 @@ public class ImageConfig {
         return mHeight;
     }
 
-    public PriorityMode getPriorityMode() {
+    public int getPriorityMode() {
         return mPriorityMode;
+    }
+
+    public int getScaleMode() {
+        return mScaleMode;
     }
 
     public BitmapListener getBitmapListener() {
@@ -205,9 +211,10 @@ public class ImageConfig {
         private String rawPath;                 //raw资源
         private String assertspath;             //assert资源
         private int placeHolderResId;           //占位图
-        private PriorityMode priorityMode;     //加载优先级
-        private int width;
-        private int height;
+        private int priorityMode;     //加载优先级
+        private int width;                      //宽
+        private int height;                     //高
+        private int scaleMode;            //缩放模式
 
         private BitmapListener bitmapListener;  //图片加载监听
         private DiskCacheStrategy diskCacheStrategy;//磁盘存储策略
@@ -331,8 +338,16 @@ public class ImageConfig {
         /**
          * 加载优先级
          */
-        public ConfigBuilder priority(PriorityMode priorityMode){
+        public ConfigBuilder priority(int priorityMode){
             this.priorityMode = priorityMode;
+            return this;
+        }
+
+        /**
+         * 设置缩放模式
+         */
+        public ConfigBuilder scale(int scaleMode){
+            this.scaleMode = scaleMode;
             return this;
         }
 

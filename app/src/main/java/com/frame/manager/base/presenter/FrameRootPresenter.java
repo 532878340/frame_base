@@ -12,6 +12,7 @@ import com.frame.manager.constants.Constants;
 import com.frame.manager.utils.TransformUtils;
 
 import java.lang.ref.WeakReference;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -59,19 +60,35 @@ public class FrameRootPresenter<V extends IContracts.IView> implements IContract
     /**
      * FLAG_REFRESH 请求
      */
-    protected <T> void performRefresh(Observable<Repo<T>> observable, @NonNull CallBack<T> callBack) {
-        performRequest(observable, RequestFlag.FLAG_REFRESH, callBack);
+    protected <T> void performRefresh(@NonNull CallBack<T> callBack) {
+        performRequest(RequestFlag.FLAG_REFRESH, callBack);
     }
 
     /**
      * FLAG_DIALOG 请求
      */
-    protected <T> void performLoading(Observable<Repo<T>> observable, @NonNull CallBack<T> callBack) {
-        performRequest(observable, RequestFlag.FLAG_DIALOG, callBack);
+    protected <T> void performLoading(@NonNull CallBack<T> callBack) {
+        performRequest(RequestFlag.FLAG_DIALOG, callBack);
     }
 
     @Override
-    public <T> void performRequest(Observable<Repo<T>> observable, final RequestFlag flag, @NonNull CallBack<T> callBack) {
+    public <T> Observable<Repo<T>> getObservable() {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> getRequestMap() {
+        return null;
+    }
+
+    @Override
+    public <T> void performRequest(final RequestFlag flag, @NonNull CallBack<T> callBack) {
+        Observable<Repo<T>> observable = getObservable();
+
+        if(getObservable() == null){
+            return;
+        }
+
         observable.throttleFirst(Constants.THROTTLE_DELAY, TimeUnit.MILLISECONDS)
                 .timeout(Constants.REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
                 .compose(getView().bindToLife())

@@ -20,6 +20,8 @@ import com.bumptech.glide.request.transition.Transition;
 import com.frame.manager.utils.Logger;
 import com.frame.manager.utils.imageloader.config.GlobalConfig;
 import com.frame.manager.utils.imageloader.config.ImageConfig;
+import com.frame.manager.utils.imageloader.config.PriorityMode;
+import com.frame.manager.utils.imageloader.config.ScaleMode;
 import com.frame.manager.utils.imageloader.loader.BaseImageLoader;
 import com.frame.manager.utils.imageloader.utils.ImageUtils;
 
@@ -65,6 +67,8 @@ public class GlideLoader extends BaseImageLoader {
             }
         }
 
+        getRequestBuilder(config, builder);
+
         //设置占位图
         if (config.shouldSetPlaceHolder()) {
             builder.placeholder(config.getPlaceHolderResId());
@@ -83,6 +87,20 @@ public class GlideLoader extends BaseImageLoader {
         //设置缓存策略
         if (config.getDiskCacheStrategy() != null) {
             builder.diskCacheStrategy(config.getDiskCacheStrategy());
+        }
+
+        //设置缩放模式
+        switch (config.getScaleMode()){
+            case ScaleMode.CENTER_CROP:
+                builder.centerCrop();
+                break;
+            case ScaleMode.CENTER_INSIDE:
+                builder.centerInside();
+                break;
+            case ScaleMode.FIT_CENTER:
+            default:
+                builder.fitCenter();
+                break;
         }
 
         //设置加载优先级
@@ -140,13 +158,13 @@ public class GlideLoader extends BaseImageLoader {
      */
     private Priority getPriority(ImageConfig config) {
         switch (config.getPriorityMode()) {
-            case PRIORITY_LOW:
+            case PriorityMode.PRIORITY_LOW:
                 return Priority.LOW;
-            case PRIORITY_NORMAL:
+            case PriorityMode.PRIORITY_NORMAL:
                 return Priority.NORMAL;
-            case PRIORITY_HIGH:
+            case PriorityMode.PRIORITY_HIGH:
                 return Priority.HIGH;
-            case PRIORITY_IMMEDIATE:
+            case PriorityMode.PRIORITY_IMMEDIATE:
             default:
                 return Priority.IMMEDIATE;
         }

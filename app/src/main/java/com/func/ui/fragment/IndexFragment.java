@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.frame.R;
 import com.frame.manager.base.view.FrameRootFragment;
 import com.frame.manager.utils.imageloader.config.ImageConfig;
-import com.func.ui.activity.LoginActivity;
+import com.func.ui.activity.ListActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -43,6 +43,6 @@ public class IndexFragment extends FrameRootFragment {
 
     @OnClick(R.id.cancel)
     void click() {
-        startActivity(new Intent(mCtx, LoginActivity.class));
+        startActivity(new Intent(mCtx, ListActivity.class));
     }
 }

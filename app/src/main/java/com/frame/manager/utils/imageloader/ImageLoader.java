@@ -4,7 +4,10 @@ import android.content.Context;
 import android.view.View;
 
 import com.bumptech.glide.MemoryCategory;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.frame.R;
 import com.frame.manager.utils.imageloader.config.GlobalConfig;
+import com.frame.manager.utils.imageloader.config.ImageConfig;
 import com.frame.manager.utils.imageloader.loader.ILoader;
 import com.frame.manager.utils.imageloader.loader.ImageDownloadCallBack;
 
@@ -106,7 +109,19 @@ public class ImageLoader {
     /**
      * 图片保存到相册
      */
-    public static void saveImageIntoGallery(String url,String fileName, ImageDownloadCallBack callBack) {
-        getImageLoader().saveImageIntoGallery(mContext,url,false,fileName,callBack);
+    public static void saveImageIntoGallery(String url, String fileName, ImageDownloadCallBack callBack) {
+        getImageLoader().saveImageIntoGallery(mContext, url, false, fileName, callBack);
+    }
+
+    /**
+     * 默认显示image方法
+     */
+    public static void displayImage(Context context, String url, View view) {
+        new ImageConfig.ConfigBuilder(context)
+                .url(url)
+                .error(R.drawable.icon_default)
+                .placeHolder(R.drawable.icon_default)
+                .setDiskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(view);
     }
 }

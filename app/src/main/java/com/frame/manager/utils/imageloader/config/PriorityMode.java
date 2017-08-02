@@ -6,21 +6,21 @@ package com.frame.manager.utils.imageloader.config;
  * Email: info@zijinqianbao.com
  */
 
-public enum PriorityMode {
+public interface PriorityMode {
     /**
      * 低
      */
-    PRIORITY_LOW,
+    int PRIORITY_LOW = 1;
     /**
      * 普通
      */
-    PRIORITY_NORMAL,
+    int PRIORITY_NORMAL = 2;
     /**
      * 高
      */
-    PRIORITY_HIGH,
+    int PRIORITY_HIGH = 3;
     /**
      * 立即执行
      */
-    PRIORITY_IMMEDIATE
+    int PRIORITY_IMMEDIATE = 4;
 }

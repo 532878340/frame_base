@@ -102,8 +102,6 @@ public abstract class FrameRootActivity<P extends FrameRootPresenter> extends Rx
         return false;
     }
 
-
-
     protected void initToolBar(boolean homeAsUpEnabled, @StringRes int titleRes) {
         initToolBar(homeAsUpEnabled, getString(titleRes));
     }

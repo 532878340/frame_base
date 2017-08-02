@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.frame.R;
+import com.frame.manager.utils.imageloader.ImageLoader;
 
 /**
  * Created by Zijin on 2017/7/14.
@@ -69,21 +70,31 @@ public class RecycleLoadLayout extends RelativeLayout implements ILoadMore,IRecy
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
-                //滑动到底部
-                if(newState == RecyclerView.SCROLL_STATE_IDLE && mLastVisiblePosition + 1 == mLayoutManager.getItemCount()){
-                    if(!isLoading() && isLoadMoreEnable()){
-                        setStatus(Status.STATUS_LOADING);
-                    }
+                switch (newState){
+                    case RecyclerView.SCROLL_STATE_DRAGGING:
+                        ImageLoader.pauseRequests();
+                        break;
+                    case RecyclerView.SCROLL_STATE_IDLE:
+                        ImageLoader.resumeRequests();
+
+                        if(mLastVisiblePosition + 1 == mLayoutManager.getItemCount()){//滑动到底部
+                            if(!isLoading() && isLoadMoreEnable()){
+                                setStatus(Status.STATUS_LOADING);
+                            }
+                        }
+                        break;
+                    case RecyclerView.SCROLL_STATE_SETTLING:
+                        break;
                 }
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if(mLayoutManager instanceof LinearLayoutManager){//线性布局
-                    mLastVisiblePosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
-                }else if(mLayoutManager instanceof GridLayoutManager){//Grid布局
+                if(mLayoutManager instanceof GridLayoutManager){//Grid布局
                     mLastVisiblePosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();
+                }else if(mLayoutManager instanceof LinearLayoutManager){//线性布局
+                    mLastVisiblePosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
                 }else if(mLayoutManager instanceof StaggeredGridLayoutManager){//流式布局
                     int[] positions = new int[((StaggeredGridLayoutManager) mLayoutManager).getSpanCount()];
                     ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(positions);

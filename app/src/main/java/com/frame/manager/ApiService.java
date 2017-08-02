@@ -1,7 +1,9 @@
 package com.frame.manager;
 
+import com.frame.data.entity.ListRepo;
 import com.frame.data.entity.Repo;
 import com.frame.manager.constants.RouteConstants;
+import com.func.entity.SteadyEntity;
 
 import java.util.Map;
 
@@ -19,5 +21,5 @@ public interface ApiService {
     Observable<Repo> platformIndex();
 
     @GET(RouteConstants.STEADY_INFO)
-    Observable<Repo> getSteadyInfo(@QueryMap Map<String, String> param);
+    Observable<Repo<ListRepo<SteadyEntity>>> getSteadyInfo(@QueryMap Map<String, String> param);
 }

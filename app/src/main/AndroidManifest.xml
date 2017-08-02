@@ -21,6 +21,7 @@
         </activity>
 
         <activity android:name="com.func.ui.activity.LoginActivity" />
+        <activity android:name="com.func.ui.activity.ListActivity" />
     </application>
 
 </manifest>
