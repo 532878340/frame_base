@@ -4,7 +4,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdk
     buildToolsVersion rootProject.ext.buildTools
     defaultConfig {
-        applicationId "com.frame"
+        applicationId "com.smart.frame"
         minSdkVersion rootProject.ext.minSdk
         targetSdkVersion rootProject.ext.targetSdk
         versionCode rootProject.ext.versionCode
