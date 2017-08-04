@@ -43,17 +43,22 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit}"                       //retrofit
     compile "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofit}"
     compile "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofit}"
+
     compile "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid}"                       //rxandroid
     compile "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava}"
     compile "com.jakewharton.rxbinding2:rxbinding:${rootProject.ext.rxbinding}"                 //RxBinding
+    compile "com.trello.rxlifecycle2:rxlifecycle:${rootProject.ext.rxlifecycle}"                //rxlifecycle
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:${rootProject.ext.rxlifecycle}"
+    compile "com.trello.rxlifecycle2:rxlifecycle-android:${rootProject.ext.rxlifecycle}"
+    compile "com.tbruyelle.rxpermissions2:rxpermissions:${rootProject.ext.rxpermissions}"        //rxpermissions
+
     compile "com.google.dagger:dagger:${rootProject.ext.dagger}"                                //dagger
     annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.dagger}"
     compile "com.jakewharton:butterknife:${rootProject.ext.butterknife}"                        //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknife}"
-    compile "com.trello.rxlifecycle2:rxlifecycle:${rootProject.ext.rxlifecycle}"                //rxlifecycle
-    compile "com.trello.rxlifecycle2:rxlifecycle-components:${rootProject.ext.rxlifecycle}"
-    compile "com.trello.rxlifecycle2:rxlifecycle-android:${rootProject.ext.rxlifecycle}"
+
     compile "com.github.ybq:Android-SpinKit:${rootProject.ext.spinkit}"                         //SpinKit
     compile "com.github.bumptech.glide:glide:${rootProject.ext.glide}"                          //Glide
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"
+
 }

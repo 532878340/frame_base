@@ -33,7 +33,6 @@ public class App extends Application{
 
     /**
      * 获取全局AppComponent
-     * @return
      */
     public static AppComponent getAppComponent(){
         if(mAppComponent == null){

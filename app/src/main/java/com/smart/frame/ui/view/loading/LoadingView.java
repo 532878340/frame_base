@@ -58,6 +58,7 @@ public class LoadingView extends FrameLayout implements ILoading {
 
         View.inflate(getContext(), R.layout.layout_loading, this);
         ButterKnife.bind(this);
+        setBackgroundResource(R.color.foreground);
     }
 
     /**
@@ -74,8 +75,10 @@ public class LoadingView extends FrameLayout implements ILoading {
 
     @Override
     public void setStatus(Status status) {
-        this.mStatus = status;
-        onStatusChange(status);
+        if(mStatus != status){
+            mStatus = status;
+            onStatusChange(status);
+        }
     }
 
     @Override

@@ -17,18 +17,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Description:
+ * Description: 顶层无MVP activity
  * Created by Zijin on 2017/8/3.
  * Email: info@zijinqianbao.com
  */
 
 public abstract class SimpleActivity extends RxAppCompatActivity {
     protected Context mCtx;
-    private FrameLayout mContainer;
+    FrameLayout mContainer;
 
     @BindView(R.id.toolBar)
-    ToolBarHelperView mToolBar;
-
+    protected ToolBarHelperView mToolBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
         ButterKnife.bind(this);
 
         onViewCreated();
+        initViewOrData();
     }
 
     /**
@@ -55,17 +55,22 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
     @LayoutRes
     protected abstract int getLayoutRes();
 
+    /**
+     * 操作视图
+     */
+    protected abstract void initViewOrData();
+
     protected void onViewCreated() {
     }
 
-    protected void initToolBar(boolean homeAsUpEnabled, @StringRes int titleRes) {
+    protected final void initToolBar(boolean homeAsUpEnabled, @StringRes int titleRes) {
         initToolBar(homeAsUpEnabled, getString(titleRes));
     }
 
     /**
      * 初始化 ToolBar
      */
-    protected void initToolBar(boolean homeAsUpEnabled, String title) {
+    protected final void initToolBar(boolean homeAsUpEnabled, String title) {
         mToolBar.setVisibility(View.VISIBLE);
         mToolBar.setTitle(title);
         setSupportActionBar(mToolBar);
