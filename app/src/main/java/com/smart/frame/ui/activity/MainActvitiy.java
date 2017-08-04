@@ -1,10 +1,15 @@
 package com.smart.frame.ui.activity;
 
+import android.content.Intent;
+import android.widget.Button;
+
+import com.jakewharton.rxbinding2.view.RxView;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.RootActivity;
 import com.smart.frame.contract.InfoContract;
-import com.smart.frame.presenter.TmpPresenter;
+import com.smart.frame.presenter.FirstPresenter;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -13,7 +18,10 @@ import butterknife.OnClick;
  * Email: info@zijinqianbao.com
  */
 
-public class MainActvitiy extends RootActivity<TmpPresenter> implements InfoContract.ActView {
+public class MainActvitiy extends RootActivity<FirstPresenter> implements InfoContract.ActView {
+
+    @BindView(R.id.button)
+    Button button;
 
     @Override
     protected void initInject() {
@@ -31,9 +39,13 @@ public class MainActvitiy extends RootActivity<TmpPresenter> implements InfoCont
 
         onStatusLoading();
         getInfo();
+
+        RxView.clicks(button)
+                .subscribe(o -> startActivity(new Intent(this,SecondActivity.class)));
     }
 
-    @OnClick(R.id.button) void click(){
+    @OnClick(R.id.button)
+    void click() {
         getInfo();
     }
 

@@ -1,6 +1,5 @@
 package com.smart.frame.base.contract;
 
-import com.smart.frame.base.Status;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
@@ -11,12 +10,6 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 
 public interface IMVPContract {
     interface IBaseView extends IContract.IView{
-        /**
-         * 设置当前view状态
-         * @param status
-         */
-        void setStatus(Status status);
-
         /**
          * 加载中
          */
@@ -46,5 +39,17 @@ public interface IMVPContract {
          * 绑定生命周期
          */
         <T> LifecycleTransformer<T> bindToLife();
+    }
+
+    interface IBasePresenter<V> extends IContract.IPresenter{
+        /**
+         * attach
+         */
+        void attach(V view);
+
+        /**
+         * detach
+         */
+        void detach();
     }
 }

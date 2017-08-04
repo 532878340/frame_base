@@ -59,6 +59,7 @@ public class LoadingView extends FrameLayout implements ILoading {
         View.inflate(getContext(), R.layout.layout_loading, this);
         ButterKnife.bind(this);
         setBackgroundResource(R.color.foreground);
+        setVisibility(View.GONE);
     }
 
     /**
@@ -111,20 +112,20 @@ public class LoadingView extends FrameLayout implements ILoading {
     public void init() {
         mSpinKit.setVisibility(View.VISIBLE);
         mErrorLayout.setVisibility(View.GONE);
-        setBackgroundResource(R.color.foreground);
     }
 
     @Override
     public void loading() {
         mSpinKit.setVisibility(View.VISIBLE);
         mErrorLayout.setVisibility(View.GONE);
+        setVisibility(View.VISIBLE);
     }
 
     @Override
     public void success() {
         mSpinKit.setVisibility(View.GONE);
         mErrorLayout.setVisibility(View.GONE);
-        setBackgroundResource(R.color.transparent);
+        setVisibility(View.GONE);
     }
 
     @Override

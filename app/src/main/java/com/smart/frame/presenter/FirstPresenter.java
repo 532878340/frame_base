@@ -17,10 +17,10 @@ import javax.inject.Inject;
  * Email: info@zijinqianbao.com
  */
 @ActivityScope
-public class TmpPresenter extends RxPresenter<InfoContract.ActView> {
+public class FirstPresenter extends RxPresenter<InfoContract.ActView> {
 
     @Inject
-    public TmpPresenter(DataManager dataManager) {
+    public FirstPresenter(DataManager dataManager) {
         super(dataManager);
     }
 

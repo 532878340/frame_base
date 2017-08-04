@@ -1,6 +1,5 @@
 package com.smart.frame.base.presenter;
 
-import com.smart.frame.base.contract.IContract;
 import com.smart.frame.base.contract.IMVPContract;
 
 import java.lang.ref.WeakReference;
@@ -11,7 +10,7 @@ import java.lang.ref.WeakReference;
  * Email: info@zijinqianbao.com
  */
 
-public class BasePresenter<V extends IMVPContract.IBaseView> implements IContract.IPresenter<V>{
+public class BasePresenter<V extends IMVPContract.IBaseView> implements IMVPContract.IBasePresenter<V>{
     /**
      * 弱引用 view
      */

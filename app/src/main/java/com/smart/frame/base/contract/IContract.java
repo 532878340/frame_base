@@ -7,16 +7,7 @@ package com.smart.frame.base.contract;
  */
 
 public interface IContract {
-    interface IPresenter<V>{
-        /**
-         * attach
-         */
-        void attach(V view);
-
-        /**
-         * detach
-         */
-        void detach();
+    interface IPresenter{
     }
 
     interface IView{

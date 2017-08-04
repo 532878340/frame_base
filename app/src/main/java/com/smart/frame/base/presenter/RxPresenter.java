@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 
 /**
- * Description:
+ * Description: 处理rx相关的presenter
  * Created by Zijin on 2017/8/4.
  * Email: info@zijinqianbao.com
  */

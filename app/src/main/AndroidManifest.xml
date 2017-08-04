@@ -22,6 +22,8 @@
 
         <!-- 初始化service -->
         <service android:name=".app.InitializeService"/>
+
+        <activity android:name=".ui.activity.SecondActivity"/>
     </application>
 
 </manifest>
