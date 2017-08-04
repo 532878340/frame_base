@@ -2,8 +2,8 @@ package com.smart.frame.base.subscriber;
 
 import android.text.TextUtils;
 
+import com.orhanobut.logger.Logger;
 import com.smart.frame.base.contract.IMVPContract;
-import com.smart.frame.utils.Logger;
 
 import io.reactivex.observers.DefaultObserver;
 import retrofit2.HttpException;
@@ -15,9 +15,6 @@ import retrofit2.HttpException;
  */
 
 public class CommonObserver<T> extends DefaultObserver<T> {
-
-    private static final String TAG = "CommonObserver";
-
     /**
      * view
      */
@@ -62,7 +59,7 @@ public class CommonObserver<T> extends DefaultObserver<T> {
             mView.showMessage("数据加载失败ヽ(≧Д≦)ノ");
         } else {
             mView.showMessage("未知错误ヽ(≧Д≦)ノ");
-            Logger.d(TAG,e.toString());
+            Logger.d(e.toString());
         }
         if (showErrorState) {
             mView.onStatusError();

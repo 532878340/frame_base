@@ -1,5 +1,6 @@
 package com.smart.frame.ui.activity;
 
+import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleActivity;
 import com.smart.frame.ui.fragment.IndexFragment;
@@ -20,5 +21,10 @@ public class SecondActivity extends SimpleActivity{
     @Override
     protected void initViewOrData() {
         ActivityUtils.addFragment(this, R.id.container, IndexFragment.getInstance());
+
+        Logger.e("this is message");
+
+
+        Logger.d("initViewOrData: ");
     }
 }

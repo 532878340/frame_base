@@ -5,6 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
+import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.utils.imageloader.ImageLoader;
 
 /**
@@ -60,6 +65,24 @@ public class InitializeService extends IntentService{
      * 过渡绘制检测
      */
     private void initApplicationAsync(){
+        initLogger();
+    }
 
+    /**
+     * 初始化管理
+     */
+    private void initLogger(){
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(true)
+                .methodCount(2)
+                .methodOffset(7)
+                .build();
+
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy){
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return Configs.DEBUG_ENABLE;
+            }
+        });
     }
 }

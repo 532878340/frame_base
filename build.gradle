@@ -47,4 +47,5 @@ ext {
     spinkit = "1.1.0"
     glide = "4.0.0-RC1"
     rxpermissions = "0.9.4@aar"
+    logger = "2.1.1"
 }

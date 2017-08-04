@@ -60,5 +60,6 @@ dependencies {
     compile "com.github.ybq:Android-SpinKit:${rootProject.ext.spinkit}"                         //SpinKit
     compile "com.github.bumptech.glide:glide:${rootProject.ext.glide}"                          //Glide
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"
+    compile "com.orhanobut:logger:${rootProject.ext.logger}"                                    //logger
 
 }
