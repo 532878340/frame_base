@@ -1,12 +1,13 @@
 package com.smart.frame.ui.fragment;
 
+import android.content.Intent;
 import android.widget.Button;
 
 import com.jakewharton.rxbinding2.view.RxView;
+import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
-import com.smart.frame.base.ui.RootFragment;
-import com.smart.frame.contract.InfoContract;
-import com.smart.frame.presenter.SecondPresenter;
+import com.smart.frame.base.ui.SimpleFragment;
+import com.smart.frame.ui.activity.SecondActivity;
 
 import butterknife.BindView;
 
@@ -16,17 +17,12 @@ import butterknife.BindView;
  * Email: info@zijinqianbao.com
  */
 
-public class IndexFragment extends RootFragment<SecondPresenter> implements InfoContract.ActView{
+public class IndexFragment extends SimpleFragment{
     @BindView(R.id.cancel)
     Button cancel;
 
     public static IndexFragment getInstance() {
         return new IndexFragment();
-    }
-
-    @Override
-    protected void initInject() {
-        getFragmentComponent().inject(this);
     }
 
     @Override
@@ -36,15 +32,9 @@ public class IndexFragment extends RootFragment<SecondPresenter> implements Info
 
     @Override
     protected void initViewOrData() {
-        onStatusLoading();
-        mPresenter.getInfoMessage();
-
         RxView.clicks(cancel)
-                .subscribe(o -> mPresenter.getInfoMessage());
-    }
+                .subscribe(o -> startActivity(new Intent(mContext, SecondActivity.class)));
 
-    @Override
-    public void getInfo() {
-
+        Logger.d("initViewOrData 创建" + toString());
     }
 }

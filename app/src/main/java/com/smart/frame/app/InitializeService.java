@@ -73,8 +73,8 @@ public class InitializeService extends IntentService{
      */
     private void initLogger(){
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
-                .showThreadInfo(true)
-                .methodCount(2)
+                .showThreadInfo(false)
+                .methodCount(0)
                 .methodOffset(7)
                 .build();
 

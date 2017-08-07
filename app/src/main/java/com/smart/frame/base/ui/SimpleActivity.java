@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import com.smart.frame.R;
 import com.smart.frame.manager.ActivityContainer;
 import com.smart.frame.ui.view.ToolBarHelperView;
+import com.smart.frame.ui.view.UltimateBar;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import butterknife.BindView;
@@ -81,5 +82,13 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityContainer.getInstance().remove(this);
+    }
+
+    /**
+     * 重写此方法以修改状态栏
+     * @param isDrawer 是否为侧滑DrawerLayout
+     */
+    protected final void enableTranslucentStatus(boolean isDrawer) {
+        new UltimateBar(this).setTransparentBar(isDrawer);
     }
 }

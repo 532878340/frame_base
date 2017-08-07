@@ -22,7 +22,7 @@ import butterknife.Unbinder;
  */
 
 public abstract class SimpleFragment extends RxFragment {
-    private Context mContext;
+    protected Context mContext;
 
     private View mRootView;//根容器
     protected FrameLayout mContainer;//content容器
@@ -44,9 +44,8 @@ public abstract class SimpleFragment extends RxFragment {
             if(getLayoutRes() != 0){
                 View.inflate(mContext,getLayoutRes(),mContainer);
             }
-
-            mUnbinder = ButterKnife.bind(this,mRootView);
         }
+        mUnbinder = ButterKnife.bind(this,mRootView);
 
         ViewGroup parent = (ViewGroup) mRootView.getParent();
         if (parent != null) {
@@ -57,10 +56,10 @@ public abstract class SimpleFragment extends RxFragment {
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         if(mUnbinder != null){
             mUnbinder.unbind();
         }
+        super.onDestroyView();
     }
 
     @Override
