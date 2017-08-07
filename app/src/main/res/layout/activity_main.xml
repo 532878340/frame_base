@@ -13,6 +13,11 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
+            style="@style/WeightOne"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
             style="@style/WeightOne" />
 
         <android.support.design.widget.BottomNavigationView

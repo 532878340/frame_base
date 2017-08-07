@@ -2,20 +2,21 @@ package com.smart.frame.ui.activity;
 
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
 
 import com.smart.frame.R;
-import com.smart.frame.base.adapter.BaseFragmentPagerAdapter;
 import com.smart.frame.base.ui.SimpleActivity;
+import com.smart.frame.ui.fragment.AccountFragment;
 import com.smart.frame.ui.fragment.IndexFragment;
+import com.smart.frame.ui.fragment.InvestFragment;
+import com.smart.frame.ui.fragment.QuestionFragment;
+import com.smart.frame.utils.ActivityUtils;
 import com.smart.frame.utils.NavigationViewHelper;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -33,12 +34,13 @@ public class MainActvitiy extends SimpleActivity {
     @BindView(R.id.drawerlayout)
     DrawerLayout mDrawerlayout;
 
-    public static final int PAGE_INDEX = 0;     //首页
-    public static final int PAGE_INVEST = 1;    //投资
-    public static final int PAGE_QUESTION = 2;  //问题
-    public static final int PAGE_ACCOUNT = 3;   //账户
+    private static final String TAG_INDEX = "首页";
+    private static final String TAG_INVEST = "投资";
+    private static final String TAG_QUESTION = "问题";
+    private static final String TAG_ACCOUNT = "账户";
 
-    private MenuItem mMenuItem;//选中的MenuItem
+    Fragment mIndexFragment, mInvestFragment, mQuestionFragment, mAccountFragment;
+    private Fragment mCurrentFragment;
 
     @Override
     protected int getLayoutRes() {
@@ -47,11 +49,11 @@ public class MainActvitiy extends SimpleActivity {
 
     @Override
     protected void initViewOrData() {
-        initNavigationView();
-        initViewPager();
-        initDrawerLayout();
-
         enableTranslucentStatus(true);
+
+        initNavigationView();
+        initDrawerLayout();
+        initFragmentUI();
     }
 
     /**
@@ -62,54 +64,42 @@ public class MainActvitiy extends SimpleActivity {
         mNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.tab_index:
-                    mViewPager.setCurrentItem(PAGE_INDEX);
+                    switchContent(mIndexFragment, TAG_INDEX);
                     break;
                 case R.id.tab_invest:
-                    mViewPager.setCurrentItem(PAGE_INVEST);
+                    switchContent(mInvestFragment, TAG_INVEST);
                     break;
                 case R.id.tab_qa:
-                    mViewPager.setCurrentItem(PAGE_QUESTION);
+                    switchContent(mQuestionFragment, TAG_QUESTION);
                     break;
                 case R.id.tab_account:
-                    mViewPager.setCurrentItem(PAGE_ACCOUNT);
+                    switchContent(mAccountFragment, TAG_ACCOUNT);
                     break;
             }
-            return false;
+
+
+            return true;
         });
     }
 
     /**
-     * 初始化viewpager
+     * 切换界面
      */
-    private void initViewPager() {
-        List<Fragment> mFragmentList = new ArrayList<>();
-        mFragmentList.add(IndexFragment.getInstance());
-        mFragmentList.add(IndexFragment.getInstance());
-        mFragmentList.add(IndexFragment.getInstance());
-        mFragmentList.add(IndexFragment.getInstance());
-        mViewPager.setAdapter(new BaseFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList));
-
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    void switchContent(Fragment target, String tag) {
+        if (mCurrentFragment != target) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction transaction = fm.beginTransaction();
+            if (!target.isAdded()) { // 先判断是否被add过
+                transaction.hide(mCurrentFragment)
+                        .add(R.id.fragmentContainer, target, tag)
+                        .commit();
+            } else {
+                transaction.hide(mCurrentFragment)
+                        .show(target)
+                        .commit();
             }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (mMenuItem != null) {
-                    mMenuItem.setChecked(false);
-                } else {
-                    mNavigationView.getMenu().getItem(0).setChecked(false);
-                }
-
-                mMenuItem = mNavigationView.getMenu().getItem(position);
-                mMenuItem.setChecked(true);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
+            mCurrentFragment = target;
+        }
     }
 
     /**
@@ -119,6 +109,18 @@ public class MainActvitiy extends SimpleActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
         mDrawerlayout.addDrawerListener(toggle);
         toggle.syncState();
+    }
+
+    /**
+     * 初始化fragment ui
+     */
+    private void initFragmentUI() {
+        mIndexFragment = IndexFragment.getInstance();
+        mInvestFragment = InvestFragment.getInstance();
+        mQuestionFragment = QuestionFragment.getInstance();
+        mAccountFragment = AccountFragment.getInstance();
+
+        ActivityUtils.addFragment(this, R.id.fragmentContainer, mCurrentFragment = mIndexFragment);
     }
 
     @Override
