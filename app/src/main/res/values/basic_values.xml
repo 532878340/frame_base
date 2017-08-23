@@ -35,8 +35,11 @@
     <!-- 淡灰 -->
     <color name="gray_light">#999</color>
 
+    <!-- 状态栏颜色 -->
+    <color name="statusbar_background">@color/colorPrimary</color>
+
     <!-- ToolBar 背景色 -->
-    <color name="toolbar_background">@color/colorPrimaryDark</color>
+    <color name="toolbar_background">@color/colorPrimary</color>
 
     <!-- SnackBar 背景色 -->
     <color name="snack_background">@color/gray_minor</color>

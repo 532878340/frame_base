@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerlayout"
     style="@style/MatchParent"
-    android:clipToPadding="false"
-    android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
     <LinearLayout
         style="@style/MatchParent"
+        android:fitsSystemWindows="true"
         android:orientation="vertical">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
+            style="@style/WeightOne"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
             style="@style/WeightOne" />
 
         <android.support.design.widget.BottomNavigationView
@@ -27,8 +31,12 @@
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#ccc"
-        android:fitsSystemWindows="true">
+        android:background="#ccc">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY" />
 
         <TextView
             android:layout_width="wrap_content"

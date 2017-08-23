@@ -20,6 +20,9 @@ public class SecondActivity extends SimpleActivity{
 
     @Override
     protected void initViewOrData() {
+        mToolBar.setDisplayDefault(true);
+        initToolBar(false,"第二页");
+
         ActivityUtils.addFragment(this, R.id.container, IndexFragment.getInstance());
 
         Logger.e("this is message");
