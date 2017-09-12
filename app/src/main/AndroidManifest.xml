@@ -3,6 +3,7 @@
     package="com.smart.frame">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".app.App"
@@ -24,6 +25,8 @@
         <service android:name=".app.InitializeService"/>
 
         <activity android:name=".ui.activity.SecondActivity"/>
+
+        <activity android:name=".ui.contactslist.ContactListActivity"/>
     </application>
 
 </manifest>

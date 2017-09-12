@@ -8,6 +8,7 @@ import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleFragment;
 import com.smart.frame.ui.activity.SecondActivity;
+import com.smart.frame.ui.contactslist.ContactListActivity;
 
 import butterknife.BindView;
 
@@ -33,7 +34,7 @@ public class IndexFragment extends SimpleFragment{
     @Override
     protected void initViewOrData() {
         RxView.clicks(cancel)
-                .subscribe(o -> startActivity(new Intent(mContext, SecondActivity.class)));
+                .subscribe(o -> startActivity(new Intent(mContext, ContactListActivity.class)));
 
         Logger.d("initViewOrData 创建" + toString());
     }
