@@ -24,9 +24,9 @@ public class SimpleAdapter extends BaseRecycleAdapter<ShareContactsBean>{
 
     @Override
     public void onBindView(BaseRecycleHolder holder, int position,final ShareContactsBean shareContactsBean) {
-        TextView nameTx = holder.getView(R.id.list_item_contact_name);
-        TextView phoneTv = holder.getView(R.id.list_item_contact_number);
+        TextView nameTx = holder.getView(R.id.name);
+//        TextView phoneTv = holder.getView(R.id.list_item_contact_number);
         nameTx.setText(shareContactsBean.getName());
-        phoneTv.setText(shareContactsBean.getPhone());
+//        phoneTv.setText(shareContactsBean.getPhone());
     }
 }

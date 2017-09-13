@@ -9,6 +9,10 @@ import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleFragment;
 import com.smart.frame.ui.activity.SecondActivity;
 import com.smart.frame.ui.contactslist.ContactListActivity;
+import com.smart.frame.ui.fragment.contact.AppointTimePickerDialog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -34,7 +38,19 @@ public class IndexFragment extends SimpleFragment{
     @Override
     protected void initViewOrData() {
         RxView.clicks(cancel)
-                .subscribe(o -> startActivity(new Intent(mContext, ContactListActivity.class)));
+                .subscribe(o -> {
+                    List<String> list = new ArrayList<>();
+                    for (int i = 0 ;i < 10;i++){
+                        list.add("轮子" + i);
+                    }
+                    AppointTimePickerDialog dialog = new AppointTimePickerDialog(mContext,list);
+                    dialog.setPickerListener(new AppointTimePickerDialog.TimePickerListener() {
+                        @Override
+                        public void onPickerSelected(int pos) {
+                            cancel.setText(list.get(pos));
+                        }
+                    });
+                });
 
         Logger.d("initViewOrData 创建" + toString());
     }

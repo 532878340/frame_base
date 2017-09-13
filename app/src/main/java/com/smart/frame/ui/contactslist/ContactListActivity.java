@@ -26,7 +26,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -125,10 +124,8 @@ public class ContactListActivity extends AppCompatActivity {
         mAdapter = new BaseRecycleAdapter<ShareContactsBean>(this,mContactList,R.layout.listitem_share_contact_content){
             @Override
             public void onBindView(BaseRecycleHolder holder, int position, ShareContactsBean shareContactsBean) {
-                TextView nameTx = holder.getView(R.id.list_item_contact_name);
-                TextView phoneTv = holder.getView(R.id.list_item_contact_number);
+                TextView nameTx = holder.getView(R.id.name);
                 nameTx.setText(shareContactsBean.getName());
-                phoneTv.setText(shareContactsBean.getPhone());
             }
         };
         mAdapter.setOnItemClickListener(new OnItemClickListener() {

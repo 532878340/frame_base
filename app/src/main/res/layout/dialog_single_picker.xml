@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidthFill"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/WidthFill"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/WrapContent"
+            android:text="@android:string/cancel"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvCfm"
+            style="@style/WrapContent"
+            android:layout_alignParentRight="true"
+            android:text="@android:string/ok"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <com.violet.library.views.wheel.WheelView
+        android:id="@+id/provinceWheel"
+        style="@style/WeightOne"
+        android:layout_height="200dp" />
+</LinearLayout>
