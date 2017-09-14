@@ -25,7 +25,7 @@
             android:textSize="14sp" />
     </RelativeLayout>
 
-    <com.violet.library.views.wheel.WheelView
+    <com.smart.frame.ui.view.wheel.WheelView
         android:id="@+id/provinceWheel"
         style="@style/WeightOne"
         android:layout_height="200dp" />

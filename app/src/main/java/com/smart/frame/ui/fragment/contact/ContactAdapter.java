@@ -27,9 +27,8 @@ public class ContactAdapter extends BaseRecycleAdapter<ContactEntity>{
 
     @Override
     public void onBindView(BaseRecycleHolder holder, int position, ContactEntity contactEntity) {
-        TextView name = holder.getView(R.id.name);
         CheckBox checkBox = holder.getView(R.id.checkBox);
-        name.setText(contactEntity.getName());
+        checkBox.setText(contactEntity.getName());
 
         checkBox.setChecked(checkMap.containsKey(position));
         checkBox.setOnClickListener(view -> {

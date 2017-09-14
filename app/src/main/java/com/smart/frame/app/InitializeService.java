@@ -9,6 +9,11 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.smart.frame.R;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.utils.imageloader.ImageLoader;
 
@@ -66,6 +71,7 @@ public class InitializeService extends IntentService{
      */
     private void initApplicationAsync(){
         initLogger();
+        initSmartRefresh();
     }
 
     /**
@@ -83,6 +89,22 @@ public class InitializeService extends IntentService{
             public boolean isLoggable(int priority, String tag) {
                 return Configs.DEBUG_ENABLE;
             }
+        });
+    }
+
+    /**
+     * 初始化SmartRefresh
+     */
+    private void initSmartRefresh(){
+        //设置全局的Header构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreater((context, layout) -> {
+            layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
+            return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
+        });
+        //设置全局的Footer构建器
+        SmartRefreshLayout.setDefaultRefreshFooterCreater((context, layout) -> {
+            //指定为经典Footer，默认是 BallPulseFooter
+            return new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Translate);
         });
     }
 }

@@ -50,6 +50,7 @@ public class IndexFragment extends SimpleFragment{
                             cancel.setText(list.get(pos));
                         }
                     });
+                    dialog.show();
                 });
 
         Logger.d("initViewOrData 创建" + toString());

@@ -9,13 +9,18 @@
     <CheckBox
         android:id="@+id/checkBox"
         style="@style/WrapContent"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:text="周五"
+        android:textColor="@color/gray_minor"
+        android:gravity="center_vertical"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="周五正文"
+        android:visibility="gone"
         android:textColor="@color/gray_minor"
         android:textSize="14sp" />
 </LinearLayout>
