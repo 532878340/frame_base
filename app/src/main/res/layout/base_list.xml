@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.frame.view.recycleview.refresh.RecycleLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycleLayout"
-    style="@style/MatchParent"/>
