@@ -2,7 +2,7 @@ package com.smart.frame.di.module;
 
 import com.smart.frame.di.annotation.qualifier.ApiUrl;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
-import com.smart.frame.manager.constants.Constants;
+import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.model.http.api.ApiService;
 
 import java.util.concurrent.TimeUnit;
@@ -38,15 +38,15 @@ public class HttpModule {
     @Provides
     OkHttpClient getOkHttpClient() {
         return new OkHttpClient.Builder()
-                .connectTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
-                .readTimeout(Constants.REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
+                .connectTimeout(Configs.REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
+                .readTimeout(Configs.REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
                 .build();
     }
 
     /**
      * 创建对应的Retrofit，根据retrofit返回ApiService
      */
-    public Retrofit createRetrofit(OkHttpClient client,String url){
+    private Retrofit createRetrofit(OkHttpClient client,String url){
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .client(client)

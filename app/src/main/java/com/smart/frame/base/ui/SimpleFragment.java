@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
@@ -40,6 +41,9 @@ public abstract class SimpleFragment extends RxFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Logger.d("fragment:-------->" + getClass().getSimpleName());
+
         if (savedInstanceState != null) {
             boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
 

@@ -2,6 +2,7 @@ package com.smart.frame.base.bean;
 
 /**
  * Created by Zijin on 2017/7/12.
+ * 响应基类
  */
 
 public class Repo<T> {

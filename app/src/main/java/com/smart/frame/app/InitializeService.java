@@ -13,8 +13,8 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.smart.frame.BuildConfig;
 import com.smart.frame.R;
-import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.utils.imageloader.ImageLoader;
 
 /**
@@ -87,7 +87,7 @@ public class InitializeService extends IntentService{
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy){
             @Override
             public boolean isLoggable(int priority, String tag) {
-                return Configs.DEBUG_ENABLE;
+                return BuildConfig.DEBUG_ENABLE;
             }
         });
     }

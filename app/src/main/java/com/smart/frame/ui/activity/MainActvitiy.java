@@ -2,21 +2,18 @@ package com.smart.frame.ui.activity;
 
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 
 import com.smart.frame.R;
+import com.smart.frame.base.adapter.BaseFragmentPagerAdapter;
 import com.smart.frame.base.ui.SimpleActivity;
 import com.smart.frame.ui.fragment.AccountFragment;
 import com.smart.frame.ui.fragment.IndexFragment;
 import com.smart.frame.ui.fragment.InvestFragment;
 import com.smart.frame.ui.fragment.QuestionFragment;
-import com.smart.frame.utils.ActivityUtils;
 import com.smart.frame.utils.NavigationViewHelper;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 
@@ -31,16 +28,11 @@ public class MainActvitiy extends SimpleActivity {
     ViewPager mViewPager;
     @BindView(R.id.navigationView)
     BottomNavigationView mNavigationView;
-    @BindView(R.id.drawerlayout)
-    DrawerLayout mDrawerlayout;
 
-    private static final String TAG_INDEX = "首页";
-    private static final String TAG_INVEST = "投资";
-    private static final String TAG_QUESTION = "问题";
-    private static final String TAG_ACCOUNT = "账户";
-
-    Fragment mIndexFragment, mInvestFragment, mQuestionFragment, mAccountFragment;
-    private Fragment mCurrentFragment;
+    private static final int TAB_INDEX = 0;     //首页
+    private static final int TAB_INVEST = 1;    //投资
+    private static final int TAB_QUESTION = 2;  //问题
+    private static final int TAB_ACCOUNT = 3;   //账户
 
     @Override
     protected int getLayoutRes() {
@@ -49,10 +41,9 @@ public class MainActvitiy extends SimpleActivity {
 
     @Override
     protected void initViewOrData() {
-        enableTranslucentStatus(true);
+        enableTranslucentStatus(false);
 
         initNavigationView();
-        initDrawerLayout();
         initFragmentUI();
     }
 
@@ -64,71 +55,60 @@ public class MainActvitiy extends SimpleActivity {
         mNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.tab_index:
-                    switchContent(mIndexFragment, TAG_INDEX);
+                    mViewPager.setCurrentItem(TAB_INDEX);
                     break;
                 case R.id.tab_invest:
-                    switchContent(mInvestFragment, TAG_INVEST);
+                    mViewPager.setCurrentItem(TAB_INVEST);
                     break;
                 case R.id.tab_qa:
-                    switchContent(mQuestionFragment, TAG_QUESTION);
+                    mViewPager.setCurrentItem(TAB_QUESTION);
                     break;
                 case R.id.tab_account:
-                    switchContent(mAccountFragment, TAG_ACCOUNT);
+                    mViewPager.setCurrentItem(TAB_ACCOUNT);
                     break;
             }
-
-
             return true;
         });
-    }
-
-    /**
-     * 切换界面
-     */
-    void switchContent(Fragment target, String tag) {
-        if (mCurrentFragment != target) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction transaction = fm.beginTransaction();
-            if (!target.isAdded()) { // 先判断是否被add过
-                transaction.hide(mCurrentFragment)
-                        .add(R.id.fragmentContainer, target, tag)
-                        .commit();
-            } else {
-                transaction.hide(mCurrentFragment)
-                        .show(target)
-                        .commit();
-            }
-            mCurrentFragment = target;
-        }
-    }
-
-    /**
-     * 初始化DrawerLayout
-     */
-    private void initDrawerLayout() {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
-        mDrawerlayout.addDrawerListener(toggle);
-        toggle.syncState();
     }
 
     /**
      * 初始化fragment ui
      */
     private void initFragmentUI() {
-        mIndexFragment = IndexFragment.getInstance();
-        mInvestFragment = InvestFragment.getInstance();
-        mQuestionFragment = QuestionFragment.getInstance();
-        mAccountFragment = AccountFragment.getInstance();
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(IndexFragment.getInstance());
+        fragments.add(InvestFragment.getInstance());
+        fragments.add(QuestionFragment.getInstance());
+        fragments.add(AccountFragment.getInstance());
 
-        ActivityUtils.addFragment(this, R.id.fragmentContainer, mCurrentFragment = mIndexFragment);
-    }
+        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setAdapter(new BaseFragmentPagerAdapter(getSupportFragmentManager(),fragments));
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
 
-    @Override
-    public void onBackPressed() {
-        if (mDrawerlayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerlayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case TAB_INDEX:
+                        mNavigationView.setSelectedItemId(R.id.tab_index);
+                        break;
+                    case TAB_INVEST:
+                        mNavigationView.setSelectedItemId(R.id.tab_invest);
+                        break;
+                    case TAB_QUESTION:
+                        mNavigationView.setSelectedItemId(R.id.tab_qa);
+                        break;
+                    case TAB_ACCOUNT:
+                        mNavigationView.setSelectedItemId(R.id.tab_account);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 }
