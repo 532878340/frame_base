@@ -75,7 +75,7 @@ public class InitializeService extends IntentService{
     }
 
     /**
-     * 初始化管理
+     * 初始化日志
      */
     private void initLogger(){
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()

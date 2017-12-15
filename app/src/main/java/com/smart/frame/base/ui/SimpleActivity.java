@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 public abstract class SimpleActivity extends RxAppCompatActivity {
     protected Context mCtx;
-    FrameLayout mContainer;
+    private FrameLayout mContainer;
 
     @BindView(R.id.toolBar)
     protected ToolBarHelperView mToolBar;
@@ -61,6 +61,9 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
      */
     protected abstract void initViewOrData();
 
+    /**
+     * view创建完成
+     */
     protected void onViewCreated() {
     }
 
@@ -80,8 +83,8 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         ActivityContainer.getInstance().remove(this);
+        super.onDestroy();
     }
 
     /**

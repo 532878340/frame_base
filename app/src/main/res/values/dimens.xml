@@ -1,5 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="divider_margin_left">15dp</dimen>
-    <dimen name="divider_margin_right">0dp</dimen>
 </resources>

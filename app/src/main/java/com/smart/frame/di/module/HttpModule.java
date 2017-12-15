@@ -25,7 +25,7 @@ public class HttpModule {
     @ApplicationScope
     @ApiUrl
     Retrofit provideApiServiceRetrofit(OkHttpClient client) {
-        return createRetrofit(client, ApiService.BASE_URL);
+        return createRetrofit(client, Configs.BASE_URL);
     }
 
     @Provides
@@ -46,9 +46,9 @@ public class HttpModule {
     /**
      * 创建对应的Retrofit，根据retrofit返回ApiService
      */
-    private Retrofit createRetrofit(OkHttpClient client,String url){
+    private Retrofit createRetrofit(OkHttpClient client,String rootUrl){
         return new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(rootUrl)
                 .client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

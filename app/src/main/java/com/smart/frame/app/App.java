@@ -16,32 +16,32 @@ import com.smart.frame.utils.imageloader.ImageLoader;
  */
 
 public class App extends Application{
-    private static App mInstance;
-    private static AppComponent mAppComponent;
+    private static App sInstance;
+    private static AppComponent sAppComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mInstance = this;
+        sInstance = this;
 
         InitializeService.init(this);
     }
 
     public static App getInstance(){
-        return mInstance;
+        return sInstance;
     }
 
     /**
      * 获取全局AppComponent
      */
     public static AppComponent getAppComponent(){
-        if(mAppComponent == null){
-            mAppComponent = DaggerAppComponent.builder()
-                    .appModule(new AppModule(mInstance))
+        if(sAppComponent == null){
+            sAppComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(sInstance))
                     .httpModule(new HttpModule())
                     .build();
         }
-        return mAppComponent;
+        return sAppComponent;
     }
 
     @Override
