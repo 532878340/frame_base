@@ -76,8 +76,14 @@ dependencies {
     compile "com.github.ybq:Android-SpinKit:${rootProject.ext.spinkit}"                                         //SpinKit
     compile "com.github.bumptech.glide:glide:${rootProject.ext.glide}"                                          //Glide
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"
-    compile "com.orhanobut:logger:${rootProject.ext.logger}"                                                    //logger
 
     compile "com.yqritc:recyclerview-flexibledivider:${rootProject.ext.flexibledivider}"                        //flexibledivider
     compile "com.scwang.smartrefresh:SmartRefreshLayout:${rootProject.ext.smartRefreshLayout}"                  //SmartRefreshLayout
+
+    compile "com.orhanobut:logger:${rootProject.ext.logger}"                                                    //logger
+    compile "com.tencent.bugly:crashreport:${rootProject.ext.bugly}"                                            //bugly
+    debugCompile "com.github.markzhai:blockcanary-android:${rootProject.ext.blockcanary}"                       //blockcanary
+    releaseCompile "com.github.markzhai:blockcanary-no-op:${rootProject.ext.blockcanary}"
+    debugCompile "com.squareup.leakcanary:leakcanary-android:${rootProject.ext.leakcanary}"                     //leakcanary
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:1.5.4"
 }

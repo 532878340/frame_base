@@ -2,7 +2,6 @@ package com.smart.frame.utils;
 
 import android.util.Log;
 
-import com.smart.frame.BuildConfig;
 import com.smart.frame.manager.constants.Configs;
 
 
@@ -13,7 +12,7 @@ import com.smart.frame.manager.constants.Configs;
  */
 
 public class Logger {
-    public static final boolean isDebug = BuildConfig.DEBUG_ENABLE;
+    public static final boolean isDebug = Configs.DEBUG_ENABLE;
 
     /**
      * warn

@@ -3,7 +3,7 @@ package com.smart.frame.base.subscriber;
 import android.text.TextUtils;
 
 import com.orhanobut.logger.Logger;
-import com.smart.frame.base.contract.IMVPContract;
+import com.smart.frame.base.contract.IBaseView;
 
 import io.reactivex.observers.DefaultObserver;
 import retrofit2.HttpException;
@@ -18,7 +18,7 @@ public class CommonObserver<T> extends DefaultObserver<T> {
     /**
      * view
      */
-    protected IMVPContract.IBaseView mView;
+    protected IBaseView mView;
     /**
      * 错误提示
      */
@@ -28,15 +28,15 @@ public class CommonObserver<T> extends DefaultObserver<T> {
      */
     protected boolean showErrorState;
 
-    public CommonObserver(IMVPContract.IBaseView view) {
+    public CommonObserver(IBaseView view) {
         this(view,true);
     }
 
-    public CommonObserver(IMVPContract.IBaseView view, boolean showErrorState) {
+    public CommonObserver(IBaseView view, boolean showErrorState) {
         this(view,null,showErrorState);
     }
 
-    public CommonObserver(IMVPContract.IBaseView view, String errorMsg, boolean showErrorState) {
+    public CommonObserver(IBaseView view, String errorMsg, boolean showErrorState) {
         this.mView = view;
         this.mErrorMsg = errorMsg;
         this.showErrorState = showErrorState;

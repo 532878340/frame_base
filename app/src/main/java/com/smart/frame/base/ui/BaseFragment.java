@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smart.frame.app.App;
-import com.smart.frame.base.contract.IMVPContract;
+import com.smart.frame.base.contract.IBaseView;
 import com.smart.frame.base.presenter.BasePresenter;
 import com.smart.frame.di.component.DaggerFragmentComponent;
 import com.smart.frame.di.component.FragmentComponent;
@@ -24,7 +24,7 @@ import javax.inject.Inject;
  * Email: info@zijinqianbao.com
  */
 
-public abstract class BaseFragment<P extends BasePresenter> extends SimpleFragment implements IMVPContract.IBaseView{
+public abstract class BaseFragment<P extends BasePresenter> extends SimpleFragment implements IBaseView {
     @Inject
     protected P mPresenter;
 

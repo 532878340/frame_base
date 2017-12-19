@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 
+import com.github.moduth.blockcanary.BlockCanary;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -13,9 +14,13 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.smart.frame.BuildConfig;
 import com.smart.frame.R;
+import com.smart.frame.manager.constants.Configs;
+import com.smart.frame.utils.AppBlockCanaryContext;
+import com.smart.frame.utils.SystemUtil;
 import com.smart.frame.utils.imageloader.ImageLoader;
+import com.squareup.leakcanary.LeakCanary;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * Description: 初始化Service
@@ -63,6 +68,22 @@ public class InitializeService extends IntentService{
     }
 
     /**
+     * 初始化SmartRefresh
+     */
+    private void initSmartRefresh(){
+        //设置全局的Header构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreater((context, layout) -> {
+            layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
+            return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
+        });
+        //设置全局的Footer构建器
+        SmartRefreshLayout.setDefaultRefreshFooterCreater((context, layout) -> {
+            //指定为经典Footer，默认是 BallPulseFooter
+            return new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Translate);
+        });
+    }
+
+    /**
      * 异步初始化：
      * 日志
      * 错误收集
@@ -71,7 +92,10 @@ public class InitializeService extends IntentService{
      */
     private void initApplicationAsync(){
         initLogger();
+        initBugly();
         initSmartRefresh();
+        initLeakCanary();
+        initBlockCanary();
     }
 
     /**
@@ -87,24 +111,34 @@ public class InitializeService extends IntentService{
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy){
             @Override
             public boolean isLoggable(int priority, String tag) {
-                return BuildConfig.DEBUG_ENABLE;
+                return Configs.DEBUG_ENABLE;
             }
         });
     }
 
     /**
-     * 初始化SmartRefresh
+     * 初始化Bugly
      */
-    private void initSmartRefresh(){
-        //设置全局的Header构建器
-        SmartRefreshLayout.setDefaultRefreshHeaderCreater((context, layout) -> {
-            layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
-            return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
-        });
-        //设置全局的Footer构建器
-        SmartRefreshLayout.setDefaultRefreshFooterCreater((context, layout) -> {
-            //指定为经典Footer，默认是 BallPulseFooter
-            return new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Translate);
-        });
+    private void initBugly(){
+        Context ctx = getApplicationContext();
+        String packageName = ctx.getPackageName();
+        String processName = SystemUtil.getProcessName(android.os.Process.myPid());
+        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(ctx);
+        strategy.setUploadProcess(processName == null || processName.equals(packageName));
+        CrashReport.initCrashReport(App.getInstance(), Configs.APP_ID_BUGLY, Configs.DEBUG_ENABLE, strategy);
+    }
+
+    /**
+     * 初始化内存泄漏检测
+     */
+    private void initLeakCanary(){
+        LeakCanary.install(App.getInstance());
+    }
+
+    /**
+     * 初始化过渡绘制检测
+     */
+    private void initBlockCanary(){
+        BlockCanary.install(App.getInstance(),new AppBlockCanaryContext());
     }
 }

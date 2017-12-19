@@ -12,5 +12,5 @@ import io.reactivex.Observable;
  */
 
 public interface HttpHelper {
-    Observable<Repo> platformIndex();
+    Observable<Repo<String>> platformIndex();
 }

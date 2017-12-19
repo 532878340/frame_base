@@ -10,8 +10,8 @@ import android.widget.FrameLayout;
 
 import com.smart.frame.R;
 import com.smart.frame.manager.ActivityContainer;
-import com.smart.frame.ui.view.ToolBarHelperView;
-import com.smart.frame.ui.view.UltimateBar;
+import com.smart.frame.ui.view.basic.ToolBarHelperView;
+import com.smart.frame.ui.view.basic.UltimateBar;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import butterknife.BindView;

@@ -22,6 +22,7 @@ public class AppUtils {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+
         return null;
     }
 
@@ -30,7 +31,7 @@ public class AppUtils {
      * 版本名：info.versionName
      * 版本号：info.versionCode
      */
-    public static PackageInfo getVersionCode(Context context) {
+    public static PackageInfo getPackageInfo(Context context) {
         String packageName = context.getApplicationContext().getPackageName();
         try {
             return context.getPackageManager().getPackageInfo(packageName, PackageManager.GET_CONFIGURATIONS);
@@ -38,7 +39,6 @@ public class AppUtils {
             e.printStackTrace();
         }
 
-        DateFormatUtils.formatTime(1000, DateFormatUtils.FORMAT_STARNDARD);
         return null;
     }
 }

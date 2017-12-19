@@ -1,6 +1,6 @@
 package com.smart.frame.base.presenter;
 
-import com.smart.frame.base.contract.IMVPContract;
+import com.smart.frame.base.contract.IBaseView;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.model.DataManager;
 import com.smart.frame.utils.TransformUtils;
@@ -15,7 +15,7 @@ import io.reactivex.Observable;
  * Email: info@zijinqianbao.com
  */
 
-public class RxPresenter<V extends IMVPContract.IBaseView> extends BasePresenter<V>{
+public class RxPresenter<V extends IBaseView> extends BasePresenter<V>{
     /**
      * 数据源
      */

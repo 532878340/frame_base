@@ -13,8 +13,8 @@ import io.reactivex.Observable;
  */
 
 public class DataManager implements HttpHelper,DBHelper{
-    HttpHelper mHttpHelper;
-    DBHelper mDBHelper;
+    private HttpHelper mHttpHelper;
+    private DBHelper mDBHelper;
 
     public DataManager(HttpHelper httpHelper, DBHelper dbHelper) {
         this.mHttpHelper = httpHelper;
@@ -22,7 +22,7 @@ public class DataManager implements HttpHelper,DBHelper{
     }
 
     @Override
-    public Observable<Repo> platformIndex() {
+    public Observable<Repo<String>> platformIndex() {
         return mHttpHelper.platformIndex();
     }
 }

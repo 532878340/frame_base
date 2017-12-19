@@ -3,7 +3,7 @@
     style="@style/MatchParent"
     android:orientation="vertical">
 
-    <com.smart.frame.ui.view.ToolBarHelperView
+    <com.smart.frame.ui.view.basic.ToolBarHelperView
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -17,7 +17,7 @@
             android:id="@+id/container"
             style="@style/MatchParent" />
 
-        <com.smart.frame.ui.view.loading.LoadingView
+        <com.smart.frame.ui.view.basic.loading.LoadingView
             android:id="@+id/loading"
             style="@style/MatchParent"/>
 

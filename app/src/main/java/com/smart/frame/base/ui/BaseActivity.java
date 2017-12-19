@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.ViewGroup;
 
 import com.smart.frame.app.App;
-import com.smart.frame.base.contract.IMVPContract;
+import com.smart.frame.base.contract.IBaseView;
 import com.smart.frame.base.presenter.BasePresenter;
 import com.smart.frame.di.component.ActivityComponent;
 import com.smart.frame.di.component.DaggerActivityComponent;
@@ -21,7 +21,7 @@ import javax.inject.Inject;
  * Created by Zijin on 2017/8/4.
  * Email: info@zijinqianbao.com
  */
-public abstract class BaseActivity<P extends BasePresenter> extends SimpleActivity implements IMVPContract.IBaseView{
+public abstract class BaseActivity<P extends BasePresenter> extends SimpleActivity implements IBaseView {
     @Inject
     protected P mPresenter;
 

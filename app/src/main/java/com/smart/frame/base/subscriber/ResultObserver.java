@@ -1,7 +1,7 @@
 package com.smart.frame.base.subscriber;
 
 import com.smart.frame.base.bean.Repo;
-import com.smart.frame.base.contract.IMVPContract;
+import com.smart.frame.base.contract.IBaseView;
 
 /**
  * Description: 通用请求处理
@@ -10,8 +10,12 @@ import com.smart.frame.base.contract.IMVPContract;
  */
 
 public abstract class ResultObserver<T> extends CommonObserver<Repo<T>> {
-    public ResultObserver(IMVPContract.IBaseView view) {
+    public ResultObserver(IBaseView view) {
         super(view);
+    }
+
+    public ResultObserver(IBaseView view, boolean showErrorState) {
+        super(view, showErrorState);
     }
 
     @Override

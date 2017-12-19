@@ -3,7 +3,7 @@ package com.smart.frame.base.ui;
 import com.smart.frame.R;
 import com.smart.frame.base.Status;
 import com.smart.frame.base.presenter.BasePresenter;
-import com.smart.frame.ui.view.loading.LoadingView;
+import com.smart.frame.ui.view.basic.loading.LoadingView;
 
 import butterknife.BindView;
 

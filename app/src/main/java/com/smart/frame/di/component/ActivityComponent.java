@@ -5,7 +5,7 @@ import android.app.Activity;
 
 import com.smart.frame.di.annotation.scope.ActivityScope;
 import com.smart.frame.di.module.ActivityModule;
-import com.smart.frame.ui.activity.MainActvitiy;
+import com.smart.frame.ui.fetures.activity.MainActvitiy;
 
 import dagger.Component;
 

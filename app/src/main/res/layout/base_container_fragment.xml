@@ -6,7 +6,7 @@
         android:id="@+id/container"
         style="@style/MatchParent" />
 
-    <com.smart.frame.ui.view.loading.LoadingView
+    <com.smart.frame.ui.view.basic.loading.LoadingView
         android:id="@+id/loading"
         style="@style/MatchParent"/>
 </FrameLayout>

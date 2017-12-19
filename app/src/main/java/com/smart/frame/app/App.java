@@ -1,6 +1,7 @@
 package com.smart.frame.app;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatDelegate;
 
 import com.smart.frame.di.component.AppComponent;
 import com.smart.frame.di.component.DaggerAppComponent;
@@ -19,6 +20,10 @@ public class App extends Application{
     private static App sInstance;
     private static AppComponent sAppComponent;
 
+    static {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -27,7 +32,7 @@ public class App extends Application{
         InitializeService.init(this);
     }
 
-    public static App getInstance(){
+    public static synchronized App getInstance(){
         return sInstance;
     }
 

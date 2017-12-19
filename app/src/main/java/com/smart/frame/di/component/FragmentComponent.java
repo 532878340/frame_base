@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 import com.smart.frame.di.annotation.scope.FragmentScope;
 import com.smart.frame.di.module.FragmentModule;
-import com.smart.frame.ui.fragment.IndexFragment;
+import com.smart.frame.ui.fetures.fragment.IndexFragment;
 
 import dagger.Component;
 

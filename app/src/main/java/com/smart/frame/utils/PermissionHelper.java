@@ -57,8 +57,7 @@ public final class PermissionHelper {
         List<String> deniedList = new ArrayList<>();
 
         for (String permission : permissions) {
-            if (ContextCompat.checkSelfPermission(App.getInstance(), permission) !=
-                    PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(App.getInstance(), permission) != PackageManager.PERMISSION_GRANTED) {
                 deniedList.add(permission);
             }
         }
