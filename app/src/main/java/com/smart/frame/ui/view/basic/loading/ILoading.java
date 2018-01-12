@@ -1,7 +1,8 @@
 package com.smart.frame.ui.view.basic.loading;
 
 /**
- * Created by Zijin on 2017/7/24.
+ * @author Zijin
+ * @date 2017/7/24
  * Email:info@zijinqianbao.com
  */
 
@@ -28,11 +29,13 @@ public interface ILoading {
 
     /**
      * 状态改变监听
+     * @param status
      */
     void onStatusChange(Status status);
 
     /**
      * 获取当前状态
+     * @return
      */
     Status getStatus();
 

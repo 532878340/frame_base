@@ -13,8 +13,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Zijin on 2017/7/24.
- * Email:info@zijinqianbao.com
+ * 加载视图
+ * @author Zijin
+ * @date 2017/7/24
  */
 
 public class LoadingView extends FrameLayout implements ILoading {
@@ -64,6 +65,7 @@ public class LoadingView extends FrameLayout implements ILoading {
 
     /**
      * 设置重试监听
+     * @param retryListener
      */
     public void setOnRetryListener(OnRetryListener retryListener) {
         this.mOnRetryListener = retryListener;
