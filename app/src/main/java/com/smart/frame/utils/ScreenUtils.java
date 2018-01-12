@@ -5,8 +5,9 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 /**
- * Created by Zijin on 2017/7/26.
- * Email:info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/7/26
  * 屏幕相关
  */
 

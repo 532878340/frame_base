@@ -8,11 +8,10 @@ import com.smart.frame.ui.view.basic.loading.LoadingView;
 import butterknife.BindView;
 
 /**
- * Description: activity基类，处理不同状态的view
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * activity基类，处理不同状态的view
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public abstract class RootActivity<P extends BasePresenter> extends BaseActivity<P>{
     @BindView(R.id.loading)
     protected LoadingView mLoadingView;

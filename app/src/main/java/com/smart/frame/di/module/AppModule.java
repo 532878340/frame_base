@@ -3,7 +3,7 @@ package com.smart.frame.di.module;
 import com.smart.frame.app.App;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.model.DataManager;
-import com.smart.frame.model.db.DBHelper;
+import com.smart.frame.model.db.DbHelper;
 import com.smart.frame.model.db.GreenDaoHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
 import com.smart.frame.model.http.helper.RetrofitHelper;
@@ -12,9 +12,9 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Description:全局AppModule
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * 全局AppModule
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @Module
@@ -39,13 +39,13 @@ public class AppModule {
 
     @ApplicationScope
     @Provides
-    DBHelper provideDBHelper(GreenDaoHelper greenDaoHelper){
+    DbHelper provideDBHelper(GreenDaoHelper greenDaoHelper){
         return greenDaoHelper;
     }
 
     @ApplicationScope
     @Provides
-    DataManager provideDataManager(HttpHelper httpHelper,DBHelper dbHelper){
+    DataManager provideDataManager(HttpHelper httpHelper,DbHelper dbHelper){
         return new DataManager(httpHelper,dbHelper);
     }
 }

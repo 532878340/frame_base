@@ -23,9 +23,9 @@ import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**
- * Description: 初始化Service
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * 初始化Service
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 public class InitializeService extends IntentService{
@@ -43,8 +43,9 @@ public class InitializeService extends IntentService{
      * 常用初始化
      */
     private static void syncInit(Context context){
-        ImageLoader.init(context);              //图片加载
-                                                //数据库
+        //图片加载
+        ImageLoader.init(context);
+        //数据库
     }
 
     /**
@@ -73,8 +74,10 @@ public class InitializeService extends IntentService{
     private void initSmartRefresh(){
         //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreater((context, layout) -> {
-            layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
-            return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
+            //全局设置主题颜色
+            layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
+            ////指定为经典Header，默认是 贝塞尔雷达Header
+            return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);
         });
         //设置全局的Footer构建器
         SmartRefreshLayout.setDefaultRefreshFooterCreater((context, layout) -> {

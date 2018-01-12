@@ -9,9 +9,9 @@ import com.smart.frame.model.DataManager;
 import dagger.Component;
 
 /**
- * Description: 全局AppComponent
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * 全局AppComponent
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @ApplicationScope

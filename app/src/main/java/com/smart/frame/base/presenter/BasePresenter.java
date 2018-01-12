@@ -6,11 +6,10 @@ import com.smart.frame.base.contract.IBaseView;
 import java.lang.ref.WeakReference;
 
 /**
- * Description: Presenter基类
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * Presenter基类
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public class BasePresenter<V extends IBaseView> implements IBasePresenter<V> {
     /**
      * 弱引用 view

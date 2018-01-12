@@ -9,15 +9,23 @@ import com.smart.frame.ui.fetures.fragment.IndexFragment;
 import dagger.Component;
 
 /**
- * Description: fragment component
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * fragment component
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @FragmentScope
 @Component(dependencies = AppComponent.class,modules = FragmentModule.class)
 public interface FragmentComponent {
+    /**
+     * 获取fragment
+     * @return
+     */
     Fragment getFragment();
 
+    /**
+     * 注入
+     * @param indexFragment
+     */
     void inject(IndexFragment indexFragment);
 }

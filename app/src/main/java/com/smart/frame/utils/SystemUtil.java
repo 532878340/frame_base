@@ -7,8 +7,8 @@ import java.io.FileReader;
 
 /**
  * Description: 系统工具类
- * Created by Zijin on 2017/12/19.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/12/19
  */
 
 public class SystemUtil {

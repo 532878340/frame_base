@@ -2,8 +2,8 @@ package com.smart.frame.utils.imageloader.config;
 
 /**
  * Description:资源文件前缀
- * Created by Zijin on 2017/8/2.
- * Email: info@zijinqianbao.com
+ * @author Gjm
+ * @date 2017/8/2
  */
 
 public interface Constants {

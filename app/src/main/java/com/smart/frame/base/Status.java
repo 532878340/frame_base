@@ -1,9 +1,9 @@
 package com.smart.frame.base;
 
 /**
- * Description: 主页状态枚举
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * 主页状态枚举
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 public enum  Status {

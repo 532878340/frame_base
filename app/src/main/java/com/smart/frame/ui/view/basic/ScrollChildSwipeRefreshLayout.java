@@ -7,8 +7,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * Created by Zijin on 2017/7/26.
- * Email:info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/7/26
  */
 
 public class ScrollChildSwipeRefreshLayout extends SwipeRefreshLayout {

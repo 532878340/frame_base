@@ -9,11 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description: FragmentPagerAdapter基类
- * Created by Zijin on 2017/7/28.
- * Email: info@zijinqianbao.com
+ * FragmentPagerAdapter基类
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
 

@@ -4,8 +4,9 @@ import android.graphics.Bitmap;
 
 /**
  * Description:图片下载回调
- * Created by Zijin on 2017/8/1.
- * Email: info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/8/1
  */
 
 public interface ImageDownloadCallBack {

@@ -27,8 +27,8 @@ import com.smart.frame.utils.imageloader.utils.ImageUtils;
 
 /**
  * Description: GlideLoader
- * Created by Zijin on 2017/7/31.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/7/31
  */
 
 public class GlideLoader extends BaseImageLoader {
@@ -174,25 +174,25 @@ public class GlideLoader extends BaseImageLoader {
      * 构建GlideRequest
      */
     private GlideRequest getRequestBuilder(ImageConfig config, GlideRequest requestBuilder) {
-        if (!TextUtils.isEmpty(config.getUrl())) {                                              //url
+        if (!TextUtils.isEmpty(config.getUrl())) {
             requestBuilder = requestBuilder.load(ImageUtils.appendUrl(config.getUrl()));
             Logger.d(TAG, "getUrl: " + config.getUrl());
-        } else if (!TextUtils.isEmpty(config.getFilePath())) {                                  //filepath
+        } else if (!TextUtils.isEmpty(config.getFilePath())) {
             requestBuilder = requestBuilder.load(ImageUtils.appendUrl(config.getFilePath()));
             Logger.d(TAG, "getFilePath: " + config.getFilePath());
-        } else if (!TextUtils.isEmpty(config.getContentProvider())) {                           //contentProvider
+        } else if (!TextUtils.isEmpty(config.getContentProvider())) {
             requestBuilder = requestBuilder.load(Uri.parse(config.getContentProvider()));
             Logger.d(TAG, "getContentProvider: " + config.getContentProvider());
-        } else if (config.getResId() > 0) {                                                     //resId
+        } else if (config.getResId() > 0) {
             requestBuilder = requestBuilder.load(config.getResId());
             Logger.d(TAG, "getResId: " + config.getResId());
-        } else if (config.getFile() != null) {                                                  //file
+        } else if (config.getFile() != null) {
             requestBuilder = requestBuilder.load(config.getFile());
             Logger.d(TAG, "getFile: " + config.getFile());
-        } else if (!TextUtils.isEmpty(config.getAssertspath())) {                               //assert
+        } else if (!TextUtils.isEmpty(config.getAssertspath())) {
             requestBuilder = requestBuilder.load(config.getAssertspath());
             Logger.d(TAG, "getAssertspath: " + config.getAssertspath());
-        } else if (!TextUtils.isEmpty(config.getRawPath())) {                                   //raw
+        } else if (!TextUtils.isEmpty(config.getRawPath())) {
             requestBuilder = requestBuilder.load(config.getRawPath());
             Logger.d(TAG, "getRawPath: " + config.getRawPath());
         }

@@ -1,24 +1,25 @@
 package com.smart.frame.model;
 
 import com.smart.frame.base.bean.Repo;
-import com.smart.frame.model.db.DBHelper;
+import com.smart.frame.model.db.DbHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
 
 import io.reactivex.Observable;
 
 /**
- * Description: model manager
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * model manager
+ * @author Gjm
+ * @date 2018/01/12
  */
 
-public class DataManager implements HttpHelper,DBHelper{
-    private HttpHelper mHttpHelper;
-    private DBHelper mDBHelper;
 
-    public DataManager(HttpHelper httpHelper, DBHelper dbHelper) {
+public class DataManager implements HttpHelper,DbHelper {
+    private HttpHelper mHttpHelper;
+    private DbHelper mDbHelper;
+
+    public DataManager(HttpHelper httpHelper, DbHelper dbHelper) {
         this.mHttpHelper = httpHelper;
-        this.mDBHelper = dbHelper;
+        this.mDbHelper = dbHelper;
     }
 
     @Override

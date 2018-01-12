@@ -8,8 +8,9 @@ import java.util.List;
 
 /**
  * Description: 过渡绘制监控上下文，包括应用标示符，用户uid，网络类型，卡慢判断阙值，Log保存位置
- * Created by Zijin on 2017/12/19.
- * Email: info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/12/19
  */
 
 public class AppBlockCanaryContext extends BlockCanaryContext{
@@ -18,6 +19,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return Qualifier which can specify this installation, like version + flavor.
      */
+    @Override
     public String provideQualifier() {
         return "unknown";
     }
@@ -27,6 +29,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return user id
      */
+    @Override
     public String provideUid() {
         return "uid";
     }
@@ -36,6 +39,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return {@link String} like 2G, 3G, 4G, wifi, etc.
      */
+    @Override
     public String provideNetworkType() {
         return "unknown";
     }
@@ -46,6 +50,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return monitor last duration (in hour)
      */
+    @Override
     public int provideMonitorDuration() {
         return -1;
     }
@@ -56,6 +61,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return threshold in mills
      */
+    @Override
     public int provideBlockThreshold() {
         return 1000;
     }
@@ -70,6 +76,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return dump interval (in millis)
      */
+    @Override
     public int provideDumpInterval() {
         return provideBlockThreshold();
     }
@@ -79,6 +86,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return path of log files
      */
+    @Override
     public String providePath() {
         return "/blockcanary/";
     }
@@ -88,6 +96,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return true if need, else if not need.
      */
+    @Override
     public boolean displayNotification() {
         return true;
     }
@@ -99,6 +108,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      * @param dest files compressed
      * @return true if compression is successful
      */
+    @Override
     public boolean zip(File[] src, File dest) {
         return false;
     }
@@ -108,6 +118,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @param zippedFile zipped file
      */
+    @Override
     public void upload(File zippedFile) {
         throw new UnsupportedOperationException();
     }
@@ -119,6 +130,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return null if simply concern only package with process name.
      */
+    @Override
     public List<String> concernPackages() {
         return null;
     }
@@ -128,6 +140,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return true if filter, false it not.
      */
+    @Override
     public boolean filterNonConcernStack() {
         return false;
     }
@@ -137,6 +150,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return return null if you don't need white-list filter.
      */
+    @Override
     public List<String> provideWhiteList() {
         LinkedList<String> whiteList = new LinkedList<>();
         whiteList.add("org.chromium");
@@ -148,6 +162,7 @@ public class AppBlockCanaryContext extends BlockCanaryContext{
      *
      * @return true if delete, false it not.
      */
+    @Override
     public boolean deleteFilesInWhiteList() {
         return true;
     }

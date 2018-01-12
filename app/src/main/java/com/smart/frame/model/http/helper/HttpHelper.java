@@ -6,9 +6,9 @@ import com.smart.frame.base.bean.Repo;
 import io.reactivex.Observable;
 
 /**
- * Description: retrofit helper
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * retrofit helper
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 public interface HttpHelper {

@@ -1,28 +1,29 @@
 apply plugin: 'com.android.application'
 
+def cfg = rootProject.ext.android
+def libraries = rootProject.ext.dependencies
+def urls = rootProject.ext.urls
 android {
-    compileSdkVersion rootProject.ext.compileSdk
-    buildToolsVersion rootProject.ext.buildTools
+    compileSdkVersion cfg.compileSdk
     defaultConfig {
-        applicationId rootProject.ext.appId
-        minSdkVersion rootProject.ext.minSdk
-        targetSdkVersion rootProject.ext.targetSdk
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        applicationId cfg.appId
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
+        versionCode cfg.versionCode
+        versionName cfg.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         debug{
-            buildConfigField "boolean","DEBUG_ENABLE","true"
-            buildConfigField "String","API_URL","\"http://106.14.112.233/app/\""
+            debuggable true
+            buildConfigField "String", "API_URL", "\"${urls.debug}\""
 
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
         }
 
         release {
-            buildConfigField "boolean","DEBUG_ENABLE","false"
-            buildConfigField "String","API_URL","\"http://106.14.112.233/app/\""
+            buildConfigField "String", "API_URL", "\"${urls.release}\""
 
             postprocessing {
                 removeUnusedCode true
@@ -50,40 +51,41 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.support}"
     testImplementation 'junit:junit:4.12'
-    implementation "com.android.support.constraint:constraint-layout:${rootProject.ext.constraint}"             //constraint-layout
 
-    implementation "com.android.support:design:${rootProject.ext.support}"                                      //design
-    compile "com.android.support:recyclerview-v7:${rootProject.ext.support}"                                    //recycleview
-    compile "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit}"                                       //retrofit
-    compile "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofit}"
-    compile "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofit}"
+    implementation "com.android.support:appcompat-v7:${cfg.support}"
+    implementation "com.android.support:design:${cfg.support}"                                            //design
+    compile "com.android.support:recyclerview-v7:${cfg.support}"                                          //recycleview
 
-    compile "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid}"                                       //rxandroid
-    compile "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava}"
-    compile "com.jakewharton.rxbinding2:rxbinding:${rootProject.ext.rxbinding}"                                 //RxBinding
-    compile "com.trello.rxlifecycle2:rxlifecycle:${rootProject.ext.rxlifecycle}"                                //rxlifecycle
-    compile "com.trello.rxlifecycle2:rxlifecycle-components:${rootProject.ext.rxlifecycle}"
-    compile "com.trello.rxlifecycle2:rxlifecycle-android:${rootProject.ext.rxlifecycle}"
-    compile "com.tbruyelle.rxpermissions2:rxpermissions:${rootProject.ext.rxpermissions}"                       //rxpermissions
+    implementation "com.android.support.constraint:constraint-layout:${libraries.constraint}"             //constraint-layout
+    compile "com.squareup.retrofit2:retrofit:${libraries.retrofit}"                                       //retrofit
+    compile "com.squareup.retrofit2:adapter-rxjava2:${libraries.retrofit}"
+    compile "com.squareup.retrofit2:converter-gson:${libraries.retrofit}"
 
-    compile "com.google.dagger:dagger:${rootProject.ext.dagger}"                                                //dagger
-    annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.dagger}"
-    compile "com.jakewharton:butterknife:${rootProject.ext.butterknife}"                                        //butterknife
-    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknife}"
+    compile "io.reactivex.rxjava2:rxandroid:${libraries.rxandroid}"                                       //rxandroid
+    compile "io.reactivex.rxjava2:rxjava:${libraries.rxjava}"
+    compile "com.jakewharton.rxbinding2:rxbinding:${libraries.rxbinding}"                                 //RxBinding
+    compile "com.trello.rxlifecycle2:rxlifecycle:${libraries.rxlifecycle}"                                //rxlifecycle
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:${libraries.rxlifecycle}"
+    compile "com.trello.rxlifecycle2:rxlifecycle-android:${libraries.rxlifecycle}"
+    compile "com.tbruyelle.rxpermissions2:rxpermissions:${libraries.rxpermissions}"                       //rxpermissions
 
-    compile "com.github.ybq:Android-SpinKit:${rootProject.ext.spinkit}"                                         //SpinKit
-    compile "com.github.bumptech.glide:glide:${rootProject.ext.glide}"                                          //Glide
-    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"
+    compile "com.google.dagger:dagger:${libraries.dagger}"                                                //dagger
+    annotationProcessor "com.google.dagger:dagger-compiler:${libraries.dagger}"
+    compile "com.jakewharton:butterknife:${libraries.butterknife}"                                        //butterknife
+    annotationProcessor "com.jakewharton:butterknife-compiler:${libraries.butterknife}"
 
-    compile "com.yqritc:recyclerview-flexibledivider:${rootProject.ext.flexibledivider}"                        //flexibledivider
-    compile "com.scwang.smartrefresh:SmartRefreshLayout:${rootProject.ext.smartRefreshLayout}"                  //SmartRefreshLayout
+    compile "com.github.ybq:Android-SpinKit:${libraries.spinkit}"                                         //SpinKit
+    compile "com.github.bumptech.glide:glide:${libraries.glide}"                                          //Glide
+    annotationProcessor "com.github.bumptech.glide:compiler:${libraries.glide}"
 
-    compile "com.orhanobut:logger:${rootProject.ext.logger}"                                                    //logger
-    compile "com.tencent.bugly:crashreport:${rootProject.ext.bugly}"                                            //bugly
-    debugCompile "com.github.markzhai:blockcanary-android:${rootProject.ext.blockcanary}"                       //blockcanary
-    releaseCompile "com.github.markzhai:blockcanary-no-op:${rootProject.ext.blockcanary}"
-    debugCompile "com.squareup.leakcanary:leakcanary-android:${rootProject.ext.leakcanary}"                     //leakcanary
-    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:1.5.4"
+    compile "com.yqritc:recyclerview-flexibledivider:${libraries.flexibledivider}"                        //flexibledivider
+    compile "com.scwang.smartrefresh:SmartRefreshLayout:${libraries.smartRefreshLayout}"                  //SmartRefreshLayout
+
+    compile "com.orhanobut:logger:${libraries.logger}"                                                    //logger
+    compile "com.tencent.bugly:crashreport:${libraries.bugly}"                                            //bugly
+    debugCompile "com.github.markzhai:blockcanary-android:${libraries.blockcanary}"                       //blockcanary
+    releaseCompile "com.github.markzhai:blockcanary-no-op:${libraries.blockcanary}"
+    debugCompile "com.squareup.leakcanary:leakcanary-android:${libraries.leakcanary}"                     //leakcanary
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${libraries.leakcanary}"
 }

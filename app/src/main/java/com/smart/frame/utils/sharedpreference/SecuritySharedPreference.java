@@ -16,7 +16,9 @@ import java.util.Set;
 
 /**
  * 自动加密SharedPreference
- * Created by Max on 2016/11/23.
+ *
+ * @author Max
+ * @date 2016/11/23
  */
 
 public class SecuritySharedPreference implements SharedPreferences {

@@ -10,7 +10,9 @@ import butterknife.BindView;
 
 /**
  * Description:
- * Created by Zijin on 2017/8/4.
+ *
+ * @author Zijin
+ * @date 2017/8/4
  * Email: info@zijinqianbao.com
  */
 

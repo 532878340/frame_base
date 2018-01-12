@@ -10,8 +10,8 @@ import com.smart.frame.R;
 
 /**
  * Description: Toast弹窗
- * Created by Zijin on 2017/7/27.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/7/27
  */
 
 public class ToastManager {

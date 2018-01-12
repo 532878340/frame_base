@@ -13,7 +13,9 @@ import com.smart.frame.R;
 
 
 /**
- * Created by Zijin on 2017/7/24.
+ *
+ * @author Zijin
+ * @date 2017/7/24
  * Email:info@zijinqianbao.com
  */
 

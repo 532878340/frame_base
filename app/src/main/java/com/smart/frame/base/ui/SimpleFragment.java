@@ -18,18 +18,24 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Description: 顶层无MVP fragment
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * 顶层无MVP fragment
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public abstract class SimpleFragment extends RxFragment {
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
 
     protected Context mContext;
 
-    private View mRootView;//根容器
-    protected FrameLayout mContainer;//content容器
+    /**
+     * 根容器
+     */
+    private View mRootView;
+
+    /**
+     * content容器
+     */
+    protected FrameLayout mContainer;
     private Unbinder mUnbinder;
 
     @Override
@@ -99,6 +105,7 @@ public abstract class SimpleFragment extends RxFragment {
 
     /**
      * 资源布局
+     * @return
      */
     @LayoutRes
     protected abstract int getLayoutRes();

@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from: "configs.gradle"
 buildscript {
     
     repositories {
@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha04'
+        classpath 'com.android.tools.build:gradle:3.0.1'
 
         //λ表达式
         classpath 'me.tatarka:gradle-retrolambda:3.6.1'
@@ -26,35 +26,4 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-    appId = "com.smart.frame"
-    versionCode = 1
-    versionName = "1.0"
-    compileSdk = 27
-    minSdk = 19
-    targetSdk = 27
-    support = "27.0.1"
-    buildTools = "27.0.1"
-
-    constraint = "1.0.2"
-    retrofit = "2.3.0"
-    rxandroid = "2.0.1"
-    rxjava = "2.1.5"
-    rxbinding = "2.0.0"
-    dagger = "2.11"
-    butterknife = "8.8.1"
-    rxlifecycle = "2.2.0"
-    spinkit = "1.1.0"
-    glide = "4.3.1"
-    rxpermissions = "0.9.4@aar"
-
-    flexibledivider = "1.4.0"
-    smartRefreshLayout = "1.0.3"
-
-    logger = "2.1.1"
-    bugly = "2.6.6.1"
-    blockcanary = "1.5.0"
-    leakcanary = "1.5.4"
 }

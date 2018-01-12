@@ -3,8 +3,8 @@ package com.smart.frame.utils;
 import android.content.res.Resources;
 
 /**
- * Created by Zijin on 2017/7/27.
- * Email:info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/7/27
  */
 
 public final class DimensUtils {

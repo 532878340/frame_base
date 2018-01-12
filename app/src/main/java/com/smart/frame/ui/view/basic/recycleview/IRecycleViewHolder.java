@@ -4,7 +4,8 @@ import android.support.annotation.IdRes;
 import android.view.View;
 
 /**
- * Created by Zijin on 2017/7/13.
+ * @author Zijin
+ * @date 2017/7/13
  */
 
 public interface IRecycleViewHolder {

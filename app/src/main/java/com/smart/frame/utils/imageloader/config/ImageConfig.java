@@ -14,8 +14,8 @@ import java.io.File;
 
 /**
  * Description:加载配置
- * Created by Zijin on 2017/8/1.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/8/1
  */
 
 public class ImageConfig {
@@ -197,12 +197,18 @@ public class ImageConfig {
          * Uri中指定图片数据	    data:mime/type;base64,	数据类型必须符合 rfc2397规定 (仅支持 UTF-8)
          */
 
-        private Context context;                //上下文
-        private String url;                     //图片路径
-        private View target;                    //目标视图
-        private int errorResId;                 //错误图
-        private boolean asBitmap;               //只获取bitmap
-        private String filePath;                //文件路径
+        //上下文
+        private Context context;
+        //图片路径
+        private String url;
+        //目标视图
+        private View target;
+        //错误图
+        private int errorResId;
+        //只获取bitmap
+        private boolean asBitmap;
+        //文件路径
+        private String filePath;
         private boolean isGif;                  //是否为gif
         private float thumbnail;                //缩略图比例
         private File file;                      //文件

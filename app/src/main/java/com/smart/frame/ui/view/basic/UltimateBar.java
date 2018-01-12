@@ -17,8 +17,9 @@ import com.smart.frame.utils.ScreenUtils;
 
 /**
  * Description: 透明状态栏工具类
- * Created by Zijin on 2017/8/7.
- * Email: info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/8/7
  */
 
 public class UltimateBar {

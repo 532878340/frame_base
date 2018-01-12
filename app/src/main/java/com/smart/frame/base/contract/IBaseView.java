@@ -3,11 +3,10 @@ package com.smart.frame.base.contract;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
- * Description: mvp base view
- * Created by Zijin on 2017/12/19.
- * Email: info@zijinqianbao.com
+ * mvp base view
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public interface IBaseView extends IContract.IView{
     /**
      * 加载中

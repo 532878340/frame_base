@@ -17,9 +17,9 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import javax.inject.Inject;
 
 /**
- * Description: MVP activity基类
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * MVP activity基类
+ * @author Gjm
+ * @date 2018/01/12
  */
 public abstract class BaseActivity<P extends BasePresenter> extends SimpleActivity implements IBaseView {
     @Inject

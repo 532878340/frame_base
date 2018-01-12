@@ -10,11 +10,10 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 
 /**
- * Description: 处理rx相关的presenter
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * 处理rx相关的presenter
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public class RxPresenter<V extends IBaseView> extends BasePresenter<V>{
     /**
      * 数据源

@@ -2,15 +2,13 @@ package com.smart.frame.utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 
-import com.smart.frame.R;
-
 /**
- * Created by Zijin on 2017/7/25.
- * Email:info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/7/25
  */
 
 public final class ActivityUtils {

@@ -2,8 +2,8 @@ package com.smart.frame.utils.imageloader.config;
 
 /**
  * Description:缩放模式
- * Created by Zijin on 2017/8/2.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/8/2
  */
 
 public interface ScaleMode {

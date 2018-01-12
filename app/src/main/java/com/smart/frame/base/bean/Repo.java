@@ -1,10 +1,10 @@
 package com.smart.frame.base.bean;
 
 /**
- * Created by Zijin on 2017/7/12.
  * 响应基类
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public class Repo<T> {
     private String description = "this is description";
     private String code;

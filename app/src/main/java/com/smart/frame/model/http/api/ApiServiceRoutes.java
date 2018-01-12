@@ -1,10 +1,9 @@
 package com.smart.frame.model.http.api;
 
 /**
- * Description: route 常量
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
- * {@link ApiService}
+ * route 常量
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 public final class ApiServiceRoutes {

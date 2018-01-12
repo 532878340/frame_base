@@ -13,8 +13,8 @@ import java.io.InputStream;
 
 /**
  * Description: 全局Glide module
- * Created by Zijin on 2017/7/31.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/7/31
  */
 
 @GlideModule
@@ -24,7 +24,8 @@ public class BasicAppGlideModule extends AppGlideModule {
      */
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
-        builder.setMemoryCache(new LruResourceCache(10 * 1024 * 1024));//设置内存限制
+        //设置内存限制
+        builder.setMemoryCache(new LruResourceCache(10 * 1024 * 1024));
     }
 
     @Override

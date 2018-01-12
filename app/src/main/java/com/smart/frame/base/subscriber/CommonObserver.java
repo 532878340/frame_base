@@ -9,11 +9,10 @@ import io.reactivex.observers.DefaultObserver;
 import retrofit2.HttpException;
 
 /**
- * Description: rx subscriber
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * rx subscriber
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public class CommonObserver<T> extends DefaultObserver<T> {
     /**
      * view

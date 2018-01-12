@@ -2,8 +2,8 @@ package com.smart.frame.utils.imageloader.config;
 
 /**
  * Description: 图片加载优先级
- * Created by Zijin on 2017/8/1.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/8/1
  */
 
 public interface PriorityMode {

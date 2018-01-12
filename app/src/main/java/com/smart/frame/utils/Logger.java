@@ -8,7 +8,7 @@ import com.smart.frame.manager.constants.Configs;
 /**
  * description：日志工具
  * author：JimG on 17/5/4 14:41
- * e-mail：info@zijinqianbao@qq.com
+ * @author huangqin
  */
 
 public class Logger {

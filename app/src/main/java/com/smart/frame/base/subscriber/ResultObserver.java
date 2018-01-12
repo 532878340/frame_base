@@ -4,11 +4,10 @@ import com.smart.frame.base.bean.Repo;
 import com.smart.frame.base.contract.IBaseView;
 
 /**
- * Description: 通用请求处理
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * 通用请求处理
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public abstract class ResultObserver<T> extends CommonObserver<Repo<T>> {
     public ResultObserver(IBaseView view) {
         super(view);

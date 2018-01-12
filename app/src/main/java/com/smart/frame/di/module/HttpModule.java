@@ -15,10 +15,11 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Description: http module
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * http module
+ * @author Gjm
+ * @date 2018/01/12
  */
+
 @Module
 public class HttpModule {
     @Provides

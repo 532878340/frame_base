@@ -4,9 +4,8 @@ import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleFragment;
 
 /**
- * Description:
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/8/4
  */
 
 public class AccountFragment extends SimpleFragment {

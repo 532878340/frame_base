@@ -9,9 +9,9 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 
 /**
- * Description: retrofit helper
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * retrofit helper
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @ApplicationScope
@@ -24,7 +24,7 @@ public class RetrofitHelper implements HttpHelper {
     }
 
     @Override
-    public Observable<Repo> platformIndex() {
+    public Observable<Repo<String>> platformIndex() {
         return mApiService.platformIndex();
     }
 }

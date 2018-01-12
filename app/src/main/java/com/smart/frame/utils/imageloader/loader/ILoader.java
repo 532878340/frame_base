@@ -7,9 +7,8 @@ import com.bumptech.glide.MemoryCategory;
 import com.smart.frame.utils.imageloader.config.ImageConfig;
 
 /**
- * Description:
- * Created by Zijin on 2017/7/31.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/7/31
  */
 
 public interface ILoader {

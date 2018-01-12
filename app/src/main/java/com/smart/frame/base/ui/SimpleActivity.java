@@ -18,11 +18,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Description: 顶层无MVP activity
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * 顶层无MVP activity
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public abstract class SimpleActivity extends RxAppCompatActivity {
     protected Context mCtx;
     private FrameLayout mContainer;

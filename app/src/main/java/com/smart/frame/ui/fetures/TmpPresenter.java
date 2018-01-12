@@ -7,7 +7,9 @@ import com.smart.frame.model.DataManager;
 
 /**
  * Description:
- * Created by Zijin on 2017/12/19.
+ *
+ * @author Zijin
+ * @date 2017/12/19
  * Email: info@zijinqianbao.com
  */
 

@@ -23,8 +23,9 @@ import java.lang.reflect.Proxy;
 
 /**
  * Description:图片工具类
- * Created by Zijin on 2017/8/1.
- * Email: info@zijinqianbao.com
+ *
+ * @author Zijin
+ * @date 2017/8/1
  */
 
 public class ImageUtils {

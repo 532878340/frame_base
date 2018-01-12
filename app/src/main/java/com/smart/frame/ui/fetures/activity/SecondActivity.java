@@ -7,11 +7,9 @@ import com.smart.frame.ui.fetures.fragment.IndexFragment;
 import com.smart.frame.utils.ActivityUtils;
 
 /**
- * Description:
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ *
+ * @author huangqin
  */
-
 public class SecondActivity extends SimpleActivity{
     @Override
     protected int getLayoutRes() {

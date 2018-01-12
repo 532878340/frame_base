@@ -10,11 +10,10 @@ import com.smart.frame.ui.fetures.activity.MainActvitiy;
 import dagger.Component;
 
 /**
- * Description: activity component
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * activity component
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 @ActivityScope
 @Component(dependencies = AppComponent.class,modules = ActivityModule.class)
 public interface ActivityComponent {

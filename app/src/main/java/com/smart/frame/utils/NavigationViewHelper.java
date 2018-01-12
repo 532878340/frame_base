@@ -9,9 +9,9 @@ import android.util.Log;
 import java.lang.reflect.Field;
 
 /**
- * Description: BottomNavigationView 工具，解决item超过3个自动shiftMode的问题
- * Created by Zijin on 2017/7/28.
- * Email: info@zijinqianbao.com
+ * BottomNavigationView 工具，解决item超过3个自动shiftMode的问题
+ * @author Zijin
+ * @date 2017/7/28
  */
 
 public class NavigationViewHelper {

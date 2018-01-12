@@ -9,9 +9,9 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Description: activity module
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * activity module
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @Module

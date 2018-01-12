@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description: Activity容器
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * Activity容器
+ * @author Gjm
+ * @date 2018/01/12
  */
+
 
 public final class ActivityContainer {
     private List<Activity> mActivityList;

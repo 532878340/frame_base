@@ -15,7 +15,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Zijin on 2017/7/31.
+ * @author Zijin
+ * @date 2017/7/31
  * Email: info@zijinqianbao.com
  */
 

@@ -5,13 +5,13 @@ import com.smart.frame.di.annotation.scope.ApplicationScope;
 import javax.inject.Inject;
 
 /**
- * Description:greendao helper
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * greendao helper
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @ApplicationScope
-public class GreenDaoHelper implements DBHelper{
+public class GreenDaoHelper implements DbHelper {
     @Inject
     public GreenDaoHelper() {
     }

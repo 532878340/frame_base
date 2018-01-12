@@ -11,9 +11,9 @@ import com.smart.frame.manager.ActivityContainer;
 import com.smart.frame.utils.imageloader.ImageLoader;
 
 /**
- * Description: Application对象
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * Application对象
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 public class App extends Application{

@@ -12,8 +12,8 @@ import java.io.File;
 
 /**
  * Description: Intent工具类
- * Created by Zijin on 2017/7/27.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/7/27
  */
 
 public final class IntentUtils {

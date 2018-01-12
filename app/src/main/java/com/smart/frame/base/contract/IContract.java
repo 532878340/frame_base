@@ -1,11 +1,10 @@
 package com.smart.frame.base.contract;
 
 /**
- * Description: base contract
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * mvp base contract
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public interface IContract {
     interface IPresenter{
     }

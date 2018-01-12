@@ -13,9 +13,8 @@ import com.smart.frame.utils.imageloader.loader.ImageDownloadCallBack;
 
 /**
  * Description: 图片加载
- * Created by Zijin on 2017/7/31.
- * Email: info@zijinqianbao.com
- * https://github.com/libin7278/ImageLoader
+ * @author Zijin
+ * @date 2017/7/31
  */
 
 @SuppressWarnings("unused")

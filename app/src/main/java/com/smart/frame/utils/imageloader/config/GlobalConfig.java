@@ -11,8 +11,7 @@ import com.smart.frame.utils.imageloader.loader.glide.GlideLoader;
 
 /**
  * Description: ImageLoader配置
- * Created by Zijin on 2017/7/31.
- * Email: info@zijinqianbao.com
+ * @date 2017/7/31
  */
 
 public class GlobalConfig {

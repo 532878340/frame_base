@@ -9,9 +9,9 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Description: fragment module
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * fragment module
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 @Module

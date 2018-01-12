@@ -18,21 +18,32 @@ import java.util.ArrayList;
 import butterknife.BindView;
 
 /**
- * Description: 首页
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * 主页面
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public class MainActvitiy extends SimpleActivity {
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     @BindView(R.id.navigationView)
     BottomNavigationView mNavigationView;
 
-    private static final int TAB_INDEX = 0;     //首页
-    private static final int TAB_INVEST = 1;    //投资
-    private static final int TAB_QUESTION = 2;  //问题
-    private static final int TAB_ACCOUNT = 3;   //账户
+    /**
+     * 首页
+     */
+    private static final int TAB_INDEX = 0;
+    /**
+     * 投资页
+     */
+    private static final int TAB_INVEST = 1;
+    /**
+     * 问题页
+     */
+    private static final int TAB_QUESTION = 2;
+    /**
+     * 我的账户
+     */
+    private static final int TAB_ACCOUNT = 3;
 
     @Override
     protected int getLayoutRes() {

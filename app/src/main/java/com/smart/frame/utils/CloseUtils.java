@@ -5,8 +5,8 @@ import java.io.IOException;
 
 /**
  * Description: 关闭工具
- * Created by Zijin on 2017/8/1.
- * Email: info@zijinqianbao.com
+ * @author Zijin
+ * @date 2017/8/1
  */
 
 public class CloseUtils {

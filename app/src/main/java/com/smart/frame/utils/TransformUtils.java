@@ -5,9 +5,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Created by Zijin on 2017/7/25.
- * Email:info@zijinqianbao.com
  * 线程调度工具类
+ * @author Zijin
+ * @date 2017/7/25
  */
 
 public class TransformUtils {

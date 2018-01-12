@@ -19,11 +19,10 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import javax.inject.Inject;
 
 /**
- * Description: MVP fragment基类
- * Created by Zijin on 2017/8/4.
- * Email: info@zijinqianbao.com
+ * MVP fragment基类
+ * @author Gjm
+ * @date 2018/01/12
  */
-
 public abstract class BaseFragment<P extends BasePresenter> extends SimpleFragment implements IBaseView {
     @Inject
     protected P mPresenter;

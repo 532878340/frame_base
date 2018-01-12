@@ -4,15 +4,15 @@ import com.smart.frame.BuildConfig;
 
 /**
  * 配置类
- * Created by Zijin on 2017/8/3.
- * Email: info@zijinqianbao.com
+ * @author Gjm
+ * @date 2018/01/12
  */
 
 public class Configs {
     /**
      * 是否为调试模式
      */
-    public static final boolean DEBUG_ENABLE = BuildConfig.DEBUG_ENABLE;
+    public static final boolean DEBUG_ENABLE = BuildConfig.DEBUG;
 
     /**
      * 根目录
