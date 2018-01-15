@@ -62,8 +62,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends SimpleActivi
     }
 
     @Override
-    public void useNightMode(boolean isNight) {
-        AppCompatDelegate.setDefaultNightMode(isNight ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+    public void useNightMode(boolean night) {
+        AppCompatDelegate.setDefaultNightMode(night ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         recreate();
     }
 

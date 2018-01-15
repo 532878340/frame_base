@@ -1,10 +1,13 @@
 package com.smart.frame.ui.fetures.fragment;
 
+import android.content.Intent;
 import android.widget.Button;
 
+import com.jakewharton.rxbinding2.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleFragment;
+import com.smart.frame.ui.fetures.user.activity.LoginActivity;
 
 import butterknife.BindView;
 
@@ -32,5 +35,7 @@ public class IndexFragment extends SimpleFragment{
     @Override
     protected void initViewOrData() {
         Logger.d("initViewOrData 创建" + toString());
+
+        RxView.clicks(cancel).subscribe(integer -> startActivity(new Intent(mContext, LoginActivity.class)));
     }
 }

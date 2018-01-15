@@ -4,9 +4,9 @@ import com.smart.frame.app.App;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.model.DataManager;
 import com.smart.frame.model.db.DbHelper;
-import com.smart.frame.model.db.GreenDaoHelper;
+import com.smart.frame.model.db.impl.GreenDaoHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
-import com.smart.frame.model.http.helper.RetrofitHelper;
+import com.smart.frame.model.http.helper.impl.RetrofitHelper;
 
 import dagger.Module;
 import dagger.Provides;

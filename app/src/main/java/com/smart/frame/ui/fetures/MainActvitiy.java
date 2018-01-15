@@ -1,4 +1,4 @@
-package com.smart.frame.ui.fetures.activity;
+package com.smart.frame.ui.fetures;
 
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -23,6 +23,7 @@ import butterknife.BindView;
  * @date 2018/01/12
  */
 public class MainActvitiy extends SimpleActivity {
+
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     @BindView(R.id.navigationView)

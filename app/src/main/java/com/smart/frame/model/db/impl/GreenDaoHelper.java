@@ -1,6 +1,7 @@
-package com.smart.frame.model.db;
+package com.smart.frame.model.db.impl;
 
 import com.smart.frame.di.annotation.scope.ApplicationScope;
+import com.smart.frame.model.db.DbHelper;
 
 import javax.inject.Inject;
 

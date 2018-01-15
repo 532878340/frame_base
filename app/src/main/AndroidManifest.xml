@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.fetures.activity.MainActvitiy">
+        <activity android:name=".ui.fetures.MainActvitiy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,7 @@
         <!-- 初始化service -->
         <service android:name=".app.InitializeService"/>
 
-        <activity android:name=".ui.fetures.activity.SecondActivity"/>
+        <activity android:name=".ui.fetures.user.activity.LoginActivity"/>
     </application>
 
 </manifest>

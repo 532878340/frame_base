@@ -31,7 +31,7 @@ public interface IBaseView extends IContract.IView{
     /**
      * 是否使用夜间模式
      */
-    void useNightMode(boolean isNight);
+    void useNightMode(boolean night);
 
     /**
      * 绑定生命周期

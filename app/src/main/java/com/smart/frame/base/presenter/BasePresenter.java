@@ -16,12 +16,14 @@ public class BasePresenter<V extends IBaseView> implements IBasePresenter<V> {
      */
     private WeakReference<V> mWeakReference;
 
+    protected V mView;
+
     public V getView() {
         if (mWeakReference != null) {
-            return mWeakReference.get();
+            mView = mWeakReference.get();
         }
 
-        return null;
+        return mView;
     }
 
     @Override
