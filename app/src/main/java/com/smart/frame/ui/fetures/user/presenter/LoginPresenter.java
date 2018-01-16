@@ -25,7 +25,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.ILoginView> implem
         }else if(TextUtils.isEmpty(loginReq.getPwd())){
             mView.showMessage("密码不能为空");
         }else{
-            mDataManager.login(loginReq.getLoginName(),loginReq.getPwd());
+            wrapFlowable(mDataManager.login(loginReq.getLoginName(),loginReq.getPwd())).subscribe();
         }
     }
 }

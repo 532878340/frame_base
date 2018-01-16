@@ -7,7 +7,7 @@ import com.smart.frame.utils.TransformUtils;
 
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 
 /**
  * 处理rx相关的presenter
@@ -25,10 +25,13 @@ public class RxPresenter<V extends IBaseView> extends BasePresenter<V>{
     }
 
     /**
-     * 常用Observable build
+     * 常用Flowable build
+     * @param flowable
+     * @param <T>
+     * @return
      */
-    protected <T> Observable<T> wrapObservable(Observable<T> observable){
-        return observable.throttleFirst(Configs.THROTTLE_DELAY,TimeUnit.MILLISECONDS)
+    protected <T> Flowable<T> wrapFlowable(Flowable<T> flowable){
+        return flowable.throttleFirst(Configs.THROTTLE_DELAY,TimeUnit.MILLISECONDS)
                 .compose(getView().bindToLife())
                 .compose(TransformUtils.defaultScheduler());
     }
