@@ -61,10 +61,6 @@
     <!-- 字体大小 -->
     <dimen name="txt_18">18sp</dimen>
 
-    <!-- 透明状态栏适配 -->
-    <dimen name="toolbar_padding_top">0dp</dimen>
-
-
     <!-- ####################### strings ######################## -->
 
     <string name="net_error">网络异常，点击重试</string>

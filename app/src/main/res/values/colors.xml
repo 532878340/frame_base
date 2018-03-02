@@ -15,4 +15,7 @@
     <!-- 灰色 -->
     <color name="gray_d1">#D1D1D1</color>
     <color name="gray_e3">#E3E3E3</color>
+
+    <!-- 分割线颜色 -->
+    <color name="divider">@color/gray_d1</color>
 </resources>
