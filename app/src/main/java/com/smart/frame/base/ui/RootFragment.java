@@ -1,5 +1,9 @@
 package com.smart.frame.base.ui;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
+
 import com.smart.frame.R;
 import com.smart.frame.base.Status;
 import com.smart.frame.base.presenter.BasePresenter;
@@ -20,6 +24,15 @@ public abstract class RootFragment<P extends BasePresenter> extends BaseFragment
      * 记录当前状态
      */
     protected Status mStatus = Status.SUCCESS;
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if(initLoadingUI()){
+            initRequestLoading();
+            mLoadingView.setOnRetryListener(() -> initRequestLoading());
+        }
+    }
 
     @Override
     public void onStatusMain() {
@@ -43,5 +56,19 @@ public abstract class RootFragment<P extends BasePresenter> extends BaseFragment
             mStatus = Status.FAIL;
             mLoadingView.fail();
         }
+    }
+
+    /**
+     * 配置初始化页面是否显示Loading页面
+     */
+    protected boolean initLoadingUI(){
+        return false;
+    }
+
+    /**
+     * 初始化请求操作
+     * {@link #initLoadingUI()}
+     */
+    protected void initRequestLoading(){
     }
 }

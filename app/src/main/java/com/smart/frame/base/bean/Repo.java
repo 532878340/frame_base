@@ -17,7 +17,7 @@ public class Repo<T> {
      * 判断请求操作是否成功
      */
     public boolean isOk() {
-        return "000000".equals(code);
+        return "000000".equals(code) || "2000078".equals(code);
     }
 
     public String getDescription() {

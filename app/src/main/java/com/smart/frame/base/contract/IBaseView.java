@@ -9,6 +9,11 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
  */
 public interface IBaseView extends IContract.IView{
     /**
+     * 初始化
+     */
+    void onStatusInit();
+
+    /**
      * 加载中
      */
     void onStatusLoading();

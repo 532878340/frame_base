@@ -16,7 +16,7 @@ public class BasePresenter<V extends IBaseView> implements IBasePresenter<V> {
      */
     private WeakReference<V> mWeakReference;
 
-    protected V mView;
+    private V mView;
 
     public V getView() {
         if (mWeakReference != null) {

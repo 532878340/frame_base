@@ -27,10 +27,20 @@ public class Configs {
     /**
      * 防抖设置
      */
-    public static final long THROTTLE_DELAY = 2000;
+    public static final long THROTTLE_DELAY = 1000;
+
+    /**
+     * 倒计时时间
+     */
+    public static final long INTERVAL_TIMEOUT = 10 * 1000;
 
     /**
      * Bugly App ID
      */
     public static final String APP_ID_BUGLY = "cced09bba0";
+
+    /**
+     * DES加密盐
+     */
+    public static final String CREDENTIALS_SALT = "12345678";
 }

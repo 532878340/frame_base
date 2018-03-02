@@ -6,7 +6,7 @@
     <color name="foreground">@color/white</color>
 
     <!-- 背景色 -->
-    <color name="background">#F2F2F2</color>
+    <color name="background">#F2F1F0</color>
 
     <!-- 白色 -->
     <color name="white">@android:color/white</color>
@@ -50,10 +50,10 @@
     <!-- ####################### dimens ######################## -->
 
     <!-- 加载更多进度条大小 -->
-    <dimen name="load_more_progressbar">25dp</dimen>
+    <dimen name="load_more_progressbar">50pt</dimen>
 
     <!-- 通用margin值 -->
-    <dimen name="margin_normal">15dp</dimen>
+    <dimen name="margin_normal">30pt</dimen>
 
     <!-- 通用padding值 -->
     <dimen name="padding_normal">@dimen/margin_normal</dimen>
@@ -67,7 +67,6 @@
 
     <!-- ####################### strings ######################## -->
 
-    <string name="loading_more">正在加载中。。。</string>
     <string name="net_error">网络异常，点击重试</string>
 
     <!-- ####################### styles ######################## -->

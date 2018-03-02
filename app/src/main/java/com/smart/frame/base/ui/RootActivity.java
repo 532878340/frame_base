@@ -22,6 +22,23 @@ public abstract class RootActivity<P extends BasePresenter> extends BaseActivity
     protected Status mStatus = Status.SUCCESS;
 
     @Override
+    protected void onViewCreated() {
+        super.onViewCreated();
+        if(initLoadingUI()){
+            initRequestLoading();
+            mLoadingView.setOnRetryListener(() -> initRequestLoading());
+        }
+    }
+
+    @Override
+    public void onStatusInit() {
+        if(mStatus != Status.INIT){
+            mStatus = Status.INIT;
+            mLoadingView.init();
+        }
+    }
+
+    @Override
     public void onStatusMain() {
         if(mStatus != Status.SUCCESS){
             mStatus = Status.SUCCESS;
@@ -43,5 +60,19 @@ public abstract class RootActivity<P extends BasePresenter> extends BaseActivity
             mStatus = Status.FAIL;
             mLoadingView.fail();
         }
+    }
+
+    /**
+     * 配置初始化页面是否显示Loading页面
+     */
+    protected boolean initLoadingUI(){
+        return true;
+    }
+
+    /**
+     * 初始化请求操作
+     * {@link #initLoadingUI()}
+     */
+    protected void initRequestLoading(){
     }
 }

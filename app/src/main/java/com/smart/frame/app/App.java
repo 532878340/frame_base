@@ -12,11 +12,12 @@ import com.smart.frame.utils.imageloader.ImageLoader;
 
 /**
  * Application对象
+ *
  * @author Gjm
  * @date 2018/01/12
  */
 
-public class App extends Application{
+public class App extends Application {
     private static App sInstance;
     private static AppComponent sAppComponent;
 
@@ -32,15 +33,15 @@ public class App extends Application{
         InitializeService.init(this);
     }
 
-    public static synchronized App getInstance(){
+    public static synchronized App getInstance() {
         return sInstance;
     }
 
     /**
      * 获取全局AppComponent
      */
-    public static AppComponent getAppComponent(){
-        if(sAppComponent == null){
+    public static AppComponent getAppComponent() {
+        if (sAppComponent == null) {
             sAppComponent = DaggerAppComponent.builder()
                     .appModule(new AppModule(sInstance))
                     .httpModule(new HttpModule())
@@ -64,7 +65,7 @@ public class App extends Application{
     /**
      * 退出应用
      */
-    public void exit(){
+    public void exit() {
         ActivityContainer.getInstance().finishAll();
     }
 }

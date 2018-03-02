@@ -1,9 +1,15 @@
 package com.smart.frame.utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
+
+import com.smart.frame.R;
 
 /**
  *
@@ -48,6 +54,25 @@ public final class ActivityUtils {
         } else {
             // 存在则弹出在它上面的所有fragment，并显示对应fragment
             act.getSupportFragmentManager().popBackStack(tag, 0);
+        }
+    }
+
+
+    public static void startAct(Context ctx,Class<?> clazz){
+        startAct(ctx,clazz,null);
+    }
+
+    /**
+     * Activity跳转
+     */
+    public static void startAct(Context ctx, Class<?> clazz, Bundle bundle){
+        Intent intent = new Intent(ctx,clazz);
+        if(bundle != null){
+            intent.putExtras(bundle);
+        }
+        ctx.startActivity(intent);
+        if(ctx instanceof Activity){
+            ((Activity)ctx).overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
         }
     }
 }

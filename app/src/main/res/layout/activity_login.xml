@@ -1,36 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="30pt">
 
     <EditText
         android:id="@+id/edtName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="用户名"
-        tools:layout_editor_absoluteY="53dp" />
+        style="@style/edt_white_gray"
+        android:drawableLeft="@drawable/icon_phone"
+        android:hint="@string/login_name_hint"
+        android:inputType="number"
+        android:maxLength="11" />
 
-    <EditText
-        android:id="@+id/edtPwd"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:hint="密码"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <RelativeLayout
+        android:id="@id/rela1"
+        style="@style/WidthFill"
+        android:layout_below="@id/edtName"
+        android:layout_marginTop="30pt">
+
+        <EditText
+            android:id="@+id/edtPwd"
+            style="@style/edt_white_gray"
+            android:drawableLeft="@drawable/icon_pwd"
+            android:hint="@string/login_pwd_hint"
+            android:inputType="textPassword"
+            android:maxLength="20" />
+
+        <CheckBox
+            android:id="@+id/cbEye"
+            style="@style/WrapContent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20pt"
+            android:button="@drawable/sel_eye" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvForgetPwd"
+        style="@style/label_light_28"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/rela1"
+        android:layout_marginTop="30pt"
+        android:text="@string/forget_pwd" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="登录"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        style="@style/btn_yellow"
+        android:layout_below="@id/tvForgetPwd"
+        android:layout_marginTop="40pt"
+        android:enabled="false"
+        android:text="@string/login" />
+
+    <RelativeLayout
+        android:id="@+id/btnRegister"
+        style="@style/WidthFill"
+        android:layout_below="@id/btnLogin"
+        android:layout_marginTop="30pt"
+        android:background="@drawable/shape_yellow_line">
+
+        <TextView
+            android:id="@id/rela1"
+            style="@style/label_yellow_32"
+            android:layout_centerInParent="true"
+            android:text="@string/login_tips" />
+
+        <ImageView
+            style="@style/WrapContent"
+            android:layout_margin="10pt"
+            android:layout_toLeftOf="@id/rela1"
+            android:src="@drawable/icon_redpackages" />
+    </RelativeLayout>
+
+</RelativeLayout>

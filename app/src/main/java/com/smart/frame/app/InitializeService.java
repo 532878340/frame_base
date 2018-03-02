@@ -17,6 +17,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.smart.frame.R;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.utils.AppBlockCanaryContext;
+import com.smart.frame.utils.DensityHelper;
 import com.smart.frame.utils.SystemUtil;
 import com.smart.frame.utils.imageloader.ImageLoader;
 import com.squareup.leakcanary.LeakCanary;
@@ -46,6 +47,7 @@ public class InitializeService extends IntentService{
         //图片加载
         ImageLoader.init(context);
         //数据库
+        DensityHelper.getInstance().active(context);
     }
 
     /**

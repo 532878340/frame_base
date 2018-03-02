@@ -4,4 +4,15 @@
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#FF4081</color>
 
+    <!-- 黄色 -->
+    <color name="yellow_normal">#FFBA00</color>
+    <color name="yellow_pressed">#D49D13</color>
+    <color name="yellow_alpha">#80FFBA00</color>
+
+    <!-- 橙色 -->
+    <color name="orange_normal">#FC7E00</color>
+
+    <!-- 灰色 -->
+    <color name="gray_d1">#D1D1D1</color>
+    <color name="gray_e3">#E3E3E3</color>
 </resources>

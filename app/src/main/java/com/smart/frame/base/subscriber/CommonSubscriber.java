@@ -3,11 +3,10 @@ package com.smart.frame.base.subscriber;
 import android.text.TextUtils;
 
 import com.orhanobut.logger.Logger;
+import com.smart.frame.base.bean.Repo;
 import com.smart.frame.base.contract.IBaseView;
 
-import org.reactivestreams.Subscription;
-
-import io.reactivex.FlowableSubscriber;
+import io.reactivex.subscribers.ResourceSubscriber;
 import retrofit2.HttpException;
 
 /**
@@ -16,7 +15,7 @@ import retrofit2.HttpException;
  * @author Gjm
  * @date 2018/1/16
  */
-public class CommonFlow<T> implements FlowableSubscriber<T> {
+public abstract class CommonSubscriber<T> extends ResourceSubscriber<Repo<T>> {
     /**
      * view
      */
@@ -28,29 +27,40 @@ public class CommonFlow<T> implements FlowableSubscriber<T> {
     /**
      * 是否显示错误布局
      */
-    protected boolean showErrorState;
+    private boolean showErrorState;
 
-    public CommonFlow(IBaseView view) {
-        this(view,true);
+    public CommonSubscriber(IBaseView view) {
+        this(view,false);
     }
 
-    public CommonFlow(IBaseView view, boolean showErrorState) {
+    public CommonSubscriber(IBaseView view, boolean showErrorState) {
         this(view,null,showErrorState);
     }
 
-    public CommonFlow(IBaseView view, String errorMsg, boolean showErrorState) {
+    public CommonSubscriber(IBaseView view, String errorMsg, boolean showErrorState) {
         this.mView = view;
         this.mErrorMsg = errorMsg;
         this.showErrorState = showErrorState;
     }
 
     @Override
-    public void onSubscribe(Subscription s) {
-    }
+    public void onNext(Repo<T> repo) {
+        if(mView == null){
+            return;
+        }
 
-    @Override
-    public void onNext(T t) {
+        Logger.d(repo);
 
+        if(repo.isOk()){
+            mView.onStatusMain();
+            onSuccess(repo.getData());
+        }else if(showErrorState){
+            mView.onStatusError();
+        }else{
+            mView.showMessage(repo.getDescription());
+            mView.onStatusMain();
+            onIllegal(repo);
+        }
     }
 
     @Override
@@ -69,11 +79,20 @@ public class CommonFlow<T> implements FlowableSubscriber<T> {
         }
         if (showErrorState) {
             mView.onStatusError();
+        }else{
+            mView.onStatusMain();
         }
     }
 
     @Override
     public void onComplete() {
+    }
 
+    public abstract void onSuccess(T resp);
+
+    /**
+     * 子类有需要可单独处理
+     */
+    protected void onIllegal(Repo<T> repo){
     }
 }

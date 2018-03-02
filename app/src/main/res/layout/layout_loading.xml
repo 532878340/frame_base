@@ -5,14 +5,25 @@
     <FrameLayout
         android:id="@+id/errorLayout"
         style="@style/MatchParent"
-        android:visibility="gone">
+        android:visibility="visible">
 
-        <TextView
+        <LinearLayout
             style="@style/WrapContent"
             android:layout_gravity="center"
-            android:drawablePadding="@dimen/padding_normal"
-            android:drawableTop="@drawable/icon_error_network"
-            android:text="@string/loading_more" />
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="300pt"
+                android:layout_height="300pt"
+                android:src="@drawable/icon_error_network" />
+
+            <TextView
+                style="@style/WrapContent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_normal"
+                android:text="@string/net_error" />
+        </LinearLayout>
+
     </FrameLayout>
 
     <com.github.ybq.android.spinkit.SpinKitView
@@ -21,6 +32,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"
-        app:SpinKit_Color="@color/colorAccent" />
+        app:SpinKit_Color="@color/yellow_normal" />
 </merge>

@@ -39,4 +39,9 @@
         android:layout_marginTop="100dp"
         android:hint="dfsf" />
 
+    <TextView
+        android:layout_width="375pt"
+        android:layout_height="100pt"
+        android:background="#f00" />
+
 </LinearLayout>

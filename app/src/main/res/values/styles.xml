@@ -8,4 +8,134 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- 通用视图  -->
+    <style name="base_view_100">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100pt</item>
+    </style>
+
+    <!-- 白色背景 灰色边框 -->
+    <style name="edt_white_gray" parent="base_view_100">
+        <item name="android:background">@drawable/shape_rect_white_gray</item>
+        <item name="android:textColorHint">@color/gray_d1</item>
+        <item name="android:textSize">32pt</item>
+        <item name="android:paddingLeft">20pt</item>
+        <item name="android:drawablePadding">10pt</item>
+        <item name="android:paddingRight">20pt</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- ######################## 按钮 ########################## -->
+    <style name="btn_yellow" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88pt</item>
+        <item name="android:background">@drawable/sel_yellow_radius_4</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- ######################## 文本 ########################## -->
+    <!-- 黑色通用 -->
+    <style name="label_dark" parent="WrapContent">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">30pt</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- 灰色通用 -->
+    <style name="label_minor" parent="label_dark">
+        <item name="android:textColor">@color/gray_minor</item>
+    </style>
+
+    <!-- 淡灰色通用 -->
+    <style name="label_light" parent="label_dark">
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <!-- 黄色通用 -->
+    <style name="label_yellow" parent="label_dark">
+        <item name="android:textColor">@color/yellow_normal</item>
+    </style>
+
+    <!-- 橙色通用 -->
+    <style name="label_orange" parent="label_dark">
+        <item name="android:textColor">@color/orange_normal</item>
+    </style>
+
+    <!-- 黑色 28pt -->
+    <style name="label_dark_28" parent="label_dark">
+        <item name="android:textSize">28pt</item>
+    </style>
+
+    <!-- 黑色 32pt -->
+    <style name="label_dark_32" parent="label_dark">
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- 黑色 34pt -->
+    <style name="label_dark_34" parent="label_dark">
+        <item name="android:textSize">34pt</item>
+    </style>
+
+    <!-- 灰色 28pt -->
+    <style name="label_minor_28" parent="label_minor">
+        <item name="android:textSize">28pt</item>
+    </style>
+
+    <!-- 灰色 32pt -->
+    <style name="label_minor_32" parent="label_minor">
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- 灰色 34pt -->
+    <style name="label_minor_34" parent="label_minor">
+        <item name="android:textSize">34pt</item>
+    </style>
+
+    <!-- 淡灰色 28pt -->
+    <style name="label_light_28" parent="label_light">
+        <item name="android:textSize">28pt</item>
+    </style>
+
+    <!-- 淡灰色 32pt -->
+    <style name="label_light_32" parent="label_light">
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- 淡灰色 34pt -->
+    <style name="label_light_34" parent="label_light">
+        <item name="android:textSize">34pt</item>
+    </style>
+
+    <!-- 黄色 28pt -->
+    <style name="label_yellow_28" parent="label_yellow">
+        <item name="android:textSize">28pt</item>
+    </style>
+
+    <!-- 黄色 32pt -->
+    <style name="label_yellow_32" parent="label_yellow">
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- 黄色 34pt -->
+    <style name="label_yellow_34" parent="label_yellow">
+        <item name="android:textSize">34pt</item>
+    </style>
+
+    <!-- 橙色 28pt -->
+    <style name="label_orange_28" parent="label_orange">
+        <item name="android:textSize">28pt</item>
+    </style>
+
+    <!-- 橙色 32pt -->
+    <style name="label_orange_32" parent="label_orange">
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- 橙色 34pt -->
+    <style name="label_orange_34" parent="label_orange">
+        <item name="android:textSize">34pt</item>
+    </style>
+
 </resources>

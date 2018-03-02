@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="30pt">
+
+    <EditText
+        android:id="@+id/edtName"
+        style="@style/edt_white_gray"
+        android:drawableLeft="@drawable/icon_phone"
+        android:hint="@string/login_name_hint"
+        android:inputType="number"
+        android:maxLength="11" />
+
+    <RelativeLayout
+        android:id="@id/rela1"
+        style="@style/WidthFill"
+        android:layout_below="@id/edtName"
+        android:layout_marginTop="30pt">
+
+        <EditText
+            android:id="@+id/edtPwd"
+            style="@style/edt_white_gray"
+            android:drawableLeft="@drawable/icon_pwd"
+            android:hint="@string/register_pwd_hint"
+            android:inputType="textPassword"
+            android:maxLength="20" />
+
+        <CheckBox
+            android:id="@+id/cbEye"
+            style="@style/WrapContent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20pt"
+            android:button="@drawable/sel_eye" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/rela2"
+        style="@style/WidthFill"
+        android:layout_below="@id/rela1"
+        android:layout_marginTop="30pt">
+
+        <EditText
+            android:id="@+id/edtCode"
+            style="@style/edt_white_gray"
+            android:drawableLeft="@drawable/icon_sms"
+            android:hint="@string/input_code_hint"
+            android:inputType="number"
+            android:maxLength="6" />
+
+        <TextView
+            android:id="@+id/tvGetCode"
+            style="@style/label_orange_28"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24pt"
+            android:text="@string/get_code" />
+
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/chbInvite"
+        style="@style/label_orange_28"
+        android:layout_below="@id/rela2"
+        android:layout_marginTop="30pt"
+        android:button="@drawable/sel_register_arrow"
+        android:paddingLeft="10pt"
+        android:text="@string/invite_phone" />
+
+    <EditText
+        android:id="@+id/edtInvite"
+        style="@style/edt_white_gray"
+        android:layout_below="@id/chbInvite"
+        android:layout_marginTop="30pt"
+        android:drawableLeft="@drawable/icon_invitor"
+        android:hint="@string/invite_phone_hint"
+        android:inputType="number"
+        android:maxLength="11"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/btn_yellow"
+        android:layout_below="@id/edtInvite"
+        android:layout_marginTop="50pt"
+        android:enabled="false"
+        android:text="@string/register" />
+
+    <LinearLayout
+        android:id="@id/rela3"
+        style="@style/WrapContent"
+        android:layout_below="@id/btnRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30pt">
+
+        <CheckBox
+            android:id="@+id/chbProtocol"
+            style="@style/label_light"
+            android:button="@drawable/checkbox"
+            android:checked="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="10pt"
+            android:text="@string/protocol_tips"
+            android:textSize="24pt" />
+
+        <TextView
+            android:id="@+id/tvProtocol"
+            style="@style/label_dark"
+            android:text="@string/protocol_usr_name"
+            android:textSize="24pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/WrapContent"
+        android:layout_below="@id/rela3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80pt">
+
+        <TextView
+            style="@style/label_light_28"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/exists_act" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            style="@style/label_orange_28"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10pt"
+            android:text="@string/login_now" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -7,6 +7,10 @@ package com.smart.frame.base;
  */
 
 public enum  Status {
+    /**
+     * 初始化
+     */
+    INIT,
 
     /**
      * 加载中

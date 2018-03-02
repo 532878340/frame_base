@@ -6,7 +6,6 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import com.smart.frame.R;
 import com.smart.frame.manager.ActivityContainer;
@@ -19,12 +18,12 @@ import butterknife.ButterKnife;
 
 /**
  * 顶层无MVP activity
+ *
  * @author Gjm
  * @date 2018/01/12
  */
 public abstract class SimpleActivity extends RxAppCompatActivity {
     protected Context mCtx;
-    private FrameLayout mContainer;
 
     @BindView(R.id.toolBar)
     protected ToolBarHelperView mToolBar;
@@ -37,10 +36,8 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
         ActivityContainer.getInstance().add(this);
 
         mCtx = this;
-        mContainer = findViewById(R.id.container);
-
         if (getLayoutRes() != 0) {
-            View.inflate(mCtx, getLayoutRes(), mContainer);
+            View.inflate(mCtx, getLayoutRes(), findViewById(R.id.container));
         }
 
         ButterKnife.bind(this);
@@ -88,6 +85,7 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
 
     /**
      * 重写此方法以修改状态栏
+     *
      * @param isDrawer 是否为侧滑DrawerLayout
      */
     protected final void enableTranslucentStatus(boolean isDrawer) {

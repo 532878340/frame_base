@@ -34,8 +34,6 @@ public class IndexFragment extends SimpleFragment{
 
     @Override
     protected void initViewOrData() {
-        Logger.d("initViewOrData 创建" + toString());
-
         RxView.clicks(cancel).subscribe(integer -> startActivity(new Intent(mContext, LoginActivity.class)));
     }
 }

@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">frame_base</string>
+    <string name="app_name">紫金钱包</string>
+    
+    <!-- 用户 -->
+    <string name="login_name_hint">请输入手机号</string>
+    <string name="login_pwd_hint">请输入登录密码</string>
+    <string name="login">登录</string>
+    <string name="forget_pwd">忘记密码？</string>
+    <string name="login_tips">注册领红包</string>
+    <string name="register_pwd_hint">请设置登录密码</string>
+    <string name="input_code_hint">请输入验证码</string>
+    <string name="get_code"><u>获取验证码</u></string>
+    <string name="invite_phone">邀请人手机号码</string>
+    <string name="invite_phone_hint">请输入邀请人手机号码</string>
+    <string name="register">注册</string>
+    <string name="protocol_tips">我已阅读并同意</string>
+    <string name="protocol_usr_name">《紫金钱包用户服务协议》</string>
+    <string name="exists_act">已有账号？</string>
+    <string name="login_now">马上登录</string>
+
 </resources>

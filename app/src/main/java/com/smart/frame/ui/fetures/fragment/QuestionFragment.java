@@ -22,6 +22,5 @@ public class QuestionFragment extends SimpleFragment {
 
     @Override
     protected void initViewOrData() {
-        Logger.d("initViewOrData 创建" + toString());
     }
 }

@@ -3,17 +3,17 @@
     style="@style/WrapContent"
     android:background="@drawable/backgroud_toast"
     android:baselineAligned="false"
-    android:paddingBottom="10dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="20pt"
+    android:paddingLeft="40pt"
+    android:paddingRight="40pt"
+    android:paddingTop="20pt">
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="40pt"
+        android:layout_height="40pt"
         android:layout_gravity="center_vertical"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10pt"
         android:visibility="gone" />
 
     <TextView

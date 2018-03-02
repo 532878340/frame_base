@@ -6,6 +6,8 @@ import android.app.Activity;
 import com.smart.frame.di.annotation.scope.ActivityScope;
 import com.smart.frame.di.module.ActivityModule;
 import com.smart.frame.ui.fetures.MainActvitiy;
+import com.smart.frame.ui.fetures.user.activity.LoginActivity;
+import com.smart.frame.ui.fetures.user.activity.RegisterActivity;
 
 import dagger.Component;
 
@@ -20,4 +22,8 @@ public interface ActivityComponent {
     Activity getActivity();
 
     void inject(MainActvitiy activity);
+
+    void inject(LoginActivity activity);
+
+    void inject(RegisterActivity activity);
 }

@@ -75,6 +75,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends SimpleActivi
     }
 
     @Override
+    public void onStatusInit() {
+    }
+
+    @Override
     public void onStatusLoading() {
     }
 

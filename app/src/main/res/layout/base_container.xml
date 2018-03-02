@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MatchParent"
-    android:orientation="vertical">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent">
 
-    <com.smart.frame.ui.view.basic.ToolBarHelperView
-        android:id="@+id/toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:visibility="gone" />
+    <LinearLayout
+        style="@style/MatchParent"
+        android:orientation="vertical">
 
-    <FrameLayout
-        style="@style/MatchParent">
+        <com.smart.frame.ui.view.basic.ToolBarHelperView
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:visibility="gone" />
 
-        <FrameLayout
-            android:id="@+id/container"
-            style="@style/MatchParent" />
+        <FrameLayout style="@style/MatchParent">
 
-        <com.smart.frame.ui.view.basic.loading.LoadingView
-            android:id="@+id/loading"
-            style="@style/MatchParent"/>
+            <FrameLayout
+                android:id="@+id/container"
+                style="@style/MatchParent" />
 
-    </FrameLayout>
-</LinearLayout>
+            <com.smart.frame.ui.view.basic.loading.LoadingView
+                android:id="@+id/loading"
+                style="@style/MatchParent" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

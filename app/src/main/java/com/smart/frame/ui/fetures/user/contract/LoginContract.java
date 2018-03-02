@@ -12,7 +12,6 @@ import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
  */
 public interface LoginContract{
     interface ILoginView extends IBaseView{
-
     }
 
     interface ILoginPresenter extends IBasePresenter<ILoginView>{
