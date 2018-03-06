@@ -18,7 +18,6 @@ import io.reactivex.Observable;
  * @date 2018/01/12
  */
 
-
 public class DataManager implements HttpHelper,DbHelper {
     private HttpHelper mHttpHelper;
     private DbHelper mDbHelper;
@@ -46,5 +45,15 @@ public class DataManager implements HttpHelper,DbHelper {
     @Override
     public Flowable<Repo<Object>> sendSms(Map<String, String> param) {
         return mHttpHelper.sendSms(param);
+    }
+
+    @Override
+    public Flowable<Repo<Object>> findPwdVerify(Map<String, String> param) {
+        return mHttpHelper.findPwdVerify(param);
+    }
+
+    @Override
+    public Flowable<Repo<Object>> resetLoginPwd(Map<String, String> param) {
+        return mHttpHelper.resetLoginPwd(param);
     }
 }

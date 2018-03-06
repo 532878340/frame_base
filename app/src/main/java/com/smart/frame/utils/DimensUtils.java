@@ -44,8 +44,8 @@ public final class DimensUtils {
      * pt转px 此处不能使用 Resources.getSystem()
      */
     public static final int ptToPx(float value){
-//        DisplayMetrics metrics = App.getInstance().getResources().getDisplayMetrics();
-        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        DisplayMetrics metrics = App.getInstance().getResources().getDisplayMetrics();
+//        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, value, metrics);
 }
 }

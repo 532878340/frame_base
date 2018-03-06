@@ -20,7 +20,6 @@ import com.smart.frame.ui.fetures.user.bean.req.SendSmsReq;
 import com.smart.frame.ui.fetures.user.contract.RegisterContract;
 import com.smart.frame.ui.fetures.user.presenter.RegisterPresenter;
 import com.smart.frame.utils.ActivityUtils;
-import com.smart.frame.utils.CyptoUtils;
 import com.smart.frame.utils.ValidateUtil;
 import com.smart.frame.utils.ViewUtil;
 
@@ -119,7 +118,7 @@ public class RegisterActivity extends RootActivity<RegisterPresenter> implements
                 } else {
                     RegisterReq registerReq = new RegisterReq();
                     registerReq.setPhone(mLoginName);
-                    registerReq.setPassword(CyptoUtils.getInstance().encodeMD5(mLoginPwd));
+                    registerReq.setPassword(mLoginPwd);
                     registerReq.setSmsCode(mCode);
                     registerReq.setReferrer(ViewUtil.getText(mEdtInvite));
                     mPresenter.register(registerReq);
@@ -158,6 +157,11 @@ public class RegisterActivity extends RootActivity<RegisterPresenter> implements
 
     @Override
     public void countDownTimer(long delay) {
-        mTvGetCode.setText("重新获取(" + delay / 1000 + "s)");
+        mTvGetCode.setText(String.format(getString(R.string.code_count_down),delay / 1000));
+    }
+
+    @Override
+    public void jumpToAccount() {
+
     }
 }

@@ -10,6 +10,7 @@
     <string name="register_pwd_hint">请设置登录密码</string>
     <string name="input_code_hint">请输入验证码</string>
     <string name="get_code"><u>获取验证码</u></string>
+    <string name="code_count_down">重新获取(%1$ds)</string>
     <string name="invite_phone">邀请人手机号码</string>
     <string name="invite_phone_hint">请输入邀请人手机号码</string>
     <string name="register">注册</string>
@@ -17,5 +18,15 @@
     <string name="protocol_usr_name">《紫金钱包用户服务协议》</string>
     <string name="exists_act">已有账号？</string>
     <string name="login_now">马上登录</string>
+    <string name="mobile">手机号</string>
+    <string name="mobile_hint">请输入手机号</string>
+    <string name="verify_code">验证码</string>
+    <string name="verify_code_hint">请输入短信验证码</string>
+    <string name="next">下一步</string>
+    <string name="new_pwd">新密码</string>
+    <string name="new_pwd_hint">请输入6-20位密码</string>
+    <string name="cfm_pwd">确认密码</string>
+    <string name="cfm_pwd_hint">请重复输入新密码</string>
+    <string name="complete">完成</string>
 
 </resources>

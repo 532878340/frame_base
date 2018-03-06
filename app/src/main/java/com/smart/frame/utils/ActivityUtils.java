@@ -66,13 +66,13 @@ public final class ActivityUtils {
 
 
     public static void startAct(Context ctx,Class<?> clazz){
-        startAct(ctx,clazz,null);
+        startAct(ctx,clazz,null,false);
     }
 
     /**
      * Activity跳转
      */
-    public static void startAct(Context ctx, Class<?> clazz, Bundle bundle){
+    public static void startAct(Context ctx, Class<?> clazz, Bundle bundle,boolean finish){
         Intent intent = new Intent(ctx,clazz);
         if(bundle != null){
             intent.putExtras(bundle);
@@ -80,6 +80,9 @@ public final class ActivityUtils {
         ctx.startActivity(intent);
         if(ctx instanceof Activity){
             ((Activity)ctx).overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
+            if(finish){
+                ((Activity)ctx).finish();
+            }
         }
     }
 

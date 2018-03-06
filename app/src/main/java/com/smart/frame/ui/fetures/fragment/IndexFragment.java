@@ -8,6 +8,7 @@ import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleFragment;
 import com.smart.frame.ui.fetures.user.activity.LoginActivity;
+import com.smart.frame.ui.fetures.user.activity.ResetLoginPwdActivity;
 
 import butterknife.BindView;
 

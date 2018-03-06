@@ -29,10 +29,14 @@
     <style name="btn_yellow" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">88pt</item>
-        <item name="android:background">@drawable/sel_yellow_radius_4</item>
+        <item name="android:background">@drawable/sel_yellow_gray_rect</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">30pt</item>
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <style name="btn_yellow_radius" parent="btn_yellow">
+        <item name="android:background">@drawable/sel_yellow_radius_4</item>
     </style>
 
     <!-- ######################## 文本 ########################## -->
@@ -138,5 +142,48 @@
     <style name="label_orange_34" parent="label_orange">
         <item name="android:textSize">34pt</item>
     </style>
+
+    <!-- ######################## 布局 ########################## -->
+    <!-- MatchParent 竖直对齐 -->
+    <style name="lin_match_vertical" parent="MatchParent">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- MatchParent 水平对齐 -->
+    <style name="lin_match_horizontal" parent="MatchParent">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- WrapContent 竖直对齐 -->
+    <style name="lin_wrap_vertical" parent="WrapContent">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- WrapContent 水平对齐 -->
+    <style name="lin_wrap_horizontal" parent="WrapContent">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- WidthFill 竖直对齐 -->
+    <style name="lin_width_vertical" parent="WidthFill">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- WidthFill 水平对齐 -->
+    <style name="lin_width_horizontal" parent="WidthFill">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- WidthFill 竖直对齐 -->
+    <style name="lin_height_vertical" parent="HeightFill">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- WidthFill 水平对齐 -->
+    <style name="lin_height_horizontal" parent="HeightFill">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- ######################## View ########################## -->
 
 </resources>

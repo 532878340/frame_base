@@ -89,10 +89,11 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
             case R.id.btnLogin://登录
                 LoginReq loginReq = new LoginReq();
                 loginReq.setLoginName(mLoginName);
-                loginReq.setPwd(CyptoUtils.getInstance().encodeMD5(mLoginPwd));
+                loginReq.setPwd(mLoginPwd);
                 mPresenter.login(loginReq);
                 break;
             case R.id.tvForgetPwd://忘记密码
+                ActivityUtils.startAct(mCtx,ForgetLoginPwdActivity.class);
                 break;
             case R.id.btnRegister://注册
                 ActivityUtils.startAct(mCtx,RegisterActivity.class);
@@ -108,5 +109,10 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
     @Override
     protected void initRequestLoading() {
         mPresenter.initRequestLoading();
+    }
+
+    @Override
+    public void jumpToAccount() {
+
     }
 }

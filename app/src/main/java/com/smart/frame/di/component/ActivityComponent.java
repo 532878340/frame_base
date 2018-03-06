@@ -6,8 +6,10 @@ import android.app.Activity;
 import com.smart.frame.di.annotation.scope.ActivityScope;
 import com.smart.frame.di.module.ActivityModule;
 import com.smart.frame.ui.fetures.MainActvitiy;
+import com.smart.frame.ui.fetures.user.activity.ForgetLoginPwdActivity;
 import com.smart.frame.ui.fetures.user.activity.LoginActivity;
 import com.smart.frame.ui.fetures.user.activity.RegisterActivity;
+import com.smart.frame.ui.fetures.user.activity.ResetLoginPwdActivity;
 
 import dagger.Component;
 
@@ -26,4 +28,8 @@ public interface ActivityComponent {
     void inject(LoginActivity activity);
 
     void inject(RegisterActivity activity);
+
+    void inject(ForgetLoginPwdActivity activity);
+
+    void inject(ResetLoginPwdActivity activity);
 }

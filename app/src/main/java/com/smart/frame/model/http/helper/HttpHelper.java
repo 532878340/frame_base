@@ -35,4 +35,14 @@ public interface HttpHelper {
      * 发送短信验证码
      */
     Flowable<Repo<Object>> sendSms(Map<String,String> param);
+
+    /**
+     * 找回密码验证
+     */
+    Flowable<Repo<Object>> findPwdVerify(Map<String,String> param);
+
+    /**
+     * 重置登录密码
+     */
+    Flowable<Repo<Object>> resetLoginPwd(Map<String,String> param);
 }

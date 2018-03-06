@@ -106,12 +106,12 @@ public class LabelEditRow extends LabelTextRow {
             //EditText相关属性
             TypedArray styledEdit = getContext().obtainStyledAttributes(attrs, R.styleable.LabelEditRow);
 
-            int exactlyWidth = styled.getDimensionPixelSize(R.styleable.LabelEditRow_labelExactlyWidth, INVALID);
+            int exactlyWidth = styledEdit.getDimensionPixelSize(R.styleable.LabelEditRow_labelExactlyWidth, INVALID);
             if (exactlyWidth != INVALID) {
                 mLabel.setMinWidth(exactlyWidth);
             }
 
-            boolean alignRight = styled.getBoolean(R.styleable.LabelEditRow_labelValueRight, false);
+            boolean alignRight = styledEdit.getBoolean(R.styleable.LabelEditRow_labelValueRight, false);
             if (alignRight) {
                 mDesc.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
             }
@@ -132,7 +132,7 @@ public class LabelEditRow extends LabelTextRow {
                 mDesc.setHint(hint);
             }
 
-            int hintColor = styled.getColor(R.styleable.LabelEditRow_labelHintColor, INVALID);
+            int hintColor = styledEdit.getColor(R.styleable.LabelEditRow_labelHintColor, INVALID);
             if (hintColor != INVALID) {
                 mDesc.setHintTextColor(hintColor);
             }

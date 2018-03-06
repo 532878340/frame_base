@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.smart.frame.R;
@@ -93,5 +94,12 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
      */
     protected final void enableTranslucentStatus(boolean isDrawer) {
         new UltimateBar(this).setTransparentBar(isDrawer);
+    }
+
+    /**
+     * 获取参数
+     */
+    protected String getBundleValue(String key){
+        return getIntent().getExtras() == null ? null : getIntent().getExtras().getString(key);
     }
 }

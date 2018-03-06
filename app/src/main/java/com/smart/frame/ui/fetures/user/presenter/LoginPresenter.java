@@ -6,6 +6,7 @@ import com.smart.frame.model.DataManager;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
+import com.smart.frame.utils.CyptoUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,11 +30,11 @@ public class LoginPresenter extends RxPresenter<LoginContract.ILoginView> implem
     public void login(LoginReq loginReq) {
         Map<String,String> param = new HashMap<>();
         param.put("loginName",loginReq.getLoginName());
-        param.put("password",loginReq.getPwd());
+        param.put("password", CyptoUtils.getInstance().encodeMD5(loginReq.getPwd()));
         performRequestLoading(mDataManager.login(param).delay(3000, TimeUnit.MILLISECONDS), new CommonSubscriber<LoginResp>(getView()) {
             @Override
             public void onSuccess(LoginResp resp) {
-
+                getView().jumpToAccount();
             }
         });
     }

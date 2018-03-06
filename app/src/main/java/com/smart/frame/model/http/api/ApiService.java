@@ -42,4 +42,11 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(ApiServiceRoutes.SENDSMS)
     Flowable<Repo<Object>> sendSms(@FieldMap Map<String,String> param);
+
+    @GET(ApiServiceRoutes.FIND_PWD_VERIFY)
+    Flowable<Repo<Object>> findPwdVerify(@QueryMap Map<String,String> param);
+
+    @FormUrlEncoded
+    @POST(ApiServiceRoutes.RESET_LOGIN_PWD)
+    Flowable<Repo<Object>> resetLoginPwd(@FieldMap Map<String,String> param);
 }

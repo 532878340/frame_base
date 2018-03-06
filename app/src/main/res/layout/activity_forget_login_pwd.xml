@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/lin_match_vertical"
+    android:baselineAligned="false"
+    android:focusableInTouchMode="true"
+    android:paddingTop="28pt">
+
+    <com.smart.frame.ui.view.basic.LabelEditRow
+        android:id="@+id/rowPhone"
+        style="@style/WidthFill"
+        android:inputType="number"
+        android:maxLength="11"
+        app:labelDividerIndent="30pt"
+        app:labelExactlyWidth="120pt"
+        app:labelHint="@string/mobile_hint"
+        app:labelText="@string/mobile"
+        app:labelTopDivider="true" />
+
+    <LinearLayout
+        style="@style/lin_width_horizontal"
+        android:layout_marginBottom="10pt">
+
+        <com.smart.frame.ui.view.basic.LabelEditRow
+            android:id="@+id/rowCode"
+            style="@style/WidthWeight"
+            android:inputType="number"
+            android:maxLength="6"
+            app:labelExactlyWidth="120pt"
+            app:labelHint="@string/verify_code_hint"
+            app:labelText="@string/verify_code" />
+
+        <Button
+            android:id="@+id/btnGetCode"
+            style="@style/btn_yellow"
+            android:layout_width="250pt"
+            android:layout_height="match_parent"
+            android:textSize="30pt"
+            android:text="@string/get_code" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnNext"
+        style="@style/btn_yellow_radius"
+        android:layout_margin="40pt"
+        android:text="@string/next" />
+</LinearLayout>

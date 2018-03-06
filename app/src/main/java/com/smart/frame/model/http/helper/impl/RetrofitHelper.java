@@ -4,8 +4,6 @@ import com.smart.frame.base.bean.Repo;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.model.http.api.ApiService;
 import com.smart.frame.model.http.helper.HttpHelper;
-import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
-import com.smart.frame.ui.fetures.user.bean.req.SendSmsReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
 import com.smart.frame.ui.fetures.user.bean.resp.RegisterResp;
 
@@ -50,5 +48,15 @@ public class RetrofitHelper implements HttpHelper {
     @Override
     public Flowable<Repo<Object>> sendSms(Map<String, String> param) {
         return mApiService.sendSms(param);
+    }
+
+    @Override
+    public Flowable<Repo<Object>> findPwdVerify(Map<String, String> param) {
+        return mApiService.findPwdVerify(param);
+    }
+
+    @Override
+    public Flowable<Repo<Object>> resetLoginPwd(Map<String, String> param) {
+        return mApiService.resetLoginPwd(param);
     }
 }
