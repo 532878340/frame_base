@@ -2,98 +2,37 @@ package com.smart.frame.ui.view.basic;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.inputmethod.EditorInfo;
 
 import com.smart.frame.R;
 import com.smart.frame.utils.DimensUtils;
-import com.smart.frame.utils.ViewUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
- * 通用Label和文本view
+ * 通用Label和输入框 view
  *
  * @author Gjm
- * @date 2018/3/1
+ * @date 2018/3/5
  */
-public class LabelTextRow extends LinearLayout {
-    protected static final int INVALID = -1;
-    @BindView(R.id.label)
-    protected TextView mLabel;
-    @BindView(R.id.desc)
-    protected TextView mDesc;
-
-    /**
-     * 是否含有顶部divider
-     */
-    protected boolean mWithTopDivider;
-    /**
-     * 是否含有底部divider
-     */
-    protected boolean mWithBottomDivider;
-
-    /**
-     * 底部divider 边距
-     */
-    protected int mDividerIndent;
-
-    protected Paint mPaint;
-
-    public LabelTextRow(Context context) {
+public class LabelEditRow extends LabelTextRow {
+    public LabelEditRow(Context context) {
         this(context, null);
     }
 
-    public LabelTextRow(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public LabelTextRow(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LabelEditRow(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
-        View.inflate(getContext(), getLayoutRes(), this);
-
-        setMinimumHeight(DimensUtils.ptToPx(100));
-        setOrientation(HORIZONTAL);
-        setGravity(Gravity.CENTER_VERTICAL);
-        final int defaultPadding = DimensUtils.ptToPx(30);
-        setPadding(defaultPadding, 0, defaultPadding, 0);
-
-        if (getBackground() == null) {
-            setBackgroundResource(R.drawable.sel_white_gray_rect);
-        }
-
-        ButterKnife.bind(this);
-
-        initPaint();
-        bindAttrs(attrs);
-
-        // 不设置背景的情况下，继承自ViewGroup的容器不会调用onDraw方法，调用下面的方法使其调用onDraw()方法
-        setWillNotDraw(!(mWithTopDivider || mWithBottomDivider));
     }
 
-    @LayoutRes
+    @Override
     protected int getLayoutRes() {
-        return R.layout.base_label_row_text;
-    }
-
-    /**
-     * 初始化 paint
-     */
-    private void initPaint() {
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(getResources().getColor(R.color.divider));
+        return R.layout.base_label_row_edit;
     }
 
     /**
@@ -139,7 +78,7 @@ public class LabelTextRow extends LinearLayout {
 
             boolean drawArrow = styled.getBoolean(R.styleable.LabelTextRow_labelArrows, false);
             if (drawArrow) {
-                mDesc.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.arrow_right, 0);
+                mDesc.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_right, 0);
             }
 
             int labelIcon = styled.getResourceId(R.styleable.LabelTextRow_labelIcon, INVALID);
@@ -163,60 +102,50 @@ public class LabelTextRow extends LinearLayout {
             }
 
             styled.recycle();
+
+            //EditText相关属性
+            TypedArray styledEdit = getContext().obtainStyledAttributes(attrs, R.styleable.LabelEditRow);
+
+            int exactlyWidth = styled.getDimensionPixelSize(R.styleable.LabelEditRow_labelExactlyWidth, INVALID);
+            if (exactlyWidth != INVALID) {
+                mLabel.setMinWidth(exactlyWidth);
+            }
+
+            boolean alignRight = styled.getBoolean(R.styleable.LabelEditRow_labelValueRight, false);
+            if (alignRight) {
+                mDesc.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+            }
+
+            int inputType = styledEdit.getInt(R.styleable.LabelEditRow_android_inputType, EditorInfo.TYPE_CLASS_TEXT);
+            mDesc.setInputType(inputType);
+
+            mDesc.setEnabled(styledEdit.getBoolean(R.styleable.LabelEditRow_labelEditEnable, true));
+
+            // 最大长度
+            int maxLength = styledEdit.getInt(R.styleable.LabelEditRow_android_maxLength, INVALID);
+            if (maxLength != INVALID) {
+                mDesc.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
+            }
+
+            CharSequence hint = styledEdit.getText(R.styleable.LabelEditRow_labelHint);
+            if (!TextUtils.isEmpty(hint)) {
+                mDesc.setHint(hint);
+            }
+
+            int hintColor = styled.getColor(R.styleable.LabelEditRow_labelHintColor, INVALID);
+            if (hintColor != INVALID) {
+                mDesc.setHintTextColor(hintColor);
+            }
+
+            // 密码模式，显示密码按钮，并设置EditText的InputTpe
+            if (styledEdit.getBoolean(R.styleable.LabelEditRow_labelPasswordMode, false)) {
+                mDesc.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                if (inputType == EditorInfo.TYPE_CLASS_NUMBER) {
+                    mDesc.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                }
+            }
+
+            styledEdit.recycle();
         }
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (mWithBottomDivider) {
-            int y = getHeight() - 1;
-            canvas.drawLine(mDividerIndent, y, getRight(), y, mPaint);
-        }
-        if (mWithTopDivider) {
-            canvas.drawLine(0, 0, getRight(), 0, mPaint);
-        }
-    }
-
-    /**
-     * label view
-     */
-    public TextView getLabel() {
-        return mLabel;
-    }
-
-    /**
-     * desc view
-     */
-    public TextView getDesc() {
-        return mDesc;
-    }
-
-    /**
-     * label text
-     */
-    public String getLabelText() {
-        return ViewUtil.getText(mLabel);
-    }
-
-    /**
-     * desc text
-     */
-    public String getDescText() {
-        return ViewUtil.getText(mDesc);
-    }
-
-    /**
-     * set label
-     */
-    public void setLabelText(CharSequence charSequence) {
-        mLabel.setText(charSequence);
-    }
-
-    /**
-     * set desc
-     */
-    public void setDescText(CharSequence charSequence) {
-        mDesc.setText(charSequence);
     }
 }

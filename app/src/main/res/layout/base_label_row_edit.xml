@@ -3,11 +3,11 @@
 
     <TextView
         android:id="@+id/label"
-        style="@style/label_dark"
-        android:layout_weight="1" />
+        style="@style/label_dark" />
 
-    <TextView
+    <EditText
         android:id="@+id/desc"
-        style="@style/label_minor"
-        android:gravity="right" />
+        style="@style/edt_white_gray"
+        android:layout_weight="1"
+        android:background="@android:color/transparent" />
 </merge>

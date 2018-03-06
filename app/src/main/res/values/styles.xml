@@ -32,7 +32,7 @@
         <item name="android:background">@drawable/sel_yellow_radius_4</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">32pt</item>
+        <item name="android:textSize">30pt</item>
     </style>
 
     <!-- ######################## 文本 ########################## -->
@@ -41,6 +41,7 @@
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textSize">30pt</item>
         <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">10pt</item>
     </style>
 
     <!-- 灰色通用 -->

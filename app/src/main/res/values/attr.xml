@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="LabelTextRow">
-        <attr name="labelText" format="string"/>
-        <attr name="labelValue" format="string"/>
-        <attr name="labelValueColor" format="color"/>
-        <attr name="labelTextColor" format="color"/>
-        <attr name="labelTextSize" format="dimension"/>
+        <attr name="labelText" format="string" />
+        <attr name="labelValue" format="string" />
+        <attr name="labelValueColor" format="color" />
+        <attr name="labelTextColor" format="color" />
+        <attr name="labelTextSize" format="dimension" />
         <attr name="labelValueSize" format="dimension" />
-        <attr name="labelTopDivider" format="boolean"/>
-        <attr name="labelBottomDivider" format="boolean"/>
-        <attr name="labelExactlyWidth" format="dimension"/>
-        <attr name="labelValueRight" format="boolean"/>
-        <attr name="labelArrows" format="boolean"/>
-        <attr name="labelIcon" format="reference"/>
-        <attr name="labelScaleIcon" format="reference"/>
+        <attr name="labelTopDivider" format="boolean" />
+        <attr name="labelBottomDivider" format="boolean" />
+        <attr name="labelArrows" format="boolean" />
+        <attr name="labelIcon" format="reference" />
+        <attr name="labelScaleIcon" format="reference" />
         <attr name="labelDividerIndent" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LabelEditRow">
+        <attr name="labelPasswordMode" format="boolean" />
+        <attr name="labelExactlyWidth" format="dimension" />
+        <attr name="labelValueRight" format="boolean" />
+        <attr name="labelEditEnable" format="boolean" />
+        <attr name="labelHintColor" format="color" />
+        <attr name="labelHint" format="string"/>
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
     </declare-styleable>
 </resources>
