@@ -95,4 +95,8 @@ public abstract class CommonSubscriber<T> extends ResourceSubscriber<Repo<T>> {
      */
     protected void onIllegal(Repo<T> repo){
     }
+
+    public IBaseView getBindView(){
+        return mView;
+    }
 }

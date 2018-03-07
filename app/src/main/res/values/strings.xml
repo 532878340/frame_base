@@ -28,5 +28,4 @@
     <string name="cfm_pwd">确认密码</string>
     <string name="cfm_pwd_hint">请重复输入新密码</string>
     <string name="complete">完成</string>
-
 </resources>

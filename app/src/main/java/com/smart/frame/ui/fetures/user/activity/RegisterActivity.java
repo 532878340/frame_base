@@ -15,6 +15,8 @@ import com.jakewharton.rxbinding2.widget.RxCompoundButton;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.RootActivity;
+import com.smart.frame.bus.RxBus;
+import com.smart.frame.bus.impl.TmpBus;
 import com.smart.frame.ui.fetures.user.bean.req.RegisterReq;
 import com.smart.frame.ui.fetures.user.bean.req.SendSmsReq;
 import com.smart.frame.ui.fetures.user.contract.RegisterContract;
@@ -125,6 +127,9 @@ public class RegisterActivity extends RootActivity<RegisterPresenter> implements
                 }
                 break;
             case R.id.tvProtocol://协议
+                TmpBus tmpBus = new TmpBus();
+                tmpBus.setName("Rxbus发通知了");
+                RxBus.getInstance().post(tmpBus);
                 break;
             case R.id.tvLogin://登录
                 ActivityUtils.startAct(mCtx, LoginActivity.class);
@@ -157,7 +162,7 @@ public class RegisterActivity extends RootActivity<RegisterPresenter> implements
 
     @Override
     public void countDownTimer(long delay) {
-        mTvGetCode.setText(String.format(getString(R.string.code_count_down),delay / 1000));
+        mTvGetCode.setText(String.format(getString(R.string.code_count_down), delay / 1000));
     }
 
     @Override

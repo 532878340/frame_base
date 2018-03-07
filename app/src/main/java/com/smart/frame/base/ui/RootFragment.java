@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.smart.frame.R;
-import com.smart.frame.base.Status;
+import com.smart.frame.base.enums.Status;
 import com.smart.frame.base.presenter.BasePresenter;
 import com.smart.frame.ui.view.basic.loading.LoadingView;
 

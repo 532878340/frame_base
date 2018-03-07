@@ -12,13 +12,16 @@ import android.widget.EditText;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxCompoundButton;
 import com.jakewharton.rxbinding2.widget.RxTextView;
+import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.RootActivity;
+import com.smart.frame.bus.RxBus;
+import com.smart.frame.bus.impl.TmpBus;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
 import com.smart.frame.ui.fetures.user.presenter.LoginPresenter;
 import com.smart.frame.utils.ActivityUtils;
-import com.smart.frame.utils.CyptoUtils;
+import com.smart.frame.utils.TransformUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -81,6 +84,12 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
                     mEdtPwd.setTransformationMethod(bool ? HideReturnsTransformationMethod.getInstance() : PasswordTransformationMethod.getInstance());
                     Selection.setSelection(mEdtPwd.getText(), mEdtPwd.length());
                 });
+
+        RxBus.getInstance()
+                .toObservableSticky(TmpBus.class)
+                .compose(bindToLife())
+                .compose(TransformUtils.observableIOToMain())
+                .subscribe(tmpBus -> Logger.d("收到通知了:" + tmpBus.getName()));
     }
 
     @OnClick({R.id.btnLogin, R.id.tvForgetPwd, R.id.btnRegister})

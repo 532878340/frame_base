@@ -44,7 +44,7 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.RegisterView
 
         getView().onStatusLoading();
         mDataManager.register(param)
-                .compose(TransformUtils.defaultScheduler())
+                .compose(TransformUtils.flowableIOToMain())
                 .compose(getView().bindToLife())
                 .doOnNext(registerResp -> {
                     if(!registerResp.isOk()){
@@ -81,7 +81,7 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.RegisterView
                 Flowable.interval(0, 1, TimeUnit.MILLISECONDS)
                         .take(count + 1)
                         .map(aLong -> count - aLong)
-                        .compose(TransformUtils.defaultScheduler())
+                        .compose(TransformUtils.flowableIOToMain())
                         .compose(getView().bindToLife())
                         .subscribeWith(new ResourceSubscriber<Long>() {
                             @Override

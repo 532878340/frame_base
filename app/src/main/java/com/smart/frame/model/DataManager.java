@@ -3,7 +3,6 @@ package com.smart.frame.model;
 import com.smart.frame.base.bean.Repo;
 import com.smart.frame.model.db.DbHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
-import com.smart.frame.ui.fetures.user.bean.req.SendSmsReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
 import com.smart.frame.ui.fetures.user.bean.resp.RegisterResp;
 

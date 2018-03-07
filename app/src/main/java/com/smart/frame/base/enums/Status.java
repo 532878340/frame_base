@@ -1,4 +1,4 @@
-package com.smart.frame.base;
+package com.smart.frame.base.enums;
 
 /**
  * 主页状态枚举

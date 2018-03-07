@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.smart.frame.R;
 import com.smart.frame.manager.ActivityContainer;
 import com.smart.frame.ui.view.basic.ToolBarHelperView;
-import com.smart.frame.ui.view.basic.UltimateBar;
 import com.smart.frame.utils.ActivityUtils;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -85,15 +83,6 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
         super.onDestroy();
 
         ActivityUtils.fixInputMethodManagerLeak(this);
-    }
-
-    /**
-     * 重写此方法以修改状态栏
-     *
-     * @param isDrawer 是否为侧滑DrawerLayout
-     */
-    protected final void enableTranslucentStatus(boolean isDrawer) {
-        new UltimateBar(this).setTransparentBar(isDrawer);
     }
 
     /**

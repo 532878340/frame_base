@@ -7,6 +7,8 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.smart.frame.R;
 import com.smart.frame.base.ui.SimpleFragment;
+import com.smart.frame.bus.RxBus;
+import com.smart.frame.bus.impl.TmpBus;
 import com.smart.frame.ui.fetures.user.activity.LoginActivity;
 import com.smart.frame.ui.fetures.user.activity.ResetLoginPwdActivity;
 
@@ -35,6 +37,9 @@ public class IndexFragment extends SimpleFragment{
 
     @Override
     protected void initViewOrData() {
+        TmpBus tmpBus = new TmpBus();
+        tmpBus.setName("这是粘性事件");
+        RxBus.getInstance().postSticky(tmpBus);
         RxView.clicks(cancel).subscribe(integer -> startActivity(new Intent(mContext, LoginActivity.class)));
     }
 }

@@ -68,6 +68,11 @@
         <item name="android:textColor">@color/orange_normal</item>
     </style>
 
+    <!-- 白色通用 -->
+    <style name="label_white" parent="label_dark">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <!-- 黑色 28pt -->
     <style name="label_dark_28" parent="label_dark">
         <item name="android:textSize">28pt</item>
@@ -140,6 +145,21 @@
 
     <!-- 橙色 34pt -->
     <style name="label_orange_34" parent="label_orange">
+        <item name="android:textSize">34pt</item>
+    </style>
+
+    <!-- 白色 28pt -->
+    <style name="label_white_28" parent="label_white">
+        <item name="android:textSize">28pt</item>
+    </style>
+
+    <!-- 白色 32pt -->
+    <style name="label_white_32" parent="label_white">
+        <item name="android:textSize">32pt</item>
+    </style>
+
+    <!-- 白色 34pt -->
+    <style name="label_white_34" parent="label_white">
         <item name="android:textSize">34pt</item>
     </style>
 

@@ -56,7 +56,7 @@ public class ForgetLoginPwdPresenter extends RxPresenter<ForgetLoginPwdContract.
                 Flowable.interval(0, 1, TimeUnit.MILLISECONDS)
                         .take(count + 1)
                         .map(aLong -> count - aLong)
-                        .compose(TransformUtils.defaultScheduler())
+                        .compose(TransformUtils.flowableIOToMain())
                         .compose(getView().bindToLife())
                         .subscribeWith(new ResourceSubscriber<Long>() {
                             @Override

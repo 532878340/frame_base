@@ -23,7 +23,6 @@ import butterknife.BindView;
  * @date 2018/01/12
  */
 public class MainActvitiy extends SimpleActivity {
-
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     @BindView(R.id.navigationView)
@@ -53,8 +52,6 @@ public class MainActvitiy extends SimpleActivity {
 
     @Override
     protected void initViewOrData() {
-        enableTranslucentStatus(false);
-
         initNavigationView();
         initFragmentUI();
     }
