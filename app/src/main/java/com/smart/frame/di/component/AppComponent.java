@@ -1,5 +1,7 @@
 package com.smart.frame.di.component;
 
+import android.app.Application;
+
 import com.smart.frame.app.App;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.di.module.AppModule;
@@ -20,7 +22,7 @@ public interface AppComponent {
     /**
      * 提供App的context
      */
-    App getAppContext();
+    Application getAppContext();
 
     /**
      * 提供数据

@@ -4,39 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <com.smart.frame.ui.view.basic.LabelTextRow
-        style="@style/WidthFill"
-        android:layout_marginTop="100pt"
-        app:labelArrows="true"
-        app:labelDividerIndent="100pt"
-        app:labelIcon="@drawable/icon_sms"
-        app:labelText="这里"
-        app:labelTextColor="#f0f"
-        app:labelTextSize="32pt"
-        app:labelTopDivider="true"
-        app:labelValue="这哩"
-        app:labelValueColor="#f00"
-        app:labelValueSize="32pt" />
-
-    <com.smart.frame.ui.view.basic.LabelEditRow
-        style="@style/WidthFill"
-        android:layout_marginTop="100pt"
-        app:labelArrows="true"
-        app:labelDividerIndent="100pt"
-        app:labelHint="请输入文本"
-        app:labelHintColor="#0f0"
-        app:labelIcon="@drawable/icon_sms"
-        app:labelText="这里"
-        app:labelPasswordMode="true"
-        app:labelTextColor="#f0f"
-        app:labelValue="1231123"
-        app:labelTextSize="32pt"
-        android:inputType="number"
-        android:maxLength="10"
-        app:labelTopDivider="true"
-        app:labelValueColor="#f00"
-        app:labelEditEnable="true"
-        app:labelExactlyWidth="200pt"
-        app:labelValueSize="32pt" />
 </LinearLayout>

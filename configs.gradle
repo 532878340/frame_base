@@ -29,6 +29,7 @@ ext{
             bugly : "2.6.6.1",
             blockcanary : "1.5.0",
             leakcanary : "1.5.4",
+            multidex : "1.0.1",
 
             spinkit : "1.1.0",
             flexibledivider : "1.4.0",

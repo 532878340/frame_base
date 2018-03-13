@@ -1,9 +1,18 @@
 apply plugin: 'com.android.application'
+apply from: 'tinker.gradle'
 
 def cfg = rootProject.ext.android
 def libraries = rootProject.ext.dependencies
 def urls = rootProject.ext.urls
 android {
+    signingConfigs {
+        release {
+            keyAlias 'passkey'
+            keyPassword '123456'
+            storeFile file('./keystore/passkey.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion cfg.compileSdk
     defaultConfig {
         applicationId cfg.appId
@@ -12,9 +21,16 @@ android {
         versionCode cfg.versionCode
         versionName cfg.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
     }
     buildTypes {
-        debug{
+        debug {
             debuggable true
             buildConfigField "String", "API_URL", "\"${urls.debug}\""
 
@@ -24,22 +40,15 @@ android {
 
         release {
             buildConfigField "String", "API_URL", "\"${urls.release}\""
+            signingConfig signingConfigs.release
 
-            postprocessing {
-                removeUnusedCode true
-                removeUnusedResources true
-                obfuscate false
-                optimizeCode true
-                proguardFile 'proguard-rules.pro'
-            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), project.file('proguard-rules.pro')
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
         exclude 'typedefs.txt'
@@ -47,45 +56,48 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-
     implementation "com.android.support:appcompat-v7:${cfg.support}"
-    implementation "com.android.support:design:${cfg.support}"                                                   //design
-    implementation "com.android.support:recyclerview-v7:${cfg.support}"                                          //recycleview
+    implementation "com.android.support:design:${cfg.support}"                                      //design
+    implementation "com.android.support:recyclerview-v7:${cfg.support}"                             //recycleview
 
-    implementation "com.android.support.constraint:constraint-layout:${libraries.constraint}"                    //constraint-layout
-    implementation "com.squareup.retrofit2:retrofit:${libraries.retrofit}"                                       //retrofit
+    implementation "com.android.support.constraint:constraint-layout:${libraries.constraint}"       //constraint-layout
+    implementation "com.squareup.retrofit2:retrofit:${libraries.retrofit}"                          //retrofit
     implementation "com.squareup.retrofit2:adapter-rxjava2:${libraries.retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${libraries.retrofit}"
 
-    implementation "io.reactivex.rxjava2:rxandroid:${libraries.rxandroid}"                                       //rxandroid
+    implementation "io.reactivex.rxjava2:rxandroid:${libraries.rxandroid}"                          //rxandroid
     implementation "io.reactivex.rxjava2:rxjava:${libraries.rxjava}"
-    implementation "com.jakewharton.rxbinding2:rxbinding:${libraries.rxbinding}"                                 //RxBinding
-    implementation "com.trello.rxlifecycle2:rxlifecycle:${libraries.rxlifecycle}"                                //rxlifecycle
+    implementation "com.jakewharton.rxbinding2:rxbinding:${libraries.rxbinding}"                    //RxBinding
+    implementation "com.trello.rxlifecycle2:rxlifecycle:${libraries.rxlifecycle}"                   //rxlifecycle
     implementation "com.trello.rxlifecycle2:rxlifecycle-components:${libraries.rxlifecycle}"
     implementation "com.trello.rxlifecycle2:rxlifecycle-android:${libraries.rxlifecycle}"
-    implementation "com.tbruyelle.rxpermissions2:rxpermissions:${libraries.rxpermissions}"                       //rxpermissions
+    implementation "com.tbruyelle.rxpermissions2:rxpermissions:${libraries.rxpermissions}"          //rxpermissions
 
-    implementation "com.google.dagger:dagger:${libraries.dagger}"                                                //dagger
+    implementation "com.google.dagger:dagger:${libraries.dagger}"                                   //dagger
     annotationProcessor "com.google.dagger:dagger-compiler:${libraries.dagger}"
-    implementation "com.jakewharton:butterknife:${libraries.butterknife}"                                        //butterknife
+    implementation "com.jakewharton:butterknife:${libraries.butterknife}"                           //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:${libraries.butterknife}"
 
-    implementation "com.github.ybq:Android-SpinKit:${libraries.spinkit}"                                         //SpinKit
-    implementation "com.github.bumptech.glide:glide:${libraries.glide}"                                          //Glide
+    implementation "com.github.ybq:Android-SpinKit:${libraries.spinkit}"                            //SpinKit
+    implementation "com.github.bumptech.glide:glide:${libraries.glide}"                             //Glide
     annotationProcessor "com.github.bumptech.glide:compiler:${libraries.glide}"
+    implementation "com.yqritc:recyclerview-flexibledivider:${libraries.flexibledivider}"           //flexibledivider
+    implementation "com.scwang.smartrefresh:SmartRefreshLayout:${libraries.smartRefreshLayout}"     //SmartRefreshLayout
 
-    implementation "com.yqritc:recyclerview-flexibledivider:${libraries.flexibledivider}"                        //flexibledivider
-    implementation "com.scwang.smartrefresh:SmartRefreshLayout:${libraries.smartRefreshLayout}"                  //SmartRefreshLayout
-
-    implementation "com.orhanobut:logger:${libraries.logger}"                                                    //logger
-    implementation "com.tencent.bugly:crashreport:${libraries.bugly}"                                            //bugly
-    debugImplementation "com.github.markzhai:blockcanary-android:${libraries.blockcanary}"                       //blockcanary
+    implementation "com.orhanobut:logger:${libraries.logger}"                                       //logger
+    implementation "com.tencent.bugly:crashreport:${libraries.bugly}"                               //bugly
+    debugImplementation "com.github.markzhai:blockcanary-android:${libraries.blockcanary}"          //blockcanary
     releaseImplementation "com.github.markzhai:blockcanary-no-op:${libraries.blockcanary}"
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:${libraries.leakcanary}"                     //leakcanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:${libraries.leakcanary}"        //leakcanary
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:${libraries.leakcanary}"
+    implementation "com.android.support:multidex:${libraries.multidex}"                             //multidex
+
+    compile "com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}"                               //tinker
+    annotationProcessor("com.tencent.tinker:tinker-android-anno:1.9.1") { changing = true }
+    compileOnly("com.tencent.tinker:tinker-android-anno:1.9.1") { changing = true }
 }

@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.ViewGroup;
 
-import com.smart.frame.app.App;
+import com.smart.frame.app.AppLike;
 import com.smart.frame.base.contract.IBaseView;
 import com.smart.frame.base.presenter.BasePresenter;
 import com.smart.frame.di.component.ActivityComponent;
@@ -30,7 +30,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends SimpleActivi
      */
     protected ActivityComponent getActivityComponent(){
         return DaggerActivityComponent.builder()
-                .appComponent(App.getAppComponent())
+                .appComponent(AppLike.getAppComponent())
                 .activityModule(getActivityModule())
                 .build();
     }

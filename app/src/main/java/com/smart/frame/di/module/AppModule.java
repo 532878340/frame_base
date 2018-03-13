@@ -1,6 +1,7 @@
 package com.smart.frame.di.module;
 
-import com.smart.frame.app.App;
+import android.app.Application;
+
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.model.DataManager;
 import com.smart.frame.model.db.DbHelper;
@@ -19,15 +20,15 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-    private App mApp;
+    private Application mApp;
 
-    public AppModule(App app) {
+    public AppModule(Application app) {
         this.mApp = app;
     }
 
     @Provides
     @ApplicationScope
-    App provideApp(){
+    Application provideApp(){
         return mApp;
     }
 

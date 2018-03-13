@@ -1,5 +1,7 @@
 package com.smart.frame.ui.fetures.user.activity;
 
+import android.Manifest;
+import android.os.Environment;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -21,7 +23,13 @@ import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
 import com.smart.frame.ui.fetures.user.presenter.LoginPresenter;
 import com.smart.frame.utils.ActivityUtils;
+import com.smart.frame.utils.ToastManager;
 import com.smart.frame.utils.TransformUtils;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.tencent.tinker.lib.tinker.Tinker;
+import com.tencent.tinker.lib.tinker.TinkerInstaller;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -41,6 +49,9 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
     CheckBox mCbEye;
     @BindView(R.id.btnLogin)
     Button mBtnLogin;
+
+    @Inject
+    RxPermissions mRxPermissions;
 
     /**
      * 登录名

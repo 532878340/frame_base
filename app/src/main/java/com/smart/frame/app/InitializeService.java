@@ -22,6 +22,7 @@ import com.smart.frame.utils.SystemUtil;
 import com.smart.frame.utils.imageloader.ImageLoader;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.tinker.lib.util.UpgradePatchRetry;
 
 /**
  * 初始化Service
@@ -94,6 +95,7 @@ public class InitializeService extends IntentService{
      * 错误收集
      * 内存泄漏
      * 过渡绘制检测
+     * Tinker热修复
      */
     private void initApplicationAsync(){
         initLogger();
@@ -101,6 +103,7 @@ public class InitializeService extends IntentService{
         initSmartRefresh();
         initLeakCanary();
         initBlockCanary();
+        initTinker();
     }
 
     /**
@@ -145,5 +148,11 @@ public class InitializeService extends IntentService{
      */
     private void initBlockCanary(){
         BlockCanary.install(App.getInstance(),new AppBlockCanaryContext());
+    }
+
+    /**
+     * Tinker 热修复
+     */
+    private void initTinker(){
     }
 }
