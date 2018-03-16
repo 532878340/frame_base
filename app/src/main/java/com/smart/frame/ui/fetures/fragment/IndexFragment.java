@@ -48,18 +48,18 @@ public class IndexFragment extends SimpleFragment{
         tmpBus.setName("这是粘性事件");
         RxBus.getInstance().postSticky(tmpBus);
         RxView.clicks(cancel).subscribe(integer -> {
-//            startActivity(new Intent(mContext, LoginActivity.class));
-
             new RxPermissions(getActivity()).request(Manifest.permission.READ_EXTERNAL_STORAGE).subscribe(aBoolean -> {
                 if(aBoolean){
-                    Tinker tinker = Tinker.with(getContext());
-                    Logger.d("Tinker 是否需要更新补丁 " + tinker.isTinkerLoaded());
-                    if(!tinker.isTinkerLoaded()){
-                        final String patchLocation = Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk";
-                        TinkerInstaller.onReceiveUpgradePatch(getContext(), patchLocation);
-                    }
+//                    Tinker tinker = Tinker.with(getContext());
+//                    Logger.d("Tinker 是否需要更新补丁 " + tinker.isTinkerLoaded());
+//                    if(!tinker.isTinkerLoaded()){
+//                        final String patchLocation = Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk";
+//                        TinkerInstaller.onReceiveUpgradePatch(getContext(), patchLocation);
+//                    }
+//
+//                    ToastManager.getInstance().showMessage(mContext,"补丁打上了....没有打上了yoyo~~~XXXXTTTTTTT" + BuildConfig.TINKER_ID);
 
-                    ToastManager.getInstance().showMessage(mContext,"补丁打上了....没有打上了yoyo~~~XXXX" + BuildConfig.TINKER_ID);
+                    startActivity(new Intent(mContext, LoginActivity.class));
                 }
             });
         });

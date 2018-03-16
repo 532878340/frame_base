@@ -1,7 +1,5 @@
 package com.smart.frame.ui.fetures.user.activity;
 
-import android.Manifest;
-import android.os.Environment;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -19,15 +17,13 @@ import com.smart.frame.R;
 import com.smart.frame.base.ui.RootActivity;
 import com.smart.frame.bus.RxBus;
 import com.smart.frame.bus.impl.TmpBus;
+import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
 import com.smart.frame.ui.fetures.user.presenter.LoginPresenter;
 import com.smart.frame.utils.ActivityUtils;
-import com.smart.frame.utils.ToastManager;
 import com.smart.frame.utils.TransformUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.tencent.tinker.lib.tinker.Tinker;
-import com.tencent.tinker.lib.tinker.TinkerInstaller;
 
 import javax.inject.Inject;
 
@@ -116,7 +112,13 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
                 ActivityUtils.startAct(mCtx,ForgetLoginPwdActivity.class);
                 break;
             case R.id.btnRegister://注册
-                ActivityUtils.startAct(mCtx,RegisterActivity.class);
+//                ActivityUtils.startAct(mCtx,RegisterActivity.class);
+
+                GetPatchReq getPatchReq = new GetPatchReq();
+                getPatchReq.setPlatform(1);
+                getPatchReq.setStatus(2);
+                getPatchReq.setVersionName("1.0.0");
+                mPresenter.getPatchInfo(getPatchReq);
                 break;
         }
     }

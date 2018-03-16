@@ -504,4 +504,9 @@ public final class ApiServiceRoutes {
      * 获取发票信息
      */
     public static final String GET_INVOICE_INFO = "user/productInvoiceInfo.do";
+
+    /**
+     * 获取补丁信息
+     */
+    public static final String GET_PATCH_INFO = "info/getAppPatchInfo.do";
 }

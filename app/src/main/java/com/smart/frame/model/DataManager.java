@@ -4,8 +4,10 @@ import com.smart.frame.base.bean.Repo;
 import com.smart.frame.model.db.DbHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
+import com.smart.frame.ui.fetures.user.bean.resp.PatchInfo;
 import com.smart.frame.ui.fetures.user.bean.resp.RegisterResp;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import io.reactivex.Flowable;
@@ -54,5 +56,10 @@ public class DataManager implements HttpHelper,DbHelper {
     @Override
     public Flowable<Repo<Object>> resetLoginPwd(Map<String, String> param) {
         return mHttpHelper.resetLoginPwd(param);
+    }
+
+    @Override
+    public Flowable<Repo<ArrayList<PatchInfo>>> getPatchInfo(Map<String, String> param) {
+        return mHttpHelper.getPatchInfo(param);
     }
 }

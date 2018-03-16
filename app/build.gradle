@@ -77,6 +77,7 @@ dependencies {
     implementation "com.trello.rxlifecycle2:rxlifecycle-components:${libraries.rxlifecycle}"
     implementation "com.trello.rxlifecycle2:rxlifecycle-android:${libraries.rxlifecycle}"
     implementation "com.tbruyelle.rxpermissions2:rxpermissions:${libraries.rxpermissions}"          //rxpermissions
+    implementation "zlc.season:rxdownload3:${libraries.rxdownload}"                                 //rxdownload
 
     implementation "com.google.dagger:dagger:${libraries.dagger}"                                   //dagger
     annotationProcessor "com.google.dagger:dagger-compiler:${libraries.dagger}"
@@ -98,6 +99,4 @@ dependencies {
     implementation "com.android.support:multidex:${libraries.multidex}"                             //multidex
 
     compile "com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}"                               //tinker
-    annotationProcessor("com.tencent.tinker:tinker-android-anno:1.9.1") { changing = true }
-    compileOnly("com.tencent.tinker:tinker-android-anno:1.9.1") { changing = true }
 }

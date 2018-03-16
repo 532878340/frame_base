@@ -43,4 +43,14 @@ public class Configs {
      * DES加密盐
      */
     public static final String CREDENTIALS_SALT = "12345678";
+
+    /**
+     * 文件下载目录名
+     */
+    public static final String APP_DOWNLOAD_DIR = "/zjqb/download/";
+
+    /**
+     * 基础路径
+     */
+    public static final String URL_BASE = "https://www.zijinqianbao.com/";
 }

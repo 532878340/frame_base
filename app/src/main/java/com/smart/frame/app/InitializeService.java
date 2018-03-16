@@ -22,7 +22,8 @@ import com.smart.frame.utils.SystemUtil;
 import com.smart.frame.utils.imageloader.ImageLoader;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.tencent.tinker.lib.util.UpgradePatchRetry;
+
+import zlc.season.rxdownload3.core.DownloadConfig;
 
 /**
  * 初始化Service
@@ -95,7 +96,7 @@ public class InitializeService extends IntentService{
      * 错误收集
      * 内存泄漏
      * 过渡绘制检测
-     * Tinker热修复
+     * rx下载
      */
     private void initApplicationAsync(){
         initLogger();
@@ -103,7 +104,7 @@ public class InitializeService extends IntentService{
         initSmartRefresh();
         initLeakCanary();
         initBlockCanary();
-        initTinker();
+        initRxDownload();
     }
 
     /**
@@ -151,8 +152,16 @@ public class InitializeService extends IntentService{
     }
 
     /**
-     * Tinker 热修复
+     * 初始化RxDownload
      */
-    private void initTinker(){
+    private void initRxDownload(){
+        DownloadConfig.Builder builder = DownloadConfig.Builder
+                .Companion
+                .create(App.getInstance())
+//                .enableDb(true)
+                .enableAutoStart(true)
+                .enableService(true)
+                .enableNotification(true);
+        DownloadConfig.INSTANCE.init(builder);
     }
 }

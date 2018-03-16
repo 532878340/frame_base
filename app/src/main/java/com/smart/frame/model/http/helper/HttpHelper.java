@@ -2,11 +2,11 @@ package com.smart.frame.model.http.helper;
 
 
 import com.smart.frame.base.bean.Repo;
-import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
-import com.smart.frame.ui.fetures.user.bean.req.SendSmsReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
+import com.smart.frame.ui.fetures.user.bean.resp.PatchInfo;
 import com.smart.frame.ui.fetures.user.bean.resp.RegisterResp;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import io.reactivex.Flowable;
@@ -45,4 +45,9 @@ public interface HttpHelper {
      * 重置登录密码
      */
     Flowable<Repo<Object>> resetLoginPwd(Map<String,String> param);
+
+    /**
+     * 获取补丁信息
+     */
+    Flowable<Repo<ArrayList<PatchInfo>>> getPatchInfo(Map<String,String> param);
 }

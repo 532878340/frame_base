@@ -24,6 +24,7 @@ ext{
             rxlifecycle : "2.2.0",
             glide : "4.3.1",
             rxpermissions : "0.9.4@aar",
+            rxdownload : "1.2.2",
 
             logger : "2.1.1",
             bugly : "2.6.6.1",
@@ -37,7 +38,7 @@ ext{
     ]
 
     urls = [
-            debug : "http://192.168.10.21:8099/app/",
+            debug : "http://192.168.10.189:8080/zjqbapp/",
             release : "http://app.zijinqianbao.com/app/",
     ]
 }

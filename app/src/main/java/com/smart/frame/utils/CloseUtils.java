@@ -1,7 +1,6 @@
 package com.smart.frame.utils;
 
 import java.io.Closeable;
-import java.io.IOException;
 
 /**
  * Description: 关闭工具
@@ -10,13 +9,17 @@ import java.io.IOException;
  */
 
 public class CloseUtils {
-    public static void close(Closeable target){
+    public static void close(Closeable ...target){
         try {
             if(target != null){
-                target.close();
+                int len = target.length;
+                for(int i = 0 ;i < len ; i ++){
+                    if(target[i] != null){
+                        target[i].close();
+                    }
+                }
             }
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
