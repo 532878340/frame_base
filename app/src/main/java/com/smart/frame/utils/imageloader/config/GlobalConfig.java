@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.bumptech.glide.MemoryCategory;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.utils.imageloader.loader.ILoader;
 import com.smart.frame.utils.imageloader.loader.glide.GlideLoader;
@@ -27,11 +26,11 @@ public class GlobalConfig {
      */
     public static int mCacheMaxSize;
 
-    public static void init(Context context, int cacheSizeInM, MemoryCategory memoryCategory, boolean isInternalCD) {
+    public static void init(Context context, int cacheSizeInM, boolean isInternalCD) {
         mContext = context;
         mCacheMaxSize = cacheSizeInM;
 
-        getLoader().init(context, cacheSizeInM, memoryCategory, isInternalCD);
+        getLoader().init(context, cacheSizeInM,isInternalCD);
     }
 
     private static ILoader mLoader;

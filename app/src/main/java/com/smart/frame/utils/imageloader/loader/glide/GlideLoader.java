@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.MemoryCategory;
 import com.bumptech.glide.Priority;
-import com.bumptech.glide.load.engine.cache.ExternalCacheDiskCacheFactory;
+import com.bumptech.glide.load.engine.cache.ExternalPreferredCacheDiskCacheFactory;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
@@ -35,12 +35,12 @@ public class GlideLoader extends BaseImageLoader {
     private static final String TAG = "GlideLoader";
 
     @Override
-    public void init(Context context, int cacheSizeInM, MemoryCategory memoryCategory, boolean isInternalCD) {
+    public void init(Context context, int cacheSizeInM,boolean isInternalCD) {
         GlideBuilder builder = new GlideBuilder();
         if (isInternalCD) {
             builder.setDiskCache(new InternalCacheDiskCacheFactory(context, cacheSizeInM * 1024 * 1024));
         } else {
-            builder.setDiskCache(new ExternalCacheDiskCacheFactory(context, cacheSizeInM * 1024 * 1024));
+            builder.setDiskCache(new ExternalPreferredCacheDiskCacheFactory(context, cacheSizeInM * 1024 * 1024));
         }
     }
 

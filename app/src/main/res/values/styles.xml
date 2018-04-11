@@ -8,6 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar.FullScreen">
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+    </style>
+
     <!-- 通用视图  -->
     <style name="base_view_100">
         <item name="android:layout_width">match_parent</item>

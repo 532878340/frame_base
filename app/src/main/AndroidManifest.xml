@@ -7,10 +7,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.READ_LOGS" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".app.App"
@@ -20,7 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.fetures.MainActvitiy">
+        <activity
+            android:name=".ui.fetures.activity.LauncherActivity"
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,6 +35,8 @@
         <!-- 初始化service -->
         <service android:name=".app.InitializeService" />
 
+        <!-- 主页面 -->
+        <activity android:name=".ui.fetures.MainActvitiy" />
         <!-- 登录 -->
         <activity android:name=".ui.fetures.user.activity.LoginActivity" />
         <!-- 注册 -->
@@ -38,7 +44,7 @@
         <!-- 忘记登录密码 -->
         <activity android:name=".ui.fetures.user.activity.ForgetLoginPwdActivity" />
         <!-- 重置登录密码 -->
-        <activity android:name=".ui.fetures.user.activity.ResetLoginPwdActivity"/>
+        <activity android:name=".ui.fetures.user.activity.ResetLoginPwdActivity" />
     </application>
 
 </manifest>

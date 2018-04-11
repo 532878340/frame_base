@@ -71,7 +71,6 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
      * 初始化 ToolBar
      */
     protected final void initToolBar(boolean homeAsUpEnabled, String title) {
-        mToolBar.setVisibility(View.VISIBLE);
         mToolBar.setTitle(title);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
@@ -79,16 +78,15 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        ActivityUtils.fixInputMethodManagerLeak(this);
         ActivityContainer.getInstance().remove(this);
         super.onDestroy();
-
-        ActivityUtils.fixInputMethodManagerLeak(this);
     }
 
     /**
      * 获取参数
      */
-    protected String getBundleValue(String key){
+    protected String getBundleValue(String key) {
         return getIntent().getExtras() == null ? null : getIntent().getExtras().getString(key);
     }
 }

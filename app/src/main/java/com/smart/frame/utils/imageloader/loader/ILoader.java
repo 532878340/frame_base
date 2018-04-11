@@ -3,7 +3,6 @@ package com.smart.frame.utils.imageloader.loader;
 import android.content.Context;
 import android.view.View;
 
-import com.bumptech.glide.MemoryCategory;
 import com.smart.frame.utils.imageloader.config.ImageConfig;
 
 /**
@@ -15,7 +14,7 @@ public interface ILoader {
     /**
      * 初始化
      */
-    void init(Context context, int cacheSizeInM, MemoryCategory memoryCategory, boolean isInternalCD);
+    void init(Context context, int cacheSizeInM, boolean isInternalCD);
 
     /**
      * 开始加载

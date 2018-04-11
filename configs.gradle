@@ -35,6 +35,7 @@ ext{
             spinkit : "1.1.0",
             flexibledivider : "1.4.0",
             smartRefreshLayout : "1.0.3",
+            tabLayout : "2.1.2@aar",
     ]
 
     urls = [

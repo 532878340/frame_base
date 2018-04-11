@@ -44,4 +44,9 @@
         android:layout_height="100pt"
         android:background="#f00" />
 
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="100pt"
+        android:layout_height="100pt" />
+
 </LinearLayout>

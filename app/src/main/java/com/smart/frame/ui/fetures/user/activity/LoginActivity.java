@@ -1,5 +1,6 @@
 package com.smart.frame.ui.fetures.user.activity;
 
+import android.graphics.Color;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -21,6 +22,7 @@ import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
 import com.smart.frame.ui.fetures.user.presenter.LoginPresenter;
+import com.smart.frame.ui.view.basic.UltimateBar;
 import com.smart.frame.utils.ActivityUtils;
 import com.smart.frame.utils.TransformUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -70,6 +72,14 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
 
     @Override
     protected void initViewOrData() {
+        UltimateBar.newTransparentBuilder()
+                .statusColor(Color.TRANSPARENT)        // 状态栏颜色
+                .statusAlpha(100)               // 状态栏透明度
+                .build(this)
+                .apply();
+
+        initToolBar(true, "标题栏");
+
         RxTextView.textChanges(mEdtName)
                 .compose(bindToLife())
                 .subscribe(charSequence -> {
@@ -109,7 +119,7 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
                 mPresenter.login(loginReq);
                 break;
             case R.id.tvForgetPwd://忘记密码
-                ActivityUtils.startAct(mCtx,ForgetLoginPwdActivity.class);
+                ActivityUtils.startAct(mCtx, ForgetLoginPwdActivity.class);
                 break;
             case R.id.btnRegister://注册
 //                ActivityUtils.startAct(mCtx,RegisterActivity.class);

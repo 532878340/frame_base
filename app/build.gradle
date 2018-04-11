@@ -89,6 +89,7 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:${libraries.glide}"
     implementation "com.yqritc:recyclerview-flexibledivider:${libraries.flexibledivider}"           //flexibledivider
     implementation "com.scwang.smartrefresh:SmartRefreshLayout:${libraries.smartRefreshLayout}"     //SmartRefreshLayout
+    implementation "com.flyco.tablayout:FlycoTabLayout_Lib:${libraries.tabLayout}"                  //tablayout
 
     implementation "com.orhanobut:logger:${libraries.logger}"                                       //logger
     implementation "com.tencent.bugly:crashreport:${libraries.bugly}"                               //bugly
