@@ -1,6 +1,5 @@
 package com.smart.frame.ui.fetures.user.activity;
 
-import android.graphics.Color;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -22,8 +21,8 @@ import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
 import com.smart.frame.ui.fetures.user.presenter.LoginPresenter;
-import com.smart.frame.ui.view.basic.UltimateBar;
 import com.smart.frame.utils.ActivityUtils;
+import com.smart.frame.utils.ToastManager;
 import com.smart.frame.utils.TransformUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -72,13 +71,14 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
 
     @Override
     protected void initViewOrData() {
-        UltimateBar.newTransparentBuilder()
-                .statusColor(Color.TRANSPARENT)        // 状态栏颜色
-                .statusAlpha(100)               // 状态栏透明度
-                .build(this)
-                .apply();
+        initToolBar(false, "标题栏");
 
-        initToolBar(true, "标题栏");
+        mTitleBar.setTitle("这是登录")
+                .setLeftCtv("这是左边")
+                .withLeftIndicate()
+                .setRightCtv("这是右边")
+                .setOnLeftClickListener(v -> ToastManager.getInstance().showMessage(mCtx,"点击左边了"))
+                .setOnRightClickListener(v -> ToastManager.getInstance().showMessage(mCtx,"点击右边了"));
 
         RxTextView.textChanges(mEdtName)
                 .compose(bindToLife())

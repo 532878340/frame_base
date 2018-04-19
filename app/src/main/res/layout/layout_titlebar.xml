@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/titleLayout"
-    style="@style/MatchParent">
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
         android:id="@+id/tvTitleLeft"
@@ -11,13 +8,13 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/margin_normal"
         android:layout_marginRight="@dimen/margin_normal"
-        tools:text="左边" />
+        android:drawablePadding="10pt"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tvTitle"
         style="@style/toolbar_title"
-        android:layout_centerInParent="true"
-        tools:text="@string/app_name" />
+        android:layout_centerInParent="true" />
 
     <TextView
         android:id="@+id/tvTitleRight"
@@ -25,5 +22,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/margin_normal"
-        tools:text="右边" />
-</RelativeLayout>
+        android:drawablePadding="10pt"
+        android:visibility="gone" />
+</merge>

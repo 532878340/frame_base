@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.smart.frame.R;
 import com.smart.frame.manager.ActivityContainer;
+import com.smart.frame.ui.view.basic.TitleBar;
 import com.smart.frame.ui.view.basic.ToolBarHelperView;
 import com.smart.frame.utils.ActivityUtils;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -27,6 +28,8 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
 
     @BindView(R.id.toolBar)
     protected ToolBarHelperView mToolBar;
+    @BindView(R.id.titleBar)
+    protected TitleBar mTitleBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,9 +74,9 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
      * 初始化 ToolBar
      */
     protected final void initToolBar(boolean homeAsUpEnabled, String title) {
-        mToolBar.setTitle(title);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
+        mToolBar.setTitle(title);
     }
 
     @Override
@@ -86,7 +89,7 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
     /**
      * 获取参数
      */
-    protected String getBundleValue(String key) {
+    protected String getBundleValue(String key){
         return getIntent().getExtras() == null ? null : getIntent().getExtras().getString(key);
     }
 }

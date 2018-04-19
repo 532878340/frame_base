@@ -13,6 +13,11 @@
             android:background="@color/colorPrimary"
             android:visibility="gone" />
 
+        <com.smart.frame.ui.view.basic.TitleBar
+            android:id="@+id/titleBar"
+            style="@style/WidthFill"
+            android:visibility="gone"/>
+
         <FrameLayout style="@style/MatchParent">
 
             <FrameLayout
