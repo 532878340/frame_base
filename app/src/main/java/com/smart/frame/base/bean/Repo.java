@@ -10,6 +10,26 @@ public class Repo<T> {
     private String code;
     private T data;
 
+    private boolean success;
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    private String msg;
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
     public Repo() {
     }
 
@@ -50,6 +70,8 @@ public class Repo<T> {
                 "description='" + description + '\'' +
                 ", code='" + code + '\'' +
                 ", data=" + data +
+                ", success=" + success +
+                ", msg='" + msg + '\'' +
                 '}';
     }
 }

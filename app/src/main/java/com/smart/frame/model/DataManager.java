@@ -1,6 +1,7 @@
 package com.smart.frame.model;
 
 import com.smart.frame.base.bean.Repo;
+import com.smart.frame.base.bean.Result;
 import com.smart.frame.model.db.DbHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
 
 /**
  * model manager
@@ -61,5 +63,15 @@ public class DataManager implements HttpHelper,DbHelper {
     @Override
     public Flowable<Repo<ArrayList<PatchInfo>>> getPatchInfo(Map<String, String> param) {
         return mHttpHelper.getPatchInfo(param);
+    }
+
+    @Override
+    public Flowable<Repo<Object>> register1(RequestBody str) {
+        return mHttpHelper.register1(str);
+    }
+
+    @Override
+    public Flowable<Result> performReq(RequestBody body) {
+        return mHttpHelper.performReq(body);
     }
 }

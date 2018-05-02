@@ -1,8 +1,10 @@
 package com.smart.frame.base.presenter;
 
 import com.smart.frame.base.bean.Repo;
+import com.smart.frame.base.bean.Result;
 import com.smart.frame.base.contract.IBaseView;
 import com.smart.frame.base.subscriber.CommonSubscriber;
+import com.smart.frame.base.subscriber.RespSubscriber;
 import com.smart.frame.model.DataManager;
 import com.smart.frame.model.DataModel;
 
@@ -50,6 +52,14 @@ public class RxPresenter<V extends IBaseView> extends BasePresenter<V> {
     protected <T> void performRequestLoading(Flowable<Repo<T>> flowable, CommonSubscriber<T> subscriber) {
         getView().onStatusLoading();
         performRequest(flowable, subscriber);
+    }
+
+    /**
+     * 请求 带进度条
+     */
+    protected <T> void performRequestLoading(Flowable<Result> flowable, RespSubscriber<T> subscriber) {
+        getView().onStatusLoading();
+        mDataModel.commonRequest(flowable,subscriber);
     }
 
     /**

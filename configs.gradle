@@ -39,7 +39,7 @@ ext{
     ]
 
     urls = [
-            debug : "http://192.168.10.189:8080/zjqbapp/",
+            debug : "http://14.17.66.253:28881/",
             release : "http://app.zijinqianbao.com/app/",
     ]
 }

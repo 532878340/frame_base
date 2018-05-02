@@ -1,6 +1,7 @@
 package com.smart.frame.model.http.helper.impl;
 
 import com.smart.frame.base.bean.Repo;
+import com.smart.frame.base.bean.Result;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.model.http.api.ApiService;
 import com.smart.frame.model.http.helper.HttpHelper;
@@ -15,6 +16,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
 
 /**
  * retrofit helper
@@ -65,5 +67,15 @@ public class RetrofitHelper implements HttpHelper {
     @Override
     public Flowable<Repo<ArrayList<PatchInfo>>> getPatchInfo(Map<String, String> param) {
         return mApiService.getPatchInfo(param);
+    }
+
+    @Override
+    public Flowable<Repo<Object>> register1(RequestBody str) {
+        return mApiService.register1(str);
+    }
+
+    @Override
+    public Flowable<Result> performReq(RequestBody body) {
+        return mApiService.performReq(body);
     }
 }

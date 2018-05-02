@@ -1,41 +1,28 @@
 package com.smart.frame.ui.fetures.user.presenter;
 
-import android.text.TextUtils;
-
 import com.orhanobut.logger.Logger;
-import com.smart.frame.base.bean.Repo;
 import com.smart.frame.base.presenter.RxPresenter;
 import com.smart.frame.base.subscriber.CommonSubscriber;
+import com.smart.frame.base.subscriber.RespSubscriber;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.model.DataManager;
 import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
-import com.smart.frame.ui.fetures.user.bean.resp.PatchInfo;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
 import com.smart.frame.utils.CyptoUtils;
-import com.smart.frame.utils.TransformUtils;
 
-import org.reactivestreams.Publisher;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import io.reactivex.Flowable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.functions.Predicate;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import zlc.season.rxdownload3.RxDownload;
-import zlc.season.rxdownload3.core.Mission;
-import zlc.season.rxdownload3.core.Status;
-import zlc.season.rxdownload3.core.Succeed;
 
 /**
  * 登录Presenter
@@ -54,12 +41,41 @@ public class LoginPresenter extends RxPresenter<LoginContract.ILoginView> implem
         Map<String, String> param = new HashMap<>();
         param.put("loginName", loginReq.getLoginName());
         param.put("password", CyptoUtils.getInstance().encodeMD5(loginReq.getPwd()));
-        performRequestLoading(mDataManager.login(param).delay(3000, TimeUnit.MILLISECONDS), new CommonSubscriber<LoginResp>(getView()) {
+//        performRequestLoading(mDataManager.login(param).delay(3000, TimeUnit.MILLISECONDS), new CommonSubscriber<LoginResp>(getView()) {
+//            @Override
+//            public void onSuccess(LoginResp resp) {
+//                getView().jumpToAccount();
+//            }
+//        });
+
+        performRequestLoading(mDataManager.performReq(RequestBody.create(MediaType.parse("application/json"),buildParam())), new RespSubscriber<String>(getView()) {
             @Override
-            public void onSuccess(LoginResp resp) {
+            public void onSuccess(String resp) {
                 getView().jumpToAccount();
             }
         });
+    }
+
+    String buildParam(){
+        try {
+            Map<String,String> param = new HashMap<>();
+            param.put("cmd","A00002");
+            param.put("appKey","fdacf80828bf4e68");
+            param.put("userName","18627540357");
+            param.put("passWord","123456");
+            param.put("sign","123456");
+
+            JSONObject jsonObject = new JSONObject();
+            for (String key : param.keySet()){
+                jsonObject.put(key,param.get(key));
+            }
+
+            return jsonObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return "";
     }
 
     @Override

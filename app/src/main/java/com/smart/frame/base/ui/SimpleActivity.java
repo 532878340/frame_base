@@ -16,6 +16,7 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 顶层无MVP activity
@@ -31,6 +32,8 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
     @BindView(R.id.titleBar)
     protected TitleBar mTitleBar;
 
+    private Unbinder mUnbinder;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,7 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
             View.inflate(mCtx, getLayoutRes(), findViewById(R.id.container));
         }
 
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
 
         onViewCreated();
         initViewOrData();
@@ -83,6 +86,8 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
     protected void onDestroy() {
         ActivityUtils.fixInputMethodManagerLeak(this);
         ActivityContainer.getInstance().remove(this);
+
+        mUnbinder.unbind();
         super.onDestroy();
     }
 

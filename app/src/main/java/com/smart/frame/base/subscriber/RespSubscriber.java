@@ -2,9 +2,12 @@ package com.smart.frame.base.subscriber;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
-import com.smart.frame.base.bean.Repo;
+import com.smart.frame.base.bean.Result;
 import com.smart.frame.base.contract.IBaseView;
+
+import java.lang.reflect.ParameterizedType;
 
 import io.reactivex.subscribers.ResourceSubscriber;
 import retrofit2.HttpException;
@@ -15,7 +18,7 @@ import retrofit2.HttpException;
  * @author Gjm
  * @date 2018/1/16
  */
-public abstract class CommonSubscriber<T> extends ResourceSubscriber<Repo<T>> {
+public abstract class RespSubscriber<T> extends ResourceSubscriber<Result> {
     /**
      * view
      */
@@ -29,37 +32,37 @@ public abstract class CommonSubscriber<T> extends ResourceSubscriber<Repo<T>> {
      */
     private boolean showErrorState;
 
-    public CommonSubscriber(IBaseView view) {
+    public RespSubscriber(IBaseView view) {
         this(view,false);
     }
 
-    public CommonSubscriber(IBaseView view, boolean showErrorState) {
+    public RespSubscriber(IBaseView view, boolean showErrorState) {
         this(view,null,showErrorState);
     }
 
-    public CommonSubscriber(IBaseView view, String errorMsg, boolean showErrorState) {
+    public RespSubscriber(IBaseView view, String errorMsg, boolean showErrorState) {
         this.mView = view;
         this.mErrorMsg = errorMsg;
         this.showErrorState = showErrorState;
     }
 
     @Override
-    public void onNext(Repo<T> repo) {
+    public void onNext(Result result) {
         if(mView == null){
             return;
         }
 
-        Logger.d(repo);
+        Logger.d(result);
 
-        if(repo.isOk()){
+        if(result.isSuccess()){
             mView.onStatusMain();
-            onSuccess(repo.getData());
+            onSuccess(new Gson().fromJson(result.getData(),getTClass()));
         }else if(showErrorState){
             mView.onStatusError();
         }else{
-            mView.showMessage(repo.getMsg());
+            mView.showMessage(result.getMsg());
             mView.onStatusMain();
-            onIllegal(repo);
+            onIllegal(result);
         }
     }
 
@@ -93,10 +96,19 @@ public abstract class CommonSubscriber<T> extends ResourceSubscriber<Repo<T>> {
     /**
      * 子类有需要可单独处理
      */
-    protected void onIllegal(Repo<T> repo){
+    protected void onIllegal(Result result){
     }
 
     public IBaseView getBindView(){
         return mView;
+    }
+
+    /**
+     * 获取泛型类型
+     * @return
+     */
+    public Class<T> getTClass(){
+        Class<T> tClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        return tClass;
     }
 }

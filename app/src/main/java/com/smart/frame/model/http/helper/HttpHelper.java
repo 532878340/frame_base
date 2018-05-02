@@ -2,6 +2,7 @@ package com.smart.frame.model.http.helper;
 
 
 import com.smart.frame.base.bean.Repo;
+import com.smart.frame.base.bean.Result;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
 import com.smart.frame.ui.fetures.user.bean.resp.PatchInfo;
 import com.smart.frame.ui.fetures.user.bean.resp.RegisterResp;
@@ -11,6 +12,8 @@ import java.util.Map;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
+import retrofit2.http.Body;
 
 /**
  * retrofit helper
@@ -50,4 +53,8 @@ public interface HttpHelper {
      * 获取补丁信息
      */
     Flowable<Repo<ArrayList<PatchInfo>>> getPatchInfo(Map<String,String> param);
+
+    Flowable<Repo<Object>> register1(@Body RequestBody str);
+
+    Flowable<Result> performReq(@Body RequestBody body);
 }

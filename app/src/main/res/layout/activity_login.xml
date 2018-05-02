@@ -49,7 +49,7 @@
         style="@style/btn_yellow_radius"
         android:layout_below="@id/tvForgetPwd"
         android:layout_marginTop="40pt"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/login" />
 
     <RelativeLayout
