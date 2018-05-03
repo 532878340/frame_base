@@ -2,10 +2,12 @@ package com.smart.frame.ui.fetures.user.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.smart.frame.R;
+import com.smart.frame.base.bean.User;
 import com.smart.frame.base.ui.RootActivity;
 import com.smart.frame.ui.fetures.user.bean.req.PhoneCodeReq;
 import com.smart.frame.ui.fetures.user.bean.req.SendSmsReq;
@@ -14,6 +16,8 @@ import com.smart.frame.ui.fetures.user.presenter.ForgetLoginPwdPresenter;
 import com.smart.frame.ui.view.basic.LabelEditRow;
 import com.smart.frame.utils.ActivityUtils;
 import com.smart.frame.utils.ValidateUtil;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -34,6 +38,9 @@ public class ForgetLoginPwdActivity extends RootActivity<ForgetLoginPwdPresenter
     @BindView(R.id.btnNext)
     Button mBtnNext;
 
+    @Inject
+    User mUser;
+
     @Override
     protected int getLayoutRes() {
         return R.layout.activity_forget_login_pwd;
@@ -46,7 +53,7 @@ public class ForgetLoginPwdActivity extends RootActivity<ForgetLoginPwdPresenter
 
     @Override
     protected void initViewOrData() {
-
+        Log.d("user:---------->", "initViewOrData: " + mUser);
     }
 
     @OnClick({R.id.btnGetCode, R.id.btnNext})

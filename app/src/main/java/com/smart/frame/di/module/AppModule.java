@@ -2,8 +2,10 @@ package com.smart.frame.di.module;
 
 import android.app.Application;
 
+import com.smart.frame.base.bean.User;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.model.DataManager;
+import com.smart.frame.model.UserManager;
 import com.smart.frame.model.db.DbHelper;
 import com.smart.frame.model.db.impl.GreenDaoHelper;
 import com.smart.frame.model.http.helper.HttpHelper;
@@ -48,5 +50,17 @@ public class AppModule {
     @Provides
     DataManager provideDataManager(HttpHelper httpHelper,DbHelper dbHelper){
         return new DataManager(httpHelper,dbHelper);
+    }
+
+    @ApplicationScope
+    @Provides
+    UserManager provideUserManager(){
+        return new UserManager();
+    }
+
+    @ApplicationScope
+    @Provides
+    User provideUser(UserManager userManager){
+        return userManager.getUser();
     }
 }

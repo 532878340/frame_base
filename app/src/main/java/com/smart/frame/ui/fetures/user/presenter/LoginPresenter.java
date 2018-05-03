@@ -1,11 +1,12 @@
 package com.smart.frame.ui.fetures.user.presenter;
 
 import com.orhanobut.logger.Logger;
+import com.smart.frame.base.bean.User;
 import com.smart.frame.base.presenter.RxPresenter;
 import com.smart.frame.base.subscriber.CommonSubscriber;
-import com.smart.frame.base.subscriber.RespSubscriber;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.model.DataManager;
+import com.smart.frame.model.UserManager;
 import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;
@@ -20,8 +21,6 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import zlc.season.rxdownload3.RxDownload;
 
 /**
@@ -48,12 +47,14 @@ public class LoginPresenter extends RxPresenter<LoginContract.ILoginView> implem
 //            }
 //        });
 
-        performRequestLoading(mDataManager.performReq(RequestBody.create(MediaType.parse("application/json"),buildParam())), new RespSubscriber<String>(getView()) {
-            @Override
-            public void onSuccess(String resp) {
-                getView().jumpToAccount();
-            }
-        });
+
+
+//        performRequestLoading(mDataManager.performReq(RequestBody.create(MediaType.parse("application/json"),buildParam())), new RespSubscriber<String>(getView()) {
+//            @Override
+//            public void onSuccess(String resp) {
+//                getView().jumpToAccount();
+//            }
+//        });
     }
 
     String buildParam(){
