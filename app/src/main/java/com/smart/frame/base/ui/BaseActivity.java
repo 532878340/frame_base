@@ -17,7 +17,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import javax.inject.Inject;
 
 /**
- * MVP activity基类
+     * MVP activity基类
  * @author Gjm
  * @date 2018/01/12
  */

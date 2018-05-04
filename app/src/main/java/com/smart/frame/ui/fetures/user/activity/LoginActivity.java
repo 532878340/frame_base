@@ -18,7 +18,6 @@ import com.smart.frame.base.bean.User;
 import com.smart.frame.base.ui.RootActivity;
 import com.smart.frame.bus.RxBus;
 import com.smart.frame.bus.impl.TmpBus;
-import com.smart.frame.model.UserManager;
 import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.contract.LoginContract;
@@ -60,9 +59,6 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
      * 登录密码
      */
     private String mLoginPwd;
-
-    @Inject
-    UserManager userManager;
 
     @Override
     protected void initInject() {
@@ -125,7 +121,7 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
 
                 User user = new User();
                 user.setLoginName("18806656946");
-                userManager.setUser(user);
+                User.setUser(user);
                 break;
             case R.id.tvForgetPwd://忘记密码
                 ActivityUtils.startAct(mCtx, ForgetLoginPwdActivity.class);

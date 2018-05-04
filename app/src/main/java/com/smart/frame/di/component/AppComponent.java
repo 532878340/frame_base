@@ -2,12 +2,10 @@ package com.smart.frame.di.component;
 
 import android.app.Application;
 
-import com.smart.frame.base.bean.User;
 import com.smart.frame.di.annotation.scope.ApplicationScope;
 import com.smart.frame.di.module.AppModule;
 import com.smart.frame.di.module.HttpModule;
 import com.smart.frame.model.DataManager;
-import com.smart.frame.model.UserManager;
 
 import dagger.Component;
 
@@ -29,8 +27,4 @@ public interface AppComponent {
      * 提供数据
      */
     DataManager getDataManager();
-
-    UserManager getUserManager();
-
-    User getUser();
 }

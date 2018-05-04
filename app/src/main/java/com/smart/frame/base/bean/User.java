@@ -18,7 +18,20 @@ public class User {
         this.loginName = loginName;
     }
 
-    public boolean isLogin(){
-        return false;
+    private static User sUser;
+
+    public static boolean isLogin(){
+        return sUser == null;
+    }
+
+    public static void setUser(User user){
+        sUser = user;
+    }
+
+    public static User getUser(){
+        if(sUser == null){
+            sUser = new User();
+        }
+        return sUser;
     }
 }

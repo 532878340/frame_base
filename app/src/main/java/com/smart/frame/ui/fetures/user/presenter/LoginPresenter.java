@@ -1,12 +1,10 @@
 package com.smart.frame.ui.fetures.user.presenter;
 
 import com.orhanobut.logger.Logger;
-import com.smart.frame.base.bean.User;
 import com.smart.frame.base.presenter.RxPresenter;
 import com.smart.frame.base.subscriber.CommonSubscriber;
 import com.smart.frame.manager.constants.Configs;
 import com.smart.frame.model.DataManager;
-import com.smart.frame.model.UserManager;
 import com.smart.frame.ui.fetures.user.bean.req.GetPatchReq;
 import com.smart.frame.ui.fetures.user.bean.req.LoginReq;
 import com.smart.frame.ui.fetures.user.bean.resp.LoginResp;

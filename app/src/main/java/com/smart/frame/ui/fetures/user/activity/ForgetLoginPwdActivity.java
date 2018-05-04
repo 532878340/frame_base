@@ -38,9 +38,6 @@ public class ForgetLoginPwdActivity extends RootActivity<ForgetLoginPwdPresenter
     @BindView(R.id.btnNext)
     Button mBtnNext;
 
-    @Inject
-    User mUser;
-
     @Override
     protected int getLayoutRes() {
         return R.layout.activity_forget_login_pwd;
@@ -53,7 +50,7 @@ public class ForgetLoginPwdActivity extends RootActivity<ForgetLoginPwdPresenter
 
     @Override
     protected void initViewOrData() {
-        Log.d("user:---------->", "initViewOrData: " + mUser);
+        Log.d("user:---------->", "initViewOrData: " + User.getUser());
     }
 
     @OnClick({R.id.btnGetCode, R.id.btnNext})
