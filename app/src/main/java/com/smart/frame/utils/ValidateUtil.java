@@ -14,7 +14,7 @@ public class ValidateUtil {
      * 判断是否为手机号
      */
     public static boolean isMobileNo(String input){
-        return validByRegex("^(1[3,4,5,7,8])\\d{9}$",input);
+        return validByRegex("^(1[3,4,5,7,8,9])\\d{9}$",input);
     }
 
     /**
@@ -22,6 +22,13 @@ public class ValidateUtil {
      */
     public static boolean isValidPwd(String input){
         return validByRegex("^\\S{6,20}$",input);
+    }
+
+    /**
+     * 判断是否是Email
+     */
+    public static boolean isValidEmail(String input) {
+        return validByRegex("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*",input);
     }
 
     public static boolean validByRegex(String regex, String input) {
