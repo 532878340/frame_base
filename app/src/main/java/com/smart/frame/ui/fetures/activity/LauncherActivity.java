@@ -1,8 +1,10 @@
 package com.smart.frame.ui.fetures.activity;
 
+import com.smart.frame.app.App;
 import com.smart.frame.base.ui.SimpleActivity;
 import com.smart.frame.ui.fetures.MainActvitiy;
 import com.smart.frame.utils.ActivityUtils;
+import com.smart.frame.utils.DensityHelper;
 
 /**
  * Launcher
@@ -18,6 +20,7 @@ public class LauncherActivity extends SimpleActivity{
 
     @Override
     protected void initViewOrData() {
+//        DensityHelper.getInstance().active(App.getInstance());
         delayEntry();
     }
 

@@ -12,6 +12,7 @@ import com.smart.frame.manager.ActivityContainer;
 import com.smart.frame.ui.view.basic.TitleBar;
 import com.smart.frame.ui.view.basic.ToolBarHelperView;
 import com.smart.frame.utils.ActivityUtils;
+import com.smart.frame.utils.DensityHelper;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import butterknife.BindView;
@@ -37,6 +38,7 @@ public abstract class SimpleActivity extends RxAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DensityHelper.getInstance().active(this);
         setContentView(R.layout.base_container);
 
         ActivityContainer.getInstance().add(this);

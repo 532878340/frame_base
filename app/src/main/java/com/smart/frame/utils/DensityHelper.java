@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.smart.frame.utils.sharedpreference.SharedPreferenceManager;
@@ -40,15 +41,22 @@ public final class DensityHelper {
     }
 
     /**
+     * 目标xdpi
+     */
+    private float mTargeXdpi;
+
+    /**
      * 激活适配方式
      */
     public void active(Context context){
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Point size = new Point();
-        wm.getDefaultDisplay().getSize(size);
-        float xdpi = size.x / DESIGN_WIDTH * 72f;
+        if(mTargeXdpi == 0){
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            Point size = new Point();
+            wm.getDefaultDisplay().getSize(size);
+            mTargeXdpi = size.x / DESIGN_WIDTH * 72f;
+        }
 
-        hookDisplayXdpi(context,xdpi);
+        hookDisplayXdpi(context,mTargeXdpi);
     }
 
     /**
@@ -68,7 +76,12 @@ public final class DensityHelper {
         Resources resources = context.getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();
 
-        com.orhanobut.logger.Logger.d("修改前 xdpi为:" + metrics.xdpi);
+        Log.d(TAG, "修改前 xdpi为: " + metrics.xdpi);
+        if(metrics.xdpi == targetXdpi){
+            Log.d(TAG, "xdpi 一致，无需修改");
+            return;
+        }
+
         //保留原始xdpi尺寸
         if(SharedPreferenceManager.getInstance().getFloat(KEY_DENSITY_XDPI) == 0){
             SharedPreferenceManager.getInstance().setFloat(KEY_DENSITY_XDPI,metrics.xdpi);
@@ -94,6 +107,6 @@ public final class DensityHelper {
         }
 
         metrics.xdpi = targetXdpi;
-        com.orhanobut.logger.Logger.d("修改后 xdpi为:" + metrics.xdpi);
+        Log.d(TAG, "修改后 xdpi为: " + metrics.xdpi);
     }
 }

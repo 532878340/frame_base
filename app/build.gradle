@@ -100,4 +100,5 @@ dependencies {
     implementation "com.android.support:multidex:${libraries.multidex}"                             //multidex
 
     compile "com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}"                               //tinker
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KOTLIN_VERSION}"                             //kotlin
 }

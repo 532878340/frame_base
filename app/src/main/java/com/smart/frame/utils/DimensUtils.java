@@ -1,10 +1,9 @@
 package com.smart.frame.utils;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-
-import com.smart.frame.app.App;
 
 /**
  * @author Zijin
@@ -43,9 +42,9 @@ public final class DimensUtils {
     /**
      * pt转px 此处不能使用 Resources.getSystem()
      */
-    public static final int ptToPx(float value){
-        DisplayMetrics metrics = App.getInstance().getResources().getDisplayMetrics();
+    public static final int ptToPx(Context context, float value){
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
 //        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, value, metrics);
-}
+    }
 }

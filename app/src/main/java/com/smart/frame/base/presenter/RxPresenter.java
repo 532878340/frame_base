@@ -55,14 +55,6 @@ public class RxPresenter<V extends IBaseView> extends BasePresenter<V> {
     }
 
     /**
-     * 请求 带进度条
-     */
-    protected <T> void performRequestLoading(Flowable<Result> flowable, RespSubscriber<T> subscriber) {
-        getView().onStatusLoading();
-        mDataModel.commonRequest(flowable,subscriber);
-    }
-
-    /**
      * 初始化加载
      */
     public void initRequestLoading(String... params) {

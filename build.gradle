@@ -13,6 +13,8 @@ buildscript {
         classpath "me.tatarka:gradle-retrolambda:${LAMBDA_VERSION}"
 
         classpath "com.tencent.tinker:tinker-patch-gradle-plugin:${TINKER_VERSION}"
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
     }
 }
 

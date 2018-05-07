@@ -64,10 +64,10 @@ public class LabelTextRow extends LinearLayout {
 
         View.inflate(getContext(), getLayoutRes(), this);
 
-        setMinimumHeight(DimensUtils.ptToPx(100));
+        setMinimumHeight(DimensUtils.ptToPx(context,100));
         setOrientation(HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
-        final int defaultPadding = DimensUtils.ptToPx(30);
+        final int defaultPadding = DimensUtils.ptToPx(context,30);
         setPadding(defaultPadding, 0, defaultPadding, 0);
 
         if (getBackground() == null) {
@@ -149,7 +149,7 @@ public class LabelTextRow extends LinearLayout {
                 int scaleLeft = styled.getResourceId(R.styleable.LabelTextRow_labelScaleIcon, INVALID);
                 if (scaleLeft != INVALID && !isInEditMode()) {
                     Drawable left = getResources().getDrawable(scaleLeft);
-                    final int size = DimensUtils.ptToPx(40);
+                    final int size = DimensUtils.ptToPx(getContext(),40);
                     left.setBounds(0, 0, size, size);
                     mLabel.setCompoundDrawables(left, null, null, null);
                 }

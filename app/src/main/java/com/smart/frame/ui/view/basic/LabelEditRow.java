@@ -88,7 +88,7 @@ public class LabelEditRow extends LabelTextRow {
                 int scaleLeft = styled.getResourceId(R.styleable.LabelTextRow_labelScaleIcon, INVALID);
                 if (scaleLeft != INVALID && !isInEditMode()) {
                     Drawable left = getResources().getDrawable(scaleLeft);
-                    final int size = DimensUtils.ptToPx(40);
+                    final int size = DimensUtils.ptToPx(getContext(),40);
                     left.setBounds(0, 0, size, size);
                     mLabel.setCompoundDrawables(left, null, null, null);
                 }

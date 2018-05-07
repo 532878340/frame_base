@@ -41,7 +41,7 @@ public class TitleBar extends RelativeLayout{
         mCtx = context;
         View.inflate(context, R.layout.layout_titlebar,this);
 
-        setMinimumHeight(DimensUtils.ptToPx(100));
+        setMinimumHeight(DimensUtils.ptToPx(context,100));
         initView();
     }
 

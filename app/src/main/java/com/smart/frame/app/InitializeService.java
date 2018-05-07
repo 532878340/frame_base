@@ -52,7 +52,6 @@ public class InitializeService extends IntentService{
         //图片加载
         ImageLoader.init(context);
         //数据库
-        DensityHelper.getInstance().active(context);
     }
 
     /**
