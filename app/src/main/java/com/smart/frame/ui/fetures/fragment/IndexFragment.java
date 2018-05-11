@@ -64,7 +64,7 @@ public class IndexFragment extends SimpleFragment{
             });
         });
 
-        ImageLoader.displayImage(mContext,"http://192.168.10.148:8999/productPic/20180329/3256c82b90a84543acd851dc45c2ba99.jpg",imgIcon);
+        ImageLoader.displayImage(mContext,"https://img-blog.csdn.net/20170614104537635?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ3VpbWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast",imgIcon);
 
         Log.d(TAG, "initViewOrData: ");
     }

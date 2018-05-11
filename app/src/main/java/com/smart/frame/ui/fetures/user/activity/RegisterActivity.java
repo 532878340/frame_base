@@ -162,7 +162,7 @@ public class RegisterActivity extends RootActivity<RegisterPresenter> implements
 
     @Override
     public void countDownTimer(long delay) {
-        mTvGetCode.setText(String.format(getString(R.string.code_count_down), delay / 1000));
+        mTvGetCode.setText(String.format(getString(R.string.code_count_down), delay));
     }
 
     @Override

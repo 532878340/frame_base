@@ -66,7 +66,7 @@ public class BasicGlideUrlLoader extends BaseGlideUrlLoader<String> {
     }
 
     /**
-     * 工厂来构建CustormBaseGlideUrlLoader对象
+     * 工厂来构建 BasicGlideUrlLoader 对象
      */
     public static class Factory implements ModelLoaderFactory<String, InputStream> {
         @Override

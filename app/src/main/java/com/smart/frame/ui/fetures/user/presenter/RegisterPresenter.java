@@ -78,7 +78,7 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.RegisterView
             @Override
             public void onSuccess(Object resp) {
                 long count = Configs.INTERVAL_TIMEOUT;
-                Flowable.interval(0, 1, TimeUnit.MILLISECONDS)
+                Flowable.interval(0, 1, TimeUnit.SECONDS)
                         .take(count + 1)
                         .map(aLong -> count - aLong)
                         .compose(TransformUtils.flowableIOToMain())

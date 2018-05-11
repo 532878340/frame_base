@@ -31,6 +31,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.disposables.Disposable;
 
 /**
  * 登录
@@ -127,13 +128,13 @@ public class LoginActivity extends RootActivity<LoginPresenter> implements Login
                 ActivityUtils.startAct(mCtx, ForgetLoginPwdActivity.class);
                 break;
             case R.id.btnRegister://注册
-//                ActivityUtils.startAct(mCtx,RegisterActivity.class);
+                ActivityUtils.startAct(mCtx,RegisterActivity.class);
 
-                GetPatchReq getPatchReq = new GetPatchReq();
-                getPatchReq.setPlatform(1);
-                getPatchReq.setStatus(2);
-                getPatchReq.setVersionName("1.0.0");
-                mPresenter.getPatchInfo(getPatchReq);
+//                GetPatchReq getPatchReq = new GetPatchReq();
+//                getPatchReq.setPlatform(1);
+//                getPatchReq.setStatus(2);
+//                getPatchReq.setVersionName("1.0.0");
+//                mPresenter.getPatchInfo(getPatchReq);
                 break;
         }
     }

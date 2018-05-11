@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.GlideBuilder;
-import com.bumptech.glide.MemoryCategory;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.cache.ExternalPreferredCacheDiskCacheFactory;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
@@ -143,7 +142,7 @@ public class GlideLoader extends BaseImageLoader {
     }
 
     @Override
-    public void trimMemory(int level) {
+    public void trimMemory(int level)    {
         GlideApp.get(GlobalConfig.getContext()).trimMemory(level);
     }
 

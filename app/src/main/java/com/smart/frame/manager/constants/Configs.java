@@ -32,7 +32,7 @@ public class Configs {
     /**
      * 倒计时时间
      */
-    public static final long INTERVAL_TIMEOUT = 10 * 1000;
+    public static final long INTERVAL_TIMEOUT = 60;
 
     /**
      * Bugly App ID
