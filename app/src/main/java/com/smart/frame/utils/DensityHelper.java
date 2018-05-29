@@ -87,14 +87,6 @@ public final class DensityHelper {
             SharedPreferenceManager.getInstance().setFloat(KEY_DENSITY_XDPI,metrics.xdpi);
         }
 
-        try {
-            Field metricField = metrics.getClass().getDeclaredField("DENSITY_DEVICE");
-            metricField.setAccessible(true);
-            metricField.setInt(metrics, (int) targetXdpi);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         //解决MIUI更改框架导致的MIUI7 + Android5.1.1上出现的失效问题(以及极少数基于这部分miui去掉art然后置入xposed的手机)
         if ("MiuiResources".equals(resources.getClass().getSimpleName()) || "XResources".equals(resources.getClass().getSimpleName())) {
             try {

@@ -25,6 +25,7 @@ public abstract class RootActivity<P extends BasePresenter> extends BaseActivity
     protected void onViewCreated() {
         super.onViewCreated();
         if(initLoadingUI()){
+            onStatusInit();
             initRequestLoading();
             mLoadingView.setOnRetryListener(() -> initRequestLoading());
         }
